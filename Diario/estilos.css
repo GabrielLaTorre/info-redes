@@ -1,0 +1,95 @@
+
+/* Fuente para toda la página */
+* {
+    font-family: 'Exo 2', sans-serif;
+  }
+
+
+/* Barra de navegación */
+body {
+    margin: 0;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+section {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+hr {
+    border: 0.75px solid #0B132B;
+    margin: 10px;
+    padding: 0;
+}
+
+#logo {
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.barra-superior {
+    background: #0B132B;
+    color: white;
+    padding: 2px;
+}
+
+.redes-sociales img:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+.redes-sociales img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.redes-sociales img {
+    width: 2em;
+    margin-left: 10px;
+}
+
+nav {
+    margin: 0;
+    position: sticky;
+    top: 0%;
+}
+
+.menu {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: grey;
+    font-size: 20px;
+}
+
+.menu a:hover {
+    text-decoration: none;
+    color: #0B132B;
+    font-weight: bold;
+}
+
+.imagenes-chica img {
+    width: 20em;
+    display: block
+}
+
+.imagenes-chica {
+    display: flex;
+    flex-direction: column;
+
+.imagen-grande {
+    display: flex;
+    flex-wrap: wrap;
+}
