@@ -8,18 +8,22 @@
 /* Barra de navegación */
 body {
     margin: 0;
+    margin-bottom: 20em;
 }
 
-main {
+
+main, header {
     width: 80%;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
-section {
-    display: flex; 
+.principal {
+    display: flex;
+    margin-left: 30px;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 hr {
@@ -36,9 +40,14 @@ hr {
 }
 
 .barra-superior {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     background: #0B132B;
     color: white;
     padding: 2px;
+
 }
 
 .redes-sociales img:hover {
@@ -49,6 +58,7 @@ hr {
 .redes-sociales img {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
+    transition: ease 0.2s;
 }
 
 .redes-sociales img {
@@ -56,22 +66,19 @@ hr {
     margin-left: 10px;
 }
 
-nav {
-    margin: 0;
-    position: sticky;
-    top: 0%;
-}
-
 .menu {
     display: flex; 
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 10px;
+    
 }
 
 .menu a {
     text-decoration: none;
     color: grey;
     font-size: 20px;
+    transition: ease 0.2s;
 }
 
 .menu a:hover {
@@ -81,15 +88,24 @@ nav {
 }
 
 .imagenes-chica img {
-    width: 20em;
-    display: block
+    width: 100%;
+    display: block;
 }
 
 .imagenes-chica {
     display: flex;
+    width: 24%;
     flex-direction: column;
+    box-sizing: border-box;
+}
+
+.imagen-grande img {
+    width: 100%;
+    height: auto;
+}
+
 
 .imagen-grande {
-    display: flex;
-    flex-wrap: wrap;
+    width: 70%;
 }
+
