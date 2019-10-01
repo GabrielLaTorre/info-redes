@@ -1,8 +1,58 @@
 
 /* Fuente para toda la página */
 * {
-    font-family: 'Exo 2', sans-serif;
-  }
+	font-family: 'Exo 2', sans-serif;
+	box-sizing: border-box;
+}
+body{				/*esto puede dar problemas de conflicto en merge*/
+	margin: 0;		/*es para quitar el margen por defecto*/
+}					/*hay que ver donde ponerlo*/
 
 
-
+/*#####      ZONA FOOTER     #####*/
+footer{
+	padding: 1em 0;
+	color: white;
+	background: #232B40; 
+}
+footer img{
+	margin: 1em auto;
+	width: 30%;
+	display: block;
+}
+footer div{
+	margin: .2em 1em;
+	padding: 2em 2em;
+	display: flex;
+	justify-content: space-between;
+	border-top: white solid 1px;
+	border-bottom: white solid 1px;	
+}
+footer ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+footer p{
+	font-size: 1.6em;
+	font-weight: bolder;
+}
+footer li{
+	margin: .3em .1em;
+	font-size: 1.1em;
+}
+footer a{
+	color: white;
+	text-decoration: none;
+}
+footer a:hover{
+	color: aqua;
+}
+footer span{
+	text-align: center;
+}
+footer span a{
+	color:  red;
+	font-weight: bolder;
+}
