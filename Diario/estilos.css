@@ -2,6 +2,7 @@
 /* Fuente para toda la página */
 * {
     font-family: 'Exo 2', sans-serif;
+    box-sizing: border-box;
   }
 
 
