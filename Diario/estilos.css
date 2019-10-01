@@ -1,8 +1,43 @@
 
 /* Fuente para toda la página */
 * {
-    font-family: 'Exo 2', sans-serif;
-  }
+	font-family: 'Exo 2', sans-serif;
+    box-sizing: border-box;
+}
+.opinion{ /*Arreglar si esto si hay conflicto esto es para dejar el margen y centrar*/
+	width: 98%;
+	margin: 0 auto;
+}
 
-
-
+/*########----------ZONA OPINION --------########*/
+.opinion .titulo{
+	padding: .3em;
+	border: 1px solid rgba(10, 102, 154, 0.85);
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.24);
+}
+.opinion h2{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.contenedor-cards{
+	margin-top: .5em;
+	display: flex;
+	justify-content: space-between;
+}
+.card-opinion{
+	display: flex;
+	width: 33%;
+	padding: 1em 1.2em;
+	border: rgba(0,0,0,.25) solid 1px;
+	border-radius: 8px;
+}
+.card-opinion img{
+  	width: 117px;
+  	height: 157px;
+  	display: block;
+  	object-fit: cover;
+}
+.card-opinion div{
+	margin-left: 1em;
+}
