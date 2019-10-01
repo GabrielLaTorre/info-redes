@@ -5,5 +5,39 @@
     box-sizing: border-box;
   }
 
+  .head-ppal {
+    height: 39px;;
+    color: white;
+    font-style: italic;
+    background: rgba(11, 19, 43,97%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .head-ppal div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .head-izq {
+    width: 70%;
+  }
+
+  .head-der {
+    width: 30%;
+  }
+
+  a img {
+    width: 1.5em;
+    filter: grayscale(100%);
+    transition-property: filter;
+    transition-duration: 0.2s;
+  }
+
+  a img:hover {
+    filter: grayscale(0%);
+  }
 
 
