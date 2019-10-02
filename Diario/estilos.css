@@ -7,39 +7,54 @@
   }
 
 .head-portada {
-    height: 39px;;
-    color: white;
-    font-style: italic;
-    background: rgba(11, 19, 43,97%);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  height: 39px;;
+  color: white;
+  font-style: italic;
+  background: rgba(11, 19, 43,97%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-  .head-ppal {
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
+.head-ppal {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.head-social {
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+a img {
+  width: 1.7em;
+  filter: grayscale(100%);
+  transition-property: filter;
+  transition-duration: 0.2s;
+}
+
+a img:hover {
+  filter: grayscale(0%);
+}
+
+@media (max-width: 850px) {
 
   .head-social {
-    width: 10%;
-    display: flex;
+    display: none;
+  }
+
+  .head-portada {
     justify-content: space-around;
   }
+}
 
-  a img {
-    width: 1.7em;
-    filter: grayscale(100%);
-    transition-property: filter;
-    transition-duration: 0.2s;
+@media (max-width: 800px) {
+  #buscar {
+    display: none;
   }
-
-  a img:hover {
-    filter: grayscale(0%);
-  }
-
-
+}
