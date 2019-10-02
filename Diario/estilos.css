@@ -2,7 +2,76 @@
 /* Fuente para toda la página */
 * {
     font-family: 'Exo 2', sans-serif;
+    box-sizing: border-box;
+    margin: 0%;
   }
 
+/* ------------------------------------------------  */
 
+/* Estilos aplicados al contenedor padre */
 
+.head-portada {
+  height: 39px;;
+  color: white;
+  font-style: italic;
+  background: rgba(11, 19, 43,97%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ------------------------------------------------  */
+
+/* Estilos aplicados a contenedores hijos */
+
+.head-ppal {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.head-social {
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+  padding-right: 30px;
+}
+/* ------------------------------------------------  */
+
+/* Estilos para los logos de redes sociales */
+
+a img {
+  width: 1.7em;
+  filter: grayscale(100%);
+  transition-property: filter;
+  transition-duration: 0.2s;
+}
+
+a img:hover {
+  filter: grayscale(0%);
+}
+
+/* ------------------------------------------------  */
+
+/* Estilos responsive hasta un mínimo de 800px */
+
+@media (max-width: 850px) {
+
+  .head-social {
+    display: none;
+  }
+
+  .head-portada {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 800px) {
+  #buscar {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------  */
