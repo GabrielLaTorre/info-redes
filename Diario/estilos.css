@@ -6,6 +6,10 @@
     margin: 0%;
   }
 
+/* ------------------------------------------------  */
+
+/* Estilos aplicados al contenedor padre */
+
 .head-portada {
   height: 39px;;
   color: white;
@@ -16,6 +20,9 @@
   justify-content: space-between;
   align-items: center;
 }
+/* ------------------------------------------------  */
+
+/* Estilos aplicados a contenedores hijos */
 
 .head-ppal {
   width: 90%;
@@ -29,7 +36,11 @@
   width: 10%;
   display: flex;
   justify-content: space-around;
+  padding-right: 30px;
 }
+/* ------------------------------------------------  */
+
+/* Estilos para los logos de redes sociales */
 
 a img {
   width: 1.7em;
@@ -41,6 +52,10 @@ a img {
 a img:hover {
   filter: grayscale(0%);
 }
+
+/* ------------------------------------------------  */
+
+/* Estilos responsive hasta un mínimo de 800px */
 
 @media (max-width: 850px) {
 
@@ -58,3 +73,5 @@ a img:hover {
     display: none;
   }
 }
+
+/* ------------------------------------------------  */
