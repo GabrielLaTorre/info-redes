@@ -17,12 +17,12 @@ footer{
 }
 footer img{
 	margin: 1em auto;
-	width: 30%;
+	width: 25%;
 	display: block;
 }
-footer div{
+footer .cont-listas-footer{
 	margin: .2em 1em;
-	padding: 2em 2em;
+	padding: 1em 2em;
 	display: flex;
 	justify-content: space-between;
 	border-top: white solid 1px;
@@ -34,13 +34,14 @@ footer ul{
 	list-style: none;
 	text-decoration: none;
 }
-footer p{
+footer h4{
+	margin: .5em 0;
 	font-size: 1.6em;
 	font-weight: bolder;
 }
 footer li{
 	margin: .3em .1em;
-	font-size: 1.1em;
+	font-size: 1.05em;
 }
 footer a{
 	color: white;
@@ -49,10 +50,10 @@ footer a{
 footer a:hover{
 	color: aqua;
 }
-footer span{
+footer p{
 	text-align: center;
 }
-footer span a{
+footer p a{
 	color:  red;
 	font-weight: bolder;
 }
