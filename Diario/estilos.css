@@ -1,14 +1,18 @@
+/*#################################################*/
 /*######## ESTILOS GENERALES O AGRUPADOS #########*/
+/*#################################################*/
 * {
 	  font-family: 'Exo 2', sans-serif;
     box-sizing: border-box;
     margin: 0%;
 }
 
+/*#################################################*/
 /*########			ZONA OPINION 		########*/
-.opinion{ 				/*Arreglar si esto si hay conflicto */
-	margin: 0 auto;		/*esto es para dejar el margen y centrar*/
-	width: 98%;			/*tambien pueden agragar sus etiquetas en este selector*/			
+/*#################################################*/
+.opinion{ 				
+	margin: 0 auto;		
+	width: 98%;			
 }
 .opinion h2{
 	margin: 0;
@@ -52,7 +56,57 @@
 	font-weight: 500;
 }
 
- 
+/*#######################################################*/
+/*###########      ZONA MEDIA(VIDEO)     ################*/
+/*#######################################################*/
+.media{
+	margin: .5em auto;
+	width: 98%;
+	border-top: #ff0000 solid 5px;
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
+}
+.media img{
+	margin-top: 1.5em;
+	margin-left: 1.5em;
+	width: 6em;
+	display: block;
+}
+.media-contenedor{
+	padding: 2em 3em;
+	display: flex;
+	justify-content: center
+}
+.media-contenedor div{
+	padding: 2em 1em;
+}
+.media-contenedor h3{
+	font-size: 1.8em;
+}
+.media-contenedor p{
+	margin-top: 1.5em;
+}
+.media-contenedor button{
+	margin-top: 2em;
+	padding: .5em 3em;
+	font-size: 1em;
+	font-weight: bold;
+	color: white;
+	background: #ff0000;
+	border: none;
+}
+.media-contenedor button:hover{
+	font-weight: bolder;
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
+}
+.video-canal{ /*este es el iframe con el video de youtube*/
+	width: 400px;
+	height: 300px;
+}
+
+
+ /*###################################################*/
+ /*#############     ZONA HEADER       ###############*/
+ /*###################################################*/
 
 /* ------------------------------------------------  */
 
@@ -124,8 +178,9 @@
 
 
 /* ------------------------------------------------  */
-
-/*#####      ZONA FOOTER     #####*/
+/*#################################################*/
+/*###########      ZONA FOOTER     ################*/
+/*#################################################*/
 footer{
 	padding: 1em 0;
 	color: white;
