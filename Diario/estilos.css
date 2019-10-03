@@ -90,14 +90,14 @@
 
 /* Estilos para los logos de redes sociales */
 
-a img {
+.head-portada a img {
   width: 1.7em;
   filter: grayscale(100%);
   transition-property: filter;
   transition-duration: 0.2s;
 }
 
-a img:hover {
+.head-portada a img:hover {
   filter: grayscale(0%);
 }
 
