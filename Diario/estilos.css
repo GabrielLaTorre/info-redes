@@ -1,10 +1,59 @@
-
-/* Fuente para toda la página */
+/*######## ESTILOS GENERALES O AGRUPADOS #########*/
 * {
-    font-family: 'Exo 2', sans-serif;
+
+	  font-family: 'Exo 2', sans-serif;
     box-sizing: border-box;
     margin: 0%;
-  }
+}
+.opinion{ 				/*Arreglar si esto si hay conflicto */
+	margin: 0 auto;		/*esto es para dejar el margen y centrar*/
+	width: 98%;			/*tambien pueden agragar sus etiquetas en este selector*/			
+}
+
+/*########			ZONA OPINION 		########*/
+.opinion h2{
+	margin: 0;
+	padding: .3em;
+	text-align: center;
+	border: 1px solid rgba(10, 102, 154, 0.85);
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.24);
+}
+.contenedor-cards{
+	margin-top: .5em;
+	display: flex;
+	justify-content: space-between;
+}
+.card-opinion{
+	padding: 1em 1.2em;
+	width: 33%;
+	display: flex;
+	border: rgba(0,0,0,.25) solid 1px;
+	border-radius: 8px;
+}
+.card-opinion:hover{
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.24);
+}
+.card-opinion img{
+  	width: 117px;
+  	height: 157px;
+  	object-fit: cover;
+}
+.card-opinion div{
+	margin-left: 1em;
+}
+.card-opinion a{
+	display: block; /*importante para manejar el click*/
+	color: black;
+	text-decoration: none;	
+}
+.card-opinion a:hover{
+	color: #174E96;
+}
+.card-opinion p a{
+	font-weight: 500;
+}
+
+ 
 
 /* ------------------------------------------------  */
 
@@ -75,3 +124,4 @@ a img:hover {
 }
 
 /* ------------------------------------------------  */
+
