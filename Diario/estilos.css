@@ -2,10 +2,76 @@
 /*######## ESTILOS GENERALES O AGRUPADOS #########*/
 /*#################################################*/
 * {
-	  font-family: 'Exo 2', sans-serif;
+    font-family: 'Exo 2', sans-serif;
     box-sizing: border-box;
     margin: 0%;
+  }
+
+/*##################################################################################*/
+/*########			ZONA SECTION-PORTADA (BANNER CENTRAL INTERACTIVO) 		########*/
+/*##################################################################################*/
+.section-portada {
+  display: flex;
+  width: 80%;
+  margin: auto;
 }
+
+.imagenes-chica img {
+  width: 346px;
+  height: 187px; 
+}
+
+.imagenes-chica {
+  display: flex;
+  width: 24%;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.container {
+  position: relative;
+}
+
+.text-block {
+  position: absolute;
+  background-color: #174E96;
+  color: white;
+  left: 175px;
+  top: 150px;
+  width: 171px;
+  font-size: 22px;
+  height: 33px;
+  text-align: right;
+  font-weight: bold
+}
+
+.section-portada p {
+  margin:0;
+}
+
+.imagen-grande img {
+  width: 893px;
+  height: 568px;
+}
+
+.imagen-grande {
+  width: 100%;
+}
+
+.titular-grande {
+  position: absolute;
+  background-color:rgba(0, 0, 0, 0.815);
+  color: white;
+  top: 387px;
+  left: 487px;
+  width: 808px;
+  font-size: 58px;
+  height: 189px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
 
 /*#################################################*/
 /*########			ZONA OPINION 		########*/
