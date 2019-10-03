@@ -1,16 +1,15 @@
 /*######## ESTILOS GENERALES O AGRUPADOS #########*/
 * {
-
 	  font-family: 'Exo 2', sans-serif;
     box-sizing: border-box;
     margin: 0%;
 }
+
+/*########			ZONA OPINION 		########*/
 .opinion{ 				/*Arreglar si esto si hay conflicto */
 	margin: 0 auto;		/*esto es para dejar el margen y centrar*/
 	width: 98%;			/*tambien pueden agragar sus etiquetas en este selector*/			
 }
-
-/*########			ZONA OPINION 		########*/
 .opinion h2{
 	margin: 0;
 	padding: .3em;
@@ -123,5 +122,54 @@ a img:hover {
   }
 }
 
+
 /* ------------------------------------------------  */
 
+/*#####      ZONA FOOTER     #####*/
+footer{
+	padding: 1em 0;
+	color: white;
+	background: #232B40; 
+}
+footer img{
+	margin: 1em auto;
+	width: 25%;
+	display: block;
+}
+footer .cont-listas-footer{
+	margin: .2em 1em;
+	padding: 1em 2em;
+	display: flex;
+	justify-content: space-between;
+	border-top: white solid 1px;
+	border-bottom: white solid 1px;	
+}
+footer ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+footer h4{
+	margin: .5em 0;
+	font-size: 1.6em;
+	font-weight: bolder;
+}
+footer li{
+	margin: .3em .1em;
+	font-size: 1.05em;
+}
+footer a{
+	color: white;
+	text-decoration: none;
+}
+footer a:hover{
+	color: aqua;
+}
+footer p{
+	text-align: center;
+}
+footer p a{
+	color:  red;
+	font-weight: bolder;
+}
