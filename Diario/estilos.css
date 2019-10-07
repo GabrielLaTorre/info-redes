@@ -281,6 +281,70 @@ nav hr {
 	}
 }
 
+/* ------------------------------------------------  */
+/*#################################################*/
+/*###########      ZONA NOTICIAS VARIAS    ################*/
+/*#################################################*/
+
+.contenedor-noticias { 				
+	margin-top: 2em;
+	margin: 0 auto;	
+	display: flex;
+	justify-content: space-between;
+	width: 98%;	
+}
+
+.hora hr { 				
+  border: 0.4px solid rgba(0, 0, 0, 0.788);
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.hora h2 {
+	font-size: 28px;
+	margin: 4px;
+	text-align: center;
+	padding: 2px;
+	display: flex;
+	margin-left: 10px;
+}
+
+.hora {
+	border: rgba(0,0,0,.25) solid 1px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
+	width: 33%;
+}
+
+.hora img {
+	width: 380px;
+	height: 226px;
+	margin-left: 1em;
+	margin-right: 1em;
+	transform-origin: 1 0;
+	transition: transform .25s, visibility .25s ease-in;
+}
+
+.hora img:hover {
+	transform: scale(1.010);
+  }
+  
+.hora p {
+	font-weight: bold;
+	font-size: 22px;
+	text-align: center;
+	padding: 6px;
+	display: flex;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+.hora p:hover{
+	color: #174E96;
+}
+
 
 /* ------------------------------------------------  */
 /*#################################################*/
