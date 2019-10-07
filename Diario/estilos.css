@@ -6,8 +6,8 @@
     box-sizing: border-box;
     margin: 0%;
   }
-.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-not-varias{
-	width: 90%;         /*con este selector se ajustan todos */
+.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
+	width: 80%;         /*con este selector se ajustan todos */
 	margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 }
 /*##################################################################################*/
@@ -287,11 +287,8 @@ nav hr {
 /*#################################################*/
 
 .contenedor-noticias { 				
-	margin-top: 2em;
-	margin: 0 auto;	
 	display: flex;
 	justify-content: space-between;
-	width: 98%;	
 }
 
 .hora hr { 				
@@ -319,12 +316,13 @@ nav hr {
 }
 
 .hora img {
-	width: 380px;
-	height: 226px;
+	width: 90%;
+	height: 230px; /*esto no esta del todo bien*/
 	margin-left: 1em;
 	margin-right: 1em;
 	transform-origin: 1 0;
 	transition: transform .25s, visibility .25s ease-in;
+	object-fit: cover;
 }
 
 .hora img:hover {
