@@ -9,7 +9,7 @@
     margin: 0%;
   }
 .section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-not-varias{
-	width: 90%;         /*con este selector se ajustan todos */
+	width: 80%;         /*con este selector se ajustan todos */
 	margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 }
 /*##################################################################################*/
@@ -132,6 +132,7 @@ main a {
 
 .contenedor-main {
 	display: flex;
+
 }
 
 .aside-portada {
@@ -150,10 +151,7 @@ main a {
 	display: flex;
 	justify-content: space-around;
 	width: 100%;
-}
-
-.cards-dos {
-	width: 100%;
+	height: 60%;
 }
 
 .cards-uno article {
