@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Rokkitt&display=swap');
+
 /*#################################################*/
 /*######## ESTILOS GENERALES O AGRUPADOS #########*/
 /*#################################################*/
@@ -119,6 +121,13 @@ nav hr {
 /*#################################################*/
 main a {
 	text-decoration: none;
+	color: black;
+}
+
+.contenedor-main * {
+	margin: 0%;
+	border: 1px solid red;
+	font-family: 'Rokkitt', serif;
 }
 
 .contenedor-main {
@@ -139,7 +148,7 @@ main a {
 
 .cards-uno {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	width: 100%;
 }
 
@@ -148,13 +157,12 @@ main a {
 }
 
 .cards-uno article {
-	width: 30%;
-	height: 100%;
+	width: 25%;
 }
 
 .card-small img {
 	width: 100%;
-	height: 300px;
+	height: 270px;
 	object-fit: cover;
 }
 
