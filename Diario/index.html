@@ -7,6 +7,7 @@
     <title>InfoRedes | Diario digital</title>
     <script src="https://kit.fontawesome.com/5162fbebe5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos.css">
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -68,17 +69,17 @@
     <section class="section-portada">
         
         <div class="imagenes-chica">
-            <div>
+            <div onmouseover="show('imagenes/trumpbolsonaro.jpg')">
                 <a><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro"></a>
                 <span>Política</span>
             </div>
             
-            <div>
+            <div onmouseover="show('imagenes/messi.jpg')">
                 <a ><img src="imagenes/messi.jpg" alt="messiimg"></a>
                 <span>Deportes</span>
             </div>
             
-            <div>
+            <div onmouseover="show('imagenes/tecnologia.jpg')">
                 <a><img src="imagenes/tecnologia.jpg" alt="tecnoimg"></a>
                 <span>Tecnología</span>
             </div>
@@ -86,7 +87,7 @@
         </div>
         
         <div class="imagen-grande">
-            <a><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro"></a>
+            <a><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro" id="img-grande"></a>
             <p>INCENDIO EN AMAZONAS: TRUMP OFRECE AYUDA A BOLSONARO</p>
         </div>
 
