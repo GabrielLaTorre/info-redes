@@ -399,5 +399,29 @@ footer p a{
 
 /* ------------------------------------------------  */
 /*#################################################*/
-/*###########      NOTICIA    ################*/
+/*###########   CSS PÁGINA NOTICIA    ################*/
 /*#################################################*/
+
+ /*#############     ZONA HEADER       ###############*/
+ /*Utiliza la class head-portada y head-ppal del header index */
+
+ /*Menú hamburguesa*/
+ .menu-responsive {
+	font-size: 2em;
+	font-style: normal;
+	margin-left: 5%;
+}
+
+.logo-header-noticia a img {
+	width: 16%;
+	margin-left: 44%;
+}
+
+.logo-header-noticia a img:hover {
+  filter: blur(0.px);
+  width: 16.2%;
+}
+
+/*#################################################*/
+/*#################################################*/
+
