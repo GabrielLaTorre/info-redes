@@ -135,6 +135,7 @@ main a {
 
 .aside-portada {
 	width: 20%;
+	margin-top: 2em;
 }
 
 .main-izq {
@@ -180,11 +181,32 @@ main a {
 	height: 100%;
 	object-fit: cover;
 }
-
-.text-card a {
-	padding: 
+.aside-portada > *{
+	padding: .5em 0;
+	text-align: right;
+	font-family: Rokkitt;
+	border-bottom: rgb(149, 149, 150) solid 1px;
 }
-
+.aside-portada a{
+	display: block;
+}
+.aside-portada h2{
+	font-size: 1.8em;
+}
+.aside-portada h3{
+	font-style: normal;
+	font-weight: 300;
+}
+.aside-portada h3:hover{
+	color: #174E96;
+}
+.mini-noticia h3{
+	font-size: 1.3em;
+	font-weight: 600;
+}
+.aside-portada img{
+	width: 100%;
+}
 /*#################################################*/
 /*########			ZONA OPINION 		########*/
 /*#################################################*/
