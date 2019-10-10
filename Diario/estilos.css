@@ -7,11 +7,25 @@
     font-family: 'Exo 2', sans-serif;
     box-sizing: border-box;
     margin: 0%;
-  }
+}
 
 .section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
 	width: 80%;         /*con este selector se ajustan todos */
 	margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
+	min-width: 1000px;
+}
+h3:hover, .card-large .text-card >*:hover{
+	color: #174E96;
+}
+img{
+	transition: transform .25s, visibility .25s ease-in;
+}
+img:hover {
+	transform: scale(1.010);
+}
+a, a:visited {
+	text-decoration: none;
+	color: inherit;
 }
 /*##################################################################################*/
 /*########			ZONA SECTION-PORTADA (BANNER CENTRAL INTERACTIVO) 		########*/
@@ -57,15 +71,16 @@
 	height: 100%;
 	object-fit: cover;
 }
-.imagen-grande p{
+.imagen-grande h2{
 	width: 95%;
 	padding: 2rem 5rem; /*ojo con estas unidades*/
 	margin: 0 auto;
-	transform: translateY(-120%);
+	transform: translateY(-105%);
 	color: white;
-	font-size: 50px;
+	font-size: 40px;
+	font-weight: 500;
 	text-align: left;	
-	background-color:rgba(0, 0, 0, 0.5);
+	background-color:rgba(0, 0, 0, 0.8);
 }
 
 /*---  partes animadas de esta seccion    ---*/
@@ -76,11 +91,7 @@
 /*#################################################*/		
 /*###########      ZONA NAV     ################*/			
 /*#################################################*/		
-
-/* .nav-portada {							
-	margin: 0% auto;						
-}/*Esto lo movi para arriba, a las configuraciones generales*/
- 							
+							
 .logo-portada {							
 	display: flex;						
 	justify-content: center;					
@@ -136,17 +147,11 @@ main a {
 }
 
 .contenedor-main * {
-	/* border: 1px solid red; */
 	font-family: 'Rokkitt', serif;
 }
 
 .contenedor-main {
 	display: flex;
-}
-
-.aside-portada {
-	width: 20%;
-	margin-top: 2em;
 }
 
 .main-izq {
@@ -225,7 +230,10 @@ main a {
 	color: white;
 	background: #174E96;
 }
-
+.aside-portada {
+	width: 20%;
+	margin-top: 2em;
+}
 .aside-portada > *{
 	padding: .5em 0;
 	text-align: right;
@@ -242,9 +250,6 @@ main a {
 	font-style: normal;
 	font-weight: 300;
 }
-.aside-portada h3:hover{
-	color: #174E96;
-}
 .mini-noticia h3{
 	font-size: 1.3em;
 	font-weight: 600;
@@ -255,9 +260,6 @@ main a {
 /*#################################################*/
 /*########			ZONA OPINION 		########*/
 /*#################################################*/
-/* .opinion{ 				
-	margin: 0 auto;		
-} /*Esto lo movi para arriba, a las configuraciones generales*/
 .opinion h2{
 	margin: 0;
 	padding: .3em;
@@ -287,6 +289,7 @@ main a {
 }
 .card-opinion div{
 	margin-left: 1em;
+	padding: .5em;
 }
 .card-opinion a{
 	display: block; /*importante para manejar el click*/
@@ -295,6 +298,9 @@ main a {
 }
 .card-opinion a:hover{
 	color: #174E96;
+}
+.card-opinion p{
+	margin-top: .5em;
 }
 .card-opinion p a{
 	font-weight: 500;
@@ -335,14 +341,19 @@ main a {
 	color: white;
 	background: #ff0000;
 	border: none;
+	border-radius: 5px;
+}
+.media-contenedor button i{
+	margin-right: 2px;
+	font-size: 1.5em;
 }
 .media-contenedor button:hover{
+	transform: scale(1.01);
 	font-weight: bolder;
 	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
 }
 .video-canal{ /*este es el iframe con el video de youtube*/
-	width: 400px;
-	height: 300px;
+	width: 100%;
 }
 
 
@@ -454,19 +465,15 @@ main a {
 
 .hora img {
 	width: 90%;
-	height: 230px; /*esto no esta del todo bien*/
+	height: 230px; 
 	margin-left: 1em;
 	margin-right: 1em;
 	transform-origin: 1 0;
 	transition: transform .25s, visibility .25s ease-in;
 	object-fit: cover;
 }
-
-.hora img:hover {
-	transform: scale(1.010);
-  }
   
-.hora p {
+.hora h3 {
 	font-weight: bold;
 	font-size: 22px;
 	text-align: center;
@@ -476,9 +483,7 @@ main a {
 	margin-top: 20px;
 }
 
-.hora p:hover{
-	color: #174E96;
-}
+
 
 
 /* ------------------------------------------------  */
@@ -530,6 +535,7 @@ footer p{
 }
 footer p a{
 	color:  red;
+	font-size: 1.3em;
 	font-weight: bolder;
 }
 
