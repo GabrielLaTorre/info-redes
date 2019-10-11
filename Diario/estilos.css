@@ -560,15 +560,160 @@ footer p a{
 }
 
 /*#################################################*/
+/*#############    NOTICIA PPAL  ############################*/
+
+.noticia-ppal {
+	display: flex;
+	flex-direction: column;
+	width: 60%;       
+	margin: .5em auto;
+}
+
+.noticia-ppal h3 {
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 42px;
+	line-height: 48px;
+	color: #000000;
+	margin-bottom: 3%;
+	margin-top: 2%;
+}
+
+.img-principal-not img {
+	width: 808.65px;
+	height: 390.3px;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+.noticia-ppal span {
+	width: 28%; 
+	padding: .1em .1em .1em .1em;
+	float: right;				
+	transform: translateY(-110%);   
+	text-align: left;
+	color: white;
+	background-color: #174E96;
+	font-family: Rokkitt;
+	font-size: 24px;
+}
+
+.head-social2 {
+	display: flex;
+	flex-direction: row;
+}
+
+.head-social2 img {
+	width: 30px;
+	height: 36px;
+	margin-left: 2px;
+	margin-right: 13px;
+	margin-top: 18px;
+}
+
+.autor-img {
+	float: right;
+	width: 10%;
+	height: 10%;
+	border-radius: 30px;
+	margin-left: 3%;
+}
+
+.autor-nota {
+	text-align: right;
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 18px;
+	margin-bottom: 5px;
+}
+
+.fecha-nota {
+	text-align: right;
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 18px;
+	color: #9B9B9B;
+}
+
+#autor-cel {
+	color: #149DEA;
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+.noticia-ppal hr {
+	border-top: 1px solid rgb(189, 187, 187);
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+.noticia-completa {
+	display: flex;
+	flex-direction: row;
+}
+
+.noticia-completa p {
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 27px;
+	color: #000000;
+}
+
+.noticia-completa2 p {
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 27px;
+	color: #000000;
+}
+
+.noticia-ppal blockquote {
+	font-family: Roboto;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 42px;
+	text-align: center;
+	padding: 70px;
+}
+
+.noticia-ppal blockquote p {
+	font-family: Roboto;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 21px;
+	text-align: right;
+	margin-right: 50px;
+	margin-top: 10px;
+}
+
+
+
+
+
+/*#################################################*/
 /*#############     FORMULARIO NOTICIA     ############################*/
 
 .formulario {
-	width: 55%; 
+	width: 60%;   
 	margin: .5em auto;
 	padding: 1em 1.2em;
-	border: rgba(0,0,0,.25) solid 1px;
 	border-radius: 8px;
-	margin-right: 30%;
+	margin-right: 21%;
 }
 
 .formulario h3 {
@@ -689,7 +834,6 @@ footer p a{
 .posteos {
 	display: flex;
 	flex-direction: row;
-	
 }
 
 .posteos textarea {
@@ -713,5 +857,4 @@ footer p a{
 	font-size: 10px;
 	margin-top: 8%;
 	color: grey;
-
 }
