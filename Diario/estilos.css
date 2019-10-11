@@ -9,7 +9,7 @@
     margin: 0%;
 }
 
-.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
+.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias,.main-noticia{
 	width: 80%;         /*con este selector se ajustan todos */
 	margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 	min-width: 1000px;
@@ -652,6 +652,9 @@ footer p a{
 
 /*#################################################*/
 /*#############    NOTICIA PPAL  ############################*/
+.main-noticia{
+	display: flex;
+}
 
 .noticia-ppal {
 	display: flex;
