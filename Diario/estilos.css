@@ -9,7 +9,7 @@
     margin: 0%;
 }
 
-.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias,.main-noticia{
+.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
 	width: 80%;         /*con este selector se ajustan todos */
 	margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 	min-width: 1000px;
@@ -654,13 +654,14 @@ footer p a{
 /*#############    NOTICIA PPAL  ############################*/
 .main-noticia{
 	display: flex;
+	justify-content: center;
 }
 
 .noticia-ppal {
+	width: 60%;
+	padding-right: 1em;
 	display: flex;
 	flex-direction: column;
-	width: 60%;       
-	margin: .5em auto;
 }
 
 .noticia-ppal h3 {
@@ -951,4 +952,8 @@ footer p a{
 	font-size: 10px;
 	margin-top: 8%;
 	color: grey;
+}
+
+.main-noticia aside{
+	margin-top: 10em;
 }
