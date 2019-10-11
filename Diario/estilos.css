@@ -1061,8 +1061,8 @@ form >*{
 	color: rgb(134, 134, 134);
 }
 #logo-grande, #logo-grande2{ /*la parte al rededor del boton de pagar*/
-	width: 60%;
-	height: auto;
+	width: 60px;
+	height: 40px;
 }
 .input-small{
 	width: 30%;
