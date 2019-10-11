@@ -14,6 +14,9 @@
 	margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 	min-width: 1000px;
 }
+aside{
+	width: 20%;
+}
 h3:hover, .card-large .text-card >*:hover{
 	color: #174E96;
 }
@@ -230,8 +233,10 @@ main a {
 	color: white;
 	background: #174E96;
 }
-.aside-portada {
-	width: 20%;
+/*#################################################*/
+/*########	  			ZONA ASIDE   		########*/
+/*#################################################*/
+.aside-portada {   /*titulos normales*/
 	margin-top: 2em;
 }
 .aside-portada > *{
@@ -244,19 +249,99 @@ main a {
 	display: block;
 }
 .aside-portada h2{
+	margin-top: 1.2em;
 	font-size: 1.8em;
 }
 .aside-portada h3{
 	font-style: normal;
 	font-weight: 300;
 }
-.mini-noticia h3{
+.aside-portada img, .aside-portada video{ /*noticias con foto o video*/
+	width: 100%;
+}
+.mini-noticia h3{ 
 	font-size: 1.3em;
 	font-weight: 600;
 }
-.aside-portada img{
+.mini-video{
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+.mini-video img{
+	height: 100px;
+	margin-right: .4em;
+	display: block;
+	object-fit: cover;
+}
+.mini-video h3{
+	margin-right: .5em;
+	font-size: 1.1em;
+	font-weight: 100;
+}
+.banner-suscribe{ /*baner suscribe ya*/
+	width: 100%;
+	padding: 0 5%;
+	margin-top: 3em;
+	margin-bottom: 5em;
+	display: flex;
+	flex-direction: column;
+	border: rgba(10, 10, 10, .2) solid 1px;
+	border-top: #174E96 solid 4px;
+}
+.banner-suscribe >* {
+	display: block;
+}
+.banner-suscribe img{
+	width: 100%;
+	margin: 2.5em auto 2em auto;
+	align-self: center;
+}
+.banner-suscribe i{
+	font-family: Amiri;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+.banner-suscribe p{
+	margin-top: .4em;
+	font-family: Amiri;
+	font-style: italic;
+	font-size: 1.2em;
+}
+.banner-suscribe button{
+	margin: 2em auto 1em auto;
+	padding: .4rem 2.5rem;
+	font-size: 1.3em;
+	font-family: Amiri;
+	font-style: italic;
+	font-weight: bold;
+	color: white;
+	background: black;
+	border: none;
+}
+.banner-sponsor{ /* BANNER SPONSOR  */
+	margin-top: 6em;
+	display: flex;
+	flex-direction: column;
+}
+.banner-sponsor span{
+	padding: .3em;
+	align-self: flex-end;
+	color: white;
+	background: black;
+	font-weight: bold;
+}
+.banner-sponsor div{
+	padding: .5em;
+	border: #000000 solid 2px;
+}
+.banner-sponsor img{
 	width: 100%;
 }
+
+ 
+
+
 /*#################################################*/
 /*########			ZONA OPINION 		########*/
 /*#################################################*/
