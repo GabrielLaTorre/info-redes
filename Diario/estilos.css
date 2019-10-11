@@ -257,7 +257,7 @@ main a {
 	font-weight: 300;
 }
 .aside-portada img, .aside-portada video{ /*noticias con foto o video*/
-	width: 100%;
+	width: 90%;
 }
 .mini-noticia h3{ 
 	font-size: 1.3em;
@@ -318,6 +318,7 @@ main a {
 	color: white;
 	background: black;
 	border: none;
+	cursor: pointer;
 }
 .banner-sponsor{ /* BANNER SPONSOR  */
 	margin-top: 6em;
@@ -659,7 +660,7 @@ footer p a{
 
 .noticia-ppal {
 	width: 60%;
-	padding-right: 1em;
+	padding-right: 3em;
 	display: flex;
 	flex-direction: column;
 }
@@ -674,13 +675,11 @@ footer p a{
 	margin-bottom: 3%;
 	margin-top: 2%;
 }
-
-.img-principal-not img {
-	width: 808.65px;
-	height: 390.3px;
-	padding: 0;
-	margin: 0;
-	position: relative;
+.img-principal-not img{
+	width: 100%;
+	height: 400px;
+	display: block;
+	object-fit: cover;
 }
 
 .noticia-ppal span {
@@ -697,23 +696,19 @@ footer p a{
 
 .head-social2 {
 	display: flex;
-	flex-direction: row;
+	float: left;
+	margin-top: .5em;
+	margin-right: 1em;
 }
 
 .head-social2 img {
-	width: 30px;
-	height: 36px;
-	margin-left: 2px;
-	margin-right: 13px;
-	margin-top: 18px;
+	width: 2em;
+	margin: 0 .2em;	
 }
 
 .autor-img {
 	float: right;
-	width: 10%;
-	height: 10%;
-	border-radius: 30px;
-	margin-left: 3%;
+	width: 3.5em;
 }
 
 .autor-nota {
@@ -753,8 +748,7 @@ footer p a{
 }
 
 .noticia-completa {
-	display: flex;
-	flex-direction: row;
+	padding-top: 2em;
 }
 
 .noticia-completa p {
@@ -765,16 +759,9 @@ footer p a{
 	line-height: 27px;
 	color: #000000;
 }
-
-.noticia-completa2 p {
-	font-family: Rokkitt;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 24px;
-	line-height: 27px;
-	color: #000000;
+.noticia-completa p a{
+	color: #174E96;
 }
-
 .noticia-ppal blockquote {
 	font-family: Roboto;
 	font-style: italic;
@@ -797,20 +784,16 @@ footer p a{
 }
 
 
-
-
-
 /*#################################################*/
 /*#############     FORMULARIO NOTICIA     ############################*/
-
+/*#################################################*/
 .formulario {
-	width: 60%;   
-	margin: .5em auto;
+	width: 90%;
 	padding: 1em 1.2em;
+	margin-top: 2em;
+	align-self: center;
 	border-radius: 8px;
-	margin-right: 21%;
 }
-
 .formulario h3 {
 	font-family: Roboto;
 	font-weight: normal;
@@ -826,6 +809,7 @@ footer p a{
 }
 
 .formulario textarea{
+	padding: .3em .8em;
 	resize: none;
 	height: 8em;
 	width: 90%;
