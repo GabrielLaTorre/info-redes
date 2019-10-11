@@ -948,9 +948,13 @@ footer p a{
 /*#################################################*/
 
 .tittle-form {
+	font-family:'Rokkitt', serif;
+	font-weight: bold;
+	font-size: 2em;
 	text-align: center;
 	padding: 10px;
 }
+
 
 .div-fondo {
 	border: 2px solid black;
@@ -959,6 +963,9 @@ footer p a{
 	margin: 0 auto 50px auto;
 	background-image: url(imagenes/fondo-formulario.jpg);
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
 .div-formulario {
@@ -972,6 +979,29 @@ footer p a{
 form {
 	display: flex;
 	justify-content: space-around;
+}
+
+form label {
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family:'Rokkitt', serif;
+}
+
+.form-top {
+	padding-top: 40px;
+	height: 100px;
+}
+
+.form-top h3 {
+	margin-left: 20px;
+	font-family: 'Rokkitt', serif;
+	font-size: 1.3em;
+}
+
+.form-top hr{
+	margin-left: 20px;
+	color: #000000;
+	width: 29%;
 }
 
 .form-uno {
