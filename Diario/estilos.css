@@ -620,9 +620,9 @@ footer a:hover{
 footer p{
 	text-align: center;
 }
-footer p a{
+#vamos-al-mock{
 	color:  red;
-	font-size: 1.3em;
+	font-size: 1.5em;
 	font-weight: bolder;
 }
 
@@ -652,8 +652,9 @@ footer p a{
   width: 16.2%;
 }
 
-/*#################################################*/
+
 /*#############    NOTICIA PPAL  ############################*/
+
 .main-noticia{
 	display: flex;
 	justify-content: center;
@@ -949,81 +950,141 @@ footer p a{
 /*#################################################*/
 
 .tittle-form {
+	font-family:'Rokkitt', serif;
+	font-weight: bold;
+	font-size: 2em;
 	text-align: center;
 	padding: 10px;
 }
 
+
 .div-fondo {
 	border: 2px solid black;
 	width: 1200px;
-	height: 580px;
+	height: 550px;
 	margin: 0 auto 50px auto;
 	background-image: url(imagenes/fondo-formulario.jpg);
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
 .div-formulario {
 	width: 80%;
-	height: 350px;
-	margin: 200px auto 0px auto;
+	margin: auto auto 20px auto;
 	border: 2px solid black;
-	background-color: rgba(242, 243, 245, 0.9);
+	background-color: rgba(242, 243, 245, 0.95);
 }
 
-form {
+.form-top {
 	display: flex;
-	justify-content: space-around;
-}
-
-.form-uno {
-	width: 20%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.form-dos {
-	width: 20%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.form-tres {
-	width: 20%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.form-cuatro {
-	width: 20%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.fecha-expi {
-	width: 60%;
-	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 }
 
-.fecha-expi input {
-	width: 40px;
+.form-top h3 {
+	width: 35%;
+	padding-bottom: .5em;
+	margin-left: 20px;
+	margin-top: 2.5em;
+	margin-bottom: .7em;
+	font-family: 'Rokkitt', serif;
+	font-size: 1.3em;
+	border-bottom: black solid 1px;
 }
 
-.cod-seg {
-	width: 50%;
+.form-top div{
 	display: flex;
-	justify-content: space-around;
 }
-
-.cod-seg input {
-	width: 50%;
-	height: 23px;
+.logos-finanzas{
+	padding: .4em 1em;
+	margin: .1em 0;
+	display:flex;
+	flex-direction: column;
+	align-self: baseline;
+	background:rgb(242, 243, 245);
+	border-right: #9B9B9B solid 1px;
 }
-
-.cod-seg img{
+.logos-finanzas p{
+	margin-top: .2em;
+	font-size: .8em;
+	font-weight: 600;
+	color: rgb(51, 51, 51);
+}
+.logos-finanzas div{
+	display: flex;
+}
+.logos-finanzas img{
+	width: 35px;
+	height: 20px;
+	margin-right: .7em;
+	margin-top: .6em;
+	display: block;
+	object-fit: cover;
+}
+form {
+	display: flex;
+	justify-content: space-between;
+}
+form >*{
+	width: 48%;
+	margin-left: 20px;
+	display: flex;
+}
+.form-column { /*columnas del formulario*/
+	width: 45%;
+	margin-right: .5em;
+	display: flex;
+	flex-direction: column;
+}
+.form label {
+	font-size: 1.2em;
+	font-weight: bolder;
+	font-family:'Rokkitt', serif;
+}
+.form-column input, .form-column div{
+	margin-top: .3em;
+	margin-bottom: .8em;
+}
+.form-column div{
+	width: 100%;
+	display: flex;
+}
+.form-column div > *{
+	height: 1.4rem;
+	margin-right: .8em;
+}
+.form-column p{
+	margin: 0%;
+	font-size: .8em;
+	color: rgb(134, 134, 134);
+}
+#logo-grande, #logo-grande2{ /*la parte al rededor del boton de pagar*/
+	width: 60%;
+	height: auto;
+}
+.input-small{
 	width: 30%;
+}
+.form-column button{
+	align-self: flex-end;
+	margin: 1.4em 1em 0 auto;
+	padding: .2em .5em ;
+	width: 5em;
+	font-weight: bold;
+	font-size: 1.3em;
+	color: white;
+	background: rgb(121,9,9);
+	background: linear-gradient(0deg, rgba(121,9,9,1) 13%, rgba(255,0,0,1) 100%); 
+	border: none;
+	border-radius: 5px;
+}
+#leyenda{
+	margin: 2em auto 1px auto;
+	position: relative;
+	bottom: 0;
+	text-align: center;
+	font-size: .8em;
+	color: #717378;
 }
