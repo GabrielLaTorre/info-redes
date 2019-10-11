@@ -721,3 +721,88 @@ footer p a{
 	color: grey;
 
 }
+
+/* ------------------------------------------------  */
+/*#################################################*/
+/*###########   CSS FORMULARIO SUBSCRIPCION    ################*/
+/*#################################################*/
+
+.tittle-form {
+	text-align: center;
+	padding: 10px;
+}
+
+.div-fondo {
+	border: 2px solid black;
+	width: 1200px;
+	height: 580px;
+	margin: 0 auto 50px auto;
+	background-image: url(imagenes/fondo-formulario.jpg);
+	background-size: cover;
+}
+
+.div-formulario {
+	width: 80%;
+	height: 350px;
+	margin: 200px auto 0px auto;
+	border: 2px solid black;
+	background-color: rgba(242, 243, 245, 0.9);
+}
+
+form {
+	display: flex;
+	justify-content: space-around;
+}
+
+.form-uno {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.form-dos {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.form-tres {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.form-cuatro {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.fecha-expi {
+	width: 60%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.fecha-expi input {
+	width: 40px;
+}
+
+.cod-seg {
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.cod-seg input {
+	width: 50%;
+	height: 23px;
+}
+
+.cod-seg img{
+	width: 30%;
+}
