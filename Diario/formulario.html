@@ -22,88 +22,132 @@
             </div>
 
             <div class="head-input">
-                <label for="buscar"><i class="fas fa-search"></i></label>
+               <i class="fas fa-search"></i>
             </div>
         </div>
     </header>
 
     <!-- ######## FORMULARIO   ######-->
-    <div class="titulo-formu">
-        <h2 class="tittle-form">Suscripción acceso digital</h2>
-    </div>
-
+    <h2 class="tittle-form">Suscripción acceso digital</h2>
+   
     <div class="div-fondo">
 
         <div class="div-formulario">
-                <div class="form-top">
-                        <h3>Datos personales</h3>
-                        <hr>
-                </div>
-
-            <form action="">
-                <div class="form-uno">
-
-                    <label for="">Nombre</label>
-                    <input type="text" name="" id="">
-
-                    <label for="">DNI</label>
-                    <input type="text">
-
-                    <label for="">Fecha de nacimiento</label>
-                    <div class="fecha-nacimiento">
-                        <select name="Dia" id="">
-                            <option value="">Dia</option>
-                        </select>
-
-                        <select name="Mes" id="">
-                            <option value="">Mes</option>
-                        </select>
-
-                        <select name="Año" id="">
-                            <option value="">Año</option>
-                        </select>
+            <div class="form-top">
+                <h3>Datos personales</h3>
+                <div>
+                    <div class="logos-finanzas">
+                        <p>Tarjeta de Credito</p>
+                        <div>
+                            <img src="imagenes/mastercard-logo.png" alt="logo">
+                            <img src="imagenes/visa-logo.jpg" alt="logo">
+                            <img src="imagenes/american-express-logo.png" alt="logo">
+                        </div>
                     </div>
-                    <br>
+                    <div class="logos-finanzas">
+                        <p>Cryptocurrencies</p>
+                        <div>
+                            <img src="imagenes/bitcoin-logo.png" alt="logo">
+                            <img src="imagenes/ethereum-logo.png" alt="logo">
+                            <img src="imagenes/monero-logo.png" alt="logo">
+                        </div>
+                    </div>
+                    <div class="logos-finanzas">
+                        <p>Tarjetas de Debito</p>
+                        <div>
+                            <img src="imagenes/logo-scotia.png" alt="logo">
+                            <img src="imagenes/santander-logo.png" alt="logo">
+                            <img src="imagenes/BBVA_logo.png" alt="logo">
+                            <img src="imagenes/santander-logo.png" alt="logo">
+                        </div>
+                    </div>
+                    
                 </div>
+            </div>
 
-                <div class="form-dos">
-                    <label for="">Apellido</label>
-                    <input type="text">
+            <form action="any.php">
+                <div>
+                    <div class="form-column"> <!--Columna del formulario-->
+                        <label for="name">Nombre</label>
+                        <input type="text" name="name" id="name" required placeholder="Nombre">
 
-                    <label for="">Teléfono</label>
-                    <input type="text">
+                        <label for="dni">DNI</label>
+                        <input type="text" name="dni" id="dni" required placeholder="XX-XXX-XXX">
 
-                    <div>
-                        <input type="radio" name="" id="">
-                        <label for="">Hombre</label>
-                        <input type="radio" name="" id="">
-                        <label for="">Mujer</label>
+                        <label for="day">Fecha de nacimiento</label>
+                        <div class="fecha-nacimiento">
+                            <select name="day" id="day" required>
+                                <option value="">Dia</option>
+                            </select>
+
+                            <select name="month" id="month" required>
+                                <option value="">Mes</option>
+                            </select>
+
+                            <select name="year" id="year" required>
+                                <option value="">Año</option>
+                            </select>
+                        </div>
+                    
+                    </div>
+
+                    <div class="form-column"><!--Columna del formulario-->
+                        <label for="lastname">Apellido</label>
+                        <input type="text" name="lastname" id="lastname" required placeholder="Apellido">
+
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" name="phone" id="phone" required placeholder="(+54) 911-XXX-XXX-XX"> 
+
+                        <div>
+                            <label for="man">
+                               <input type="radio" name="man" id="man">
+                               Hombre
+                            </label>
+                            <label for="women">
+                                <input type="radio" name="women" id="women">
+                                Mujer
+                            </label>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-tres">
-                    <label for="">Nombre Titular</label>
-                    <input type="text" placeholder="Como aparece en la tarjeta">
+                <div>
+                    <div class="form-column"> <!--Columna del formulario-->
+                        <label for="cardholder">Nombre Titular</label>
+                        <input type="text" name="cardholder" id="cardholder" placeholder="Como aparece en la tarjeta" required>
 
-                    <label for="">Fecha de expiración</label>
-                    <div class="fecha-expi">
-                        <input type="text">
-                        <input type="text">
+                        <label for="exdate_month">Fecha de expiración</label>
+                        <div>
+                            <input class="input-small" type="text" name="exdate_month" id="exdate_month"  required placeholder="MM">
+                            <input class="input-small" type="text" name="exdate_year" id="exdate_year"  required placeholder="YYYY">
+                        </div>
+
+                        <p>Transacciones realizadas via:</p>
+                        <img id="logo-grande" src="imagenes/Blockstream-bitcoin-e1545257618806-1024x363.png" alt="logo">
+                        
                     </div>
-                </div>
 
-                <div class="form-cuatro">
-                    <label for="">Apellido</label>
-                    <input type="text">
+                    <div class="form-column"> <!--Columna del formulario-->
+                        <label for="lastname_cardholder">Apellido</label>
+                        <input type="text" name="lastname_cardholder" id="lastname_cardholder" required placeholder="Apellido">
 
-                    <label for="">Código de seguridad</label>
-                    <div class="cod-seg">
-                        <input type="text">
-                        <img src="imagenes/tarjeta-de-credito.png" alt="">
-                    </div>
+                        <label for="cod_seg">Código de seguridad</label>
+                        <div>
+                            <input class="input-small" type="text" name="cod_seg" id="cod_seg" required placeholder="XXXX">
+                            <img src="imagenes/tarjeta-de-credito.png" alt="logo tarjeta de credito">
+                        </div>
+                        <div>
+                            <img id="logo-grande2" src="imagenes/escudo.jpg" alt="escudo">
+                            <p>Tus pagos se realizan de forma segura con encriptación de 256bits</p>
+                        </div>
+                        <button type="submit">Pagar</button>
+                    </div> 
                 </div>
+                
             </form>
+             <p id="leyenda">Acceso ilimitado a inforedes.com + los contenidos de nuestra App para Android e iOS</p>
         </div>
+    
     </div>
 
     <!-- ######## ZONA FOOTER   ######-->
@@ -113,32 +157,32 @@
             <div>
                 <h4>InfoRedes</h4>
                 <ul>
-                    <li><a href="enlace-noticia"> Ultimo</a></li>
-                    <li><a href="enlace-noticia">Feed RSSS</a></li>
-                    <li><a href="enlace-noticia">Términos y condiciones</a></li>
-                    <li><a href="enlace-noticia">Política de Privacidad</a></li>
+                    <li><a href="index.html"> Ultimo</a></li>
+                    <li><a href="index.html">Feed RSSS</a></li>
+                    <li><a href="index.html">Términos y condiciones</a></li>
+                    <li><a href="index.html">Política de Privacidad</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Contacto</h4>
                 <ul>
-                    <li><a href="enlace-noticia">Escribenos</a></li>
-                    <li><a href="enlace-noticia">Redacción</a></li>
-                    <li><a href="enlace-noticia">Comercial</a></li>
-                    <li><a href="enlace-noticia">Media Kit</a></li>
+                    <li><a href="index.html">Escribenos</a></li>
+                    <li><a href="index.html">Redacción</a></li>
+                    <li><a href="index.html">Comercial</a></li>
+                    <li><a href="index.html">Media Kit</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Secciones</h4>
                 <ul>
-                    <li><a href="enlace-noticia">Política</a></li>
-                    <li><a href="enlace-noticia">Economia</a></li>
-                    <li><a href="enlace-noticia">Deportes</a></li>
-                    <li><a href="enlace-noticia">Espectaculos</a></li>
+                    <li><a href="index.html">Política</a></li>
+                    <li><a href="index.html">Economia</a></li>
+                    <li><a href="index.html">Deportes</a></li>
+                    <li><a href="index.html">Espectaculos</a></li>
                 </ul>
             </div>
         </div>
-        <p>Curso Webmaster profesional intensivo Equipo 1 | <a href="https://www.figma.com/file/CzXaOrxLkSKEBGvEHR7dj5/Untitled?node-id=0%3A1"> Mira nuestro Mock!!</a></p>
+        <p>Curso Webmaster profesional intensivo Equipo 1 | <a id="vamos-al-mock" href="https://www.figma.com/file/CzXaOrxLkSKEBGvEHR7dj5/Untitled?node-id=0%3A1"> Mira nuestro Mock!!</a></p>
         </footer>
 </body>
 </html>
