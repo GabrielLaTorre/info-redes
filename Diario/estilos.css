@@ -20,12 +20,7 @@ aside{
 h3:hover, .card-large .text-card >*:hover{
 	color: #174E96;
 }
-img{
-	transition: transform .25s, visibility .25s ease-in;
-}
-img:hover {
-	transform: scale(1.010);
-}
+
 a, a:visited {
 	text-decoration: none;
 	color: inherit;
@@ -567,6 +562,12 @@ main a {
 	display: flex;
 	margin-left: 10px;
 	margin-top: 20px;
+}
+.hora img{
+	transition: transform .25s, visibility .25s ease-in;
+}
+.hora img:hover {
+	transform: scale(1.010);
 }
 
 
