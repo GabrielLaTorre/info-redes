@@ -8,24 +8,41 @@
     <title>Document</title>
     <script src="https://kit.fontawesome.com/5162fbebe5.js" crossorigin="anonymous"></script>
     <link rel = "icon" href ="https://www.freeiconspng.com/uploads/information-icon-5.png" type ="image/x-icon">
+    <script src="script.js"></script>
 </head>
 <body>
     <!-- ######## ZONA HEADER   ######-->
-    <header class="head-portada">
+    <header class="head-portada head-sticky">
         <div class="head-ppal">
             <div class="menu-responsive">
-                ☰
+                <i class="fas fa-bars" onclick="hideWhenClick()"></i>
             </div>
-
+            
             <div class="logo-header-noticia">
                 <a href="index.html"> <img src="imagenes/PruebaLogoWhite2.png" alt="logo-header"></a>
             </div>
 
             <div class="head-input">
-               <i class="fas fa-search"></i>
+                <i class="fas fa-search"></i>
             </div>
         </div>
     </header>
+
+    <nav id="menu-lateral"  class="ocultar"> <!--Menu oculto-->
+        <i class="fas fa-times" onclick="hideWhenClick()"></i>    
+        <img src="imagenes/PruebaLogoWhite.png" alt="logo InfoRedes">
+        <ul>
+            <li><a href="noticia.html">Ultimas Noticias</a></li>
+            <li><a href="noticia.html">Opiniones</a></li>
+            <li><a href="noticia.html">Internacionales</a></li>
+            <li><a href="noticia.html">Politica</a></li>
+            <li><a href="noticia.html">Mundo del espectaculo</a></li>
+            <li><a href="noticia.html">Regionales</a></li>
+            <li><a href="noticia.html">Canal de Youtube</a></li>
+        </ul>
+    </nav>
+    <div id="fondo" onclick="hideWhenClick()"></div> <!--para oscurecer con el fondo cuando aparece el menu-->
+
 
     <!-- ######## FORMULARIO   ######-->
     <h2 class="tittle-form">Suscripción acceso digital</h2>
