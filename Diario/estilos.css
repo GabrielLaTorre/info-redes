@@ -798,53 +798,36 @@ footer p{
 /*#################################################*/
 /*#############     FORMULARIO NOTICIA     ############################*/
 /*#################################################*/
-.formulario {
+.area-comentarios{
 	width: 90%;
-	padding: 1em 1.2em;
-	margin-top: 2em;
-	align-self: center;
+}
+.nuevo-comentario{
+	margin-bottom: 2em;
+	display: flex;
+}
+.nuevo-comentario div{
+	margin-left: .3em;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.nuevo-comentario input{
+	margin-bottom: .5em;
+	padding: .6em 1.5em;
+	font-size: .9em;
 	border-radius: 8px;
+	border: rgba(10, 10, 10, .2) solid 1px;
 }
-.formulario h3 {
-	font-family: Roboto;
-	font-weight: normal;
-	font-size: 24px;
-	line-height: 28px;
-	color: #717378;
-	margin-left: 3%;
+.nuevo-comentario textarea {
+	margin-bottom: .5em;
+	padding: .8em .6em;
+	border-radius: 8px;
+	border: rgba(10, 10, 10, .2) solid 1px;
 }
-
-.formulario img {
-	width: 2.4em;
-	border-radius: 50%;
-}
-
-.formulario textarea{
-	padding: .3em .8em;
-	resize: none;
-	height: 8em;
-	width: 90%;
-	box-shadow:0 0 3px grey;
-	border: solid 0px transparent;
-	border-radius: 1em;
-	color: rgb(134, 134, 134);
-	font-family: Roboto;
-	font-weight: normal;
-	font-size: 20px;
-	letter-spacing: 1px;
-}
-
-.formulario ::placeholder {
-	color: rgb(231, 227, 227);
-	font-family: Roboto;
-	font-weight: normal;
-	font-size: 18px;
-	letter-spacing: 1px;
-}
-
-.formulario button {
+.nuevo-comentario button{
+	align-self: flex-end;
 	border-radius: 2em;
-	background-color: rgb(202, 202, 202); /* Green */
+	background-color: rgb(202, 202, 202); 
 	border: none;
 	color: white;
 	padding: 10px 16px;
@@ -852,102 +835,42 @@ footer p{
 	text-decoration: none;
 	font-size: 16px;
 	cursor: pointer;
-	float: right;
-	margin-top: 1%;
-	margin-right: 4%;
 	transition-duration: 0.5s;
 }
-
-.formulario button:hover {
-	border-radius: 2em;
+.nuevo-comentario button:hover{
 	background-color: rgb(177, 177, 177); /* Green */
-	border: none;
-	color: white;
-	padding: 10px 16px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 16px;
-	cursor: pointer;
-	float: right;
-	margin-top: 1%;
-	margin-right: 4%;
 }
-
-.formulario hr {
-	border-top: 1px solid grey;
-	margin-bottom: 1em;
-	border-radius: 10px;
-}
-
-.titulo-comentarios {
-	display: flex;
-	flex-direction: row;
-	margin: 2%;
-}
-
-#nuevos {
-	font-family: Roboto;
-	font-weight: bold;
-	font-size: 20px;
-	line-height: 28px;
-	color: black;
-	margin-left: 6%;
-}
-
-#nuevos:hover {
-	font-family: Roboto;
-	font-weight: bold;
-	font-size: 20px;
-	line-height: 28px;
-	color: rgb(233, 67, 67);
-	margin-left: 6%;
-}
-
-#viejos {
-	font-family: Roboto;
-	font-weight: normal;
-	font-size: 20px;
-	line-height: 28px;
-	color: #717378;
-	margin-left: 6%;
-}
-
-#viejos:hover {
-	font-family: Roboto;
-	font-weight: normal;
-	font-size: 20px;
-	line-height: 28px;
-	color: #000000;
-	margin-left: 6%;
-}
-
-.posteos {
-	display: flex;
-	flex-direction: row;
-}
-
-.posteos textarea {
-	height: 6em;
-	border-radius: 1em;
-	color: black;
-	font-family: Roboto;
-	font-size: 14px;
-	margin: 0.5%;
-}
-
-.posteos img {
-	width: 6%;
-	height: 10%;
+.avatar{
+	width: 42px;
+	height: 42px;
+	padding: 2px;
+	border: rgba(10, 10, 10, .2) solid 1px;
 	border-radius: 50%;
-	object-fit: cover;
-	margin-top: 1%;
+}
+.comentario{
+	margin-top: 2em;
+	display: flex;
+}
+.comentario div{
+	padding-bottom: .6em;
+	margin-left: 1em;
+	border-bottom: rgba(10, 10, 10, .2) solid 1px;
+}
+.comentario p{
+	text-align: left;
+}
+.nombre-comentario{
+	font-weight: bold;
+	margin-bottom: .3em;
+	margin-left: 5px;
+	color: royalblue;
+}
+.comentario small{
+	display: block;
+	margin-top: .5em;
+	text-align: right;
 }
 
-.posteos p {
-	font-size: 10px;
-	margin-top: 8%;
-	color: grey;
-}
 
 
 /* ------------------------------------------------  */
