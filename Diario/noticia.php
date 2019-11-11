@@ -1,3 +1,10 @@
+<?php
+    require './services/comentario_funciones.php';
+
+    $comentarios = getAllComments('1'); //HARDCODE POR AHORA
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +13,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Info Redes | Noticia Principal</title>
     <script src="https://kit.fontawesome.com/5162fbebe5.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!--Libreria Axios-->
     <link rel = "icon" href ="https://www.freeiconspng.com/uploads/information-icon-5.png" type ="image/x-icon">
     <link rel="stylesheet" href="estilos.css">
+    
     <script src="script.js"></script>
+    <script src="./js/asincronos.js"></script>
+
 </head>
 <body>
     <!-- ######## ZONA HEADER   ######-->
@@ -99,43 +110,31 @@
             </div>
             
             <!-- ######## FORMULARIO   ######-->
-            <div class="area-comentarios">
+            <div class="area-comentarios" id="area-comentarios">
                 <h3> Comentarios</h3>
                 <hr>
-                <div class="nuevo-comentario">
+                <div id="prueba"></div>
+                <div class="nuevo-comentario" id="formulario-nuevo.comentario">
                     <img class="avatar" src="imagenes/anon.png" title="Usuario anónimo" alt="logo-header">
                     <div>
-                        <input type="text" placeholder="Ingresa su nombre">    
-                        <textarea placeholder="   Déjanos tu comentario aquí ..."></textarea>
-                        <button>Comentar</button>
+                        <input type="text" id="nombre" placeholder="Ingresa su nombre">    
+                        <textarea id="comentario" placeholder="Déjanos tu comentario aquí ..."></textarea>
+                        <button onclick="doPostComentario()">Comentar</button>
                     </div>
                 </div>
-                
-                <div class="comentario">
-                    <img class="avatar" src="imagenes/anon.png" title="Usuario anónimo" alt="logo-header">
-                    <div>
-                        <p class="nombre-comentario">Nombre Usuario</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto porro quia soluta commodi a maxime dolorem maiores molestiae quas totam! Earum, assumenda voluptate voluptatem </p>
-                        <small>Hace 2 horas</small>
-                    </div>
-                </div>
+                <div id="contenedor-comentarios">
 
-                <div class="comentario">
-                    <img class="avatar" src="imagenes/anon.png" title="Usuario anónimo" alt="logo-header">
-                    <div>
-                        <p class="nombre-comentario">Nombre Usuario</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto porro quia soluta commodi a maxime dolorem maiores molestiae quas totam! Earum, assumenda voluptate voluptatem </p>
-                        <small>Hace 2 horas</small>
-                    </div>
-                </div>
-
-                <div class="comentario">
-                    <img class="avatar" src="imagenes/anon.png" title="Usuario anónimo" alt="logo-header">
-                    <div>
-                        <p class="nombre-comentario">Nombre Usuario</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto porro quia soluta commodi a maxime dolorem maiores molestiae quas totam! Earum, assumenda voluptate voluptatem </p>
-                        <small>Hace 2 horas</small>
-                    </div>
+                    <?php foreach($comentarios as $comentario) { ?>
+                        <div class="comentario">
+                            <img class="avatar" src="imagenes/anon.png" title="Usuario anónimo" alt="logo-header">
+                            <div>
+                                <p class="nombre-comentario"><?php echo $comentario['nombre']; ?></p>
+                                <p><?php echo $comentario['comentario']; ?></p>
+                                <small>Hace 2 horas</small>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    
                 </div>
           </div>
         </article>
