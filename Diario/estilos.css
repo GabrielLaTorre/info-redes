@@ -1083,3 +1083,14 @@ form >*{
 .fa-bars, .fa-times{
 	cursor: pointer;
 }
+
+
+
+/* MEDIA QUERYS*/
+
+@media (max-width: 850px) {
+
+	aside{
+		display: none;
+	}
+}
