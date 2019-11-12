@@ -1049,7 +1049,7 @@ form >*{
 	font-size: 1.6em;
 }
 #menu-lateral img{
-	width: 18em;
+	width: 90%;
 	padding: .5em 2em;
 	margin: 1em auto;
 	border-bottom: white solid 1px;
@@ -1089,8 +1089,79 @@ form >*{
 /* MEDIA QUERYS*/
 
 @media (max-width: 850px) {
-
+	
+	/* %%%%%%%%%%   NOTICIA ESPECIFICA %%%%%%%%%%%%%%%*/
+	.head-ppal {
+		justify-content: space-between;
+	}
+	.menu-responsive{
+		margin-left: 0;
+	}
+	.logo-header-noticia a img{
+		width: 120px;
+		margin-left: 0;
+	}
+	.noticia-ppal{
+		width: 90%;
+		padding-right: 0;
+	}
+	.img-principal-not img {
+		height: 300px;
+	}
 	aside{
 		display: none;
+	}
+	#menu-lateral {
+		width: 45%;
+	}
+}
+
+@media (max-width: 550px){
+
+	/* %%%%%%%%%%   NOTICIA ESPECIFICA %%%%%%%%%%%%%%%*/
+	.noticia-ppal h3 {
+		font-size: 28px;
+		line-height: 32px;
+	}
+	.img-principal-not img {
+		height: 200px;
+	}
+	.noticia-completa p {
+		font-size: 20px;
+	}
+	.noticia-ppal span {
+		font-size: 16px;
+	}
+	.autor-img {
+		width: 3em;
+	}
+	.autor-nota {
+		font-size: 14px;
+	}
+	.fecha-nota {
+		font-size: 14px;
+	}
+	.noticia-ppal blockquote {
+		font-size: 24px;
+		padding: 1.5em;
+	}
+	#menu-lateral {
+		width: 70%;
+	}
+
+
+
+	/* %%%%%%%%%%   FOOTER %%%%%%%%%%%%%%%*/
+	footer h4 {
+		font-size: 1em;
+	}
+	footer li {
+		font-size: .9em;
+	}
+	footer img {
+		width: 160px;
+	}
+	footer p {
+		font-size: 14px;
 	}
 }
