@@ -5,10 +5,13 @@
     define('PWD','');
     define('DB','wm2019');
 
+    define('TABLE_COMMENTS','comentarios');
+    define('TABLE_NEWS','articulo');
+    define('TABLE_AUTHORS','autor');
     
     //Obtener conexion
     $conexion = NULL;
-    function getConnection()
+    function getConexion()
     {
         global $conexion;
 
@@ -21,14 +24,13 @@
         return $conexion;
     }
 
+    //ejecutar una consulta
+    function ejecutarConsulta($sql){
+        $conexion = getConexion();
+        $response = mysqli_query($conexion,$sql);
 
-
-    //NOMBRE DE TABLAS
-    define('TABLE_COMMENTS','comentarios');
-    define('TABLE_NEWS','');
-    define('TABLE_AUTHORS','');
-    
-
+        return mysqli_fetch_all($response, MYSQLI_ASSOC);
+    }
 
     
 ?>
