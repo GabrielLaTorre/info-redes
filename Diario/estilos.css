@@ -1102,6 +1102,12 @@ form >*{
 		display: inherit;
 	}
 
+
+	/* %%%%%%%%%%    NAV   %%%%%%%%%%%%%%%*/
+	.nav-portada{
+		display: none;
+	}
+
 	
 	/* %%%%%%%%%%   NOTICIA ESPECIFICA %%%%%%%%%%%%%%%*/
 	.head-ppal {
