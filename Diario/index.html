@@ -14,7 +14,7 @@
 
     <!-- ########           ZONA HEADER-PORTADA             ######-->
     <header class="head-portada">
-        <div class="head-ppal">
+        <div class="head-ppal head-info">
             <div>
                 11 de Octubre de 2019
             </div>
@@ -27,19 +27,52 @@
                 20° Capital Federal
             </div>
 
-            <div class="head-input">
+            <div class="head-input head-info">
                 <input type="text" id="buscar" placeholder="Buscar">
                 <label for="buscar"><i class="fas fa-search"></i></label>
             </div>
         </div>
 
-        <div class="head-social">
+        <div class="head-social head-info">
             <a href="https://www.facebook.com"> <img  src="imagenes/facebook.png" alt="facebook.logo"></a>
             <a href="https://www.twitter.com"> <img  src="imagenes/twitter.png" alt="twitter.logo"></a>
             <a href="https://www.youtube.com"><img  src="imagenes/youtube.png" alt="youtube.logo"></a>
         </div>
+
+        <div class="head-ppal head-responsive">
+            <div class="menu-responsive">
+                <i class="fas fa-bars" onclick="hideWhenClick()"></i>
+                
+                
+            </div>
+            
+            <div class="logo-header-noticia">
+                <a href="index.html"> <img src="imagenes/PruebaLogoWhite2.png" alt="logo-header"></a>
+            </div>
+
+            <div class="head-input">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
         
     </header>
+
+    <!--Menu Hamburguesa-->
+    <nav id="menu-lateral"  class="ocultar"> <!--Menu oculto-->
+        <i class="fas fa-times" onclick="hideWhenClick()"></i>    
+        <img src="imagenes/PruebaLogoWhite.png" alt="logo InfoRedes">
+        <ul>
+            <li><a href="noticia.html">Ultimas Noticias</a></li>
+            <li><a href="noticia.html">Opiniones</a></li>
+            <li><a href="noticia.html">Internacionales</a></li>
+            <li><a href="noticia.html">Politica</a></li>
+            <li><a href="noticia.html">Mundo del espectaculo</a></li>
+            <li><a href="noticia.html">Regionales</a></li>
+            <li><a href="noticia.html">Canal de Youtube</a></li>
+        </ul>
+    </nav>
+    <div id="fondo" onclick="hideWhenClick()"></div> <!--para oscurecer con el fondo cuando aparece el menu-->
+
 
 
     <!-- ########            ZONA NAV                        ######-->

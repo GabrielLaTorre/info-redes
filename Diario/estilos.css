@@ -475,6 +475,10 @@ main a {
 	justify-content: space-around;
 	padding-right: 30px;
 }
+
+.head-responsive{
+	display: none;
+}
 /* ------------------------------------------------  */
 
 /* Estilos para los logos de redes sociales */
@@ -492,7 +496,7 @@ main a {
 
 /* ------------------------------------------------  */
 
-/* Estilos responsive hasta un mínimo de 800px */
+/* Estilos responsive hasta un mínimo de 800px 
 
 @media (max-width: 850px) {
 
@@ -510,7 +514,7 @@ main a {
 		display: none;
 	}
 }
-
+*/
 /* ------------------------------------------------  */
 /*#################################################*/
 /*###########      ZONA NOTICIAS VARIAS    ################*/
@@ -654,8 +658,8 @@ footer p{
 }
 
 .logo-header-noticia a img:hover {
-  filter: blur(0.px);
-  width: 16.2%;
+  /*filter: blur(0.px);*/
+  /*width: 16.2%;*/
 }
 
 
@@ -1089,13 +1093,22 @@ form >*{
 /* MEDIA QUERYS*/
 
 @media (max-width: 850px) {
+
+	/* %%%%%%%%%%    PORTADA   %%%%%%%%%%%%%%%*/
+	.head-info{
+		display: none;
+	}
+	.head-responsive{
+		display: inherit;
+	}
+
 	
 	/* %%%%%%%%%%   NOTICIA ESPECIFICA %%%%%%%%%%%%%%%*/
 	.head-ppal {
 		justify-content: space-between;
 	}
 	.menu-responsive{
-		margin-left: 0;
+		margin-left: 5%;
 	}
 	.logo-header-noticia a img{
 		width: 120px;
