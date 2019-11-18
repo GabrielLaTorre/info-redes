@@ -14,7 +14,7 @@
 
     <!-- ########           ZONA HEADER-PORTADA             ######-->
     <header class="head-portada">
-        <div class="head-ppal">
+        <div class="head-ppal head-info">
             <div>
                 11 de Octubre de 2019
             </div>
@@ -27,19 +27,52 @@
                 20° Capital Federal
             </div>
 
-            <div class="head-input">
+            <div class="head-input head-info">
                 <input type="text" id="buscar" placeholder="Buscar">
                 <label for="buscar"><i class="fas fa-search"></i></label>
             </div>
         </div>
 
-        <div class="head-social">
+        <div class="head-social head-info">
             <a href="https://www.facebook.com"> <img  src="imagenes/facebook.png" alt="facebook.logo"></a>
             <a href="https://www.twitter.com"> <img  src="imagenes/twitter.png" alt="twitter.logo"></a>
             <a href="https://www.youtube.com"><img  src="imagenes/youtube.png" alt="youtube.logo"></a>
         </div>
+
+        <div class="head-ppal head-responsive">
+            <div class="menu-responsive">
+                <i class="fas fa-bars" onclick="hideWhenClick()"></i>
+                
+                
+            </div>
+            
+            <div class="logo-header-noticia">
+                <a href="index.html"> <img src="imagenes/PruebaLogoWhite2.png" alt="logo-header"></a>
+            </div>
+
+            <div class="head-input">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
         
     </header>
+
+    <!--Menu Hamburguesa-->
+    <nav id="menu-lateral"  class="ocultar"> <!--Menu oculto-->
+        <i class="fas fa-times" onclick="hideWhenClick()"></i>    
+        <img src="imagenes/PruebaLogoWhite.png" alt="logo InfoRedes">
+        <ul>
+            <li><a href="noticia.html">Ultimas Noticias</a></li>
+            <li><a href="noticia.html">Opiniones</a></li>
+            <li><a href="noticia.html">Internacionales</a></li>
+            <li><a href="noticia.html">Politica</a></li>
+            <li><a href="noticia.html">Mundo del espectaculo</a></li>
+            <li><a href="noticia.html">Regionales</a></li>
+            <li><a href="noticia.html">Canal de Youtube</a></li>
+        </ul>
+    </nav>
+    <div id="fondo" onclick="hideWhenClick()"></div> <!--para oscurecer con el fondo cuando aparece el menu-->
+
 
 
     <!-- ########            ZONA NAV                        ######-->
@@ -70,19 +103,22 @@
     <section class="section-portada">
         
         <div class="imagenes-chica">
-            <div onmouseover="show('imagenes/trumpbolsonaro.jpg')">
+            <div>
                 <a href="noticia.php"><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro"></a>
                 <span>Política</span>
+                <h3>Incendio en amazonas trump ofrece ayuda a Bolsonaro</h3>
             </div>
             
-            <div onmouseover="show('imagenes/messi.jpg')">
+            <div>
                 <a href="noticia.php"><img src="imagenes/messi.jpg" alt="messiimg"></a>
                 <span>Deportes</span>
+                <h3>Messi hizo goles otra vez</h3>
             </div>
             
-            <div onmouseover="show('imagenes/tecnologia.jpg')">
+            <div>
                 <a href="noticia.php"><img src="imagenes/tecnologia.jpg" alt="tecnoimg"></a>
                 <span>Tecnología</span>
+                <h3>Los robots de internet se preparan para dominar a los humanos</h3>
             </div>
         
         </div>
@@ -139,21 +175,24 @@
                 </div>
 
                     <article class="card-large">
-                            <div class="container-large">
-                        <div class="card-enlace">
-                            <img src="imagenes/NoticiasVarias-2.jpg" alt="varias1">
+                        <div class="container-large">
+                            <div class="card-enlace">
+                                <img src="imagenes/NoticiasVarias-2.jpg" alt="varias1">
+                            </div>
+                        
+                            <div class="text-card">
+                                <a href="noticia.php">
+                                    <h2>Oil jumps above $60 ahead of storm in Gulf of Mexico</h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente cum doloribus a iste, ipsum sunt quae placeat! Expedita sunt impedit tempore quae doloribus aliquam qui, dolorum fugiat necessitatibus obcaecati enim.
+                                    </p>
+                                </a>
+                            </div>
                         </div>
                         
-                        <div class="text-card">
-                            <a href="noticia.php">
-                                <h2>Oil jumps above $60 ahead of storm in Gulf of Mexico</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente cum doloribus a iste, ipsum sunt quae placeat! Expedita sunt impedit tempore quae doloribus aliquam qui, dolorum fugiat necessitatibus obcaecati enim.
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <span>Economia</span>
+                        <span>
+                            Economia
+                        </span>
                     </article>
 
             <article class="card-large">
@@ -266,7 +305,7 @@
             <hr>
         </section>
 
-        <section class="hora">
+        <section class="hora no-show">
             <h2>Penultima Hora</h2> 
             <hr>
             <a href="noticia.php"><img src="imagenes/NoticiasVarias-2.jpg" alt="Noticias2"></a>
@@ -280,7 +319,7 @@
             <hr>
         </section>
 
-        <section class="hora">
+        <section class="hora no-show">
             <h2>Otra Hora</h2>
             <hr>
             <a href="noticia.php"><img src="imagenes/NoticiasVarias-3.jpg" alt="Noticias3"></a>
