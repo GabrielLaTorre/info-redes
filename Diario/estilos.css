@@ -1099,7 +1099,7 @@ form >*{
 
 	/* %%%%%%%%%%    GENERALES   %%%%%%%%%%%%%%%*/
 	.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
-		width: 100%;         /*con este selector se ajustan todos */
+		width: 99.5%;         /*con este selector se ajustan todos */
 		margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 		min-width: 0;
 	}
@@ -1163,7 +1163,15 @@ form >*{
 	.card-opinion p{
 		margin-top: 1em;
 		font-size: .9em;
-		
+	}
+	.media h3{
+		font-size: 1.4em;
+	}
+	.media p{
+		font-size: 1em;
+	}
+	.video-canal{
+		width: 45%;
 	}
 	
 	
@@ -1204,7 +1212,7 @@ form >*{
 	
 	/* %%%%%%%%%%    GENERALES   %%%%%%%%%%%%%%%*/
 	.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
-		width: 100%;         /*con este selector se ajustan todos */
+		width: 99.5%;         /*con este selector se ajustan todos */
 		margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 		min-width: 0;
 	}
@@ -1334,6 +1342,19 @@ form >*{
 		margin-top: 1em;
 		font-size: .9em;
 		
+	}
+	.media-contenedor{
+		padding: 1em 0 0 0;
+		flex-direction: column-reverse;
+		text-align: center;
+	}
+	.video-canal{
+		margin: 1em auto 0 auto;
+		display: block;
+		width: 90%;
+	}
+	.media-contenedor button{
+		font-size: 1em;
 	}
 
 
