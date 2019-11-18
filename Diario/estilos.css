@@ -1095,7 +1095,7 @@ form >*{
 
 /* MEDIA QUERYS*/
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
 
 	/* %%%%%%%%%%    GENERALES   %%%%%%%%%%%%%%%*/
 	.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
@@ -1136,6 +1136,36 @@ form >*{
 	.card-small img {
 		height: 200px;
 	}
+	.opinion h2{
+		width: 99.5%;
+		font-size: 1.3em;
+		margin: 0 auto;
+	}
+	.contenedor-cards{
+		justify-content: space-evenly;
+	}
+	.card-opinion{
+		width: 30%;
+		text-align: center;
+		flex-direction: column;
+		font-size: 1em;
+	}
+	.card-opinion img{
+		padding: 3px;
+		width: 110px;
+		height: 110px;
+		border-radius: 50%;
+		border: rgba(0, 0, 0, 0.1) solid 1px;
+	}
+	.card-opinion h3{
+		margin-top: .3em;
+	}
+	.card-opinion p{
+		margin-top: 1em;
+		font-size: .9em;
+		
+	}
+	
 	
 
 	/* %%%%%%%%%%    NAV   %%%%%%%%%%%%%%%*/
@@ -1240,6 +1270,7 @@ form >*{
 		padding: 1.3rem 0;
 		box-shadow: none;
 		border-top: rgba(0, 0, 0, 0.25) solid 1px;
+		border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
 	}
 	.card-enlace{
 		height: inherit;
@@ -1256,6 +1287,53 @@ form >*{
 	.text-card h2{
 		margin: 5px auto;
 		text-align: center;
+	}
+	.opinion{
+		width: 99.5%;
+		margin: 0 auto;
+		
+		border-radius: 10px; 
+		border: rgba(0, 0, 0, 0.25) solid 1px;
+	}
+	.opinion h2{
+		width: 100%;
+		border: none;
+		box-shadow: none;
+		background: #149DEA;
+		color: white;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px; 
+	}
+	.contenedor-cards{
+		flex-direction: column;
+		align-items: center;
+	}
+	.card-opinion{
+		margin: .5em 1em;
+		width: 99%;
+		flex-direction: row;
+		font-size: .9em;
+		border: none;
+	
+		border-radius: 0;
+	}
+	.card-opinion:nth-child(1), .card-opinion:nth-child(2){
+		border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
+	}
+	.card-opinion img{
+		padding: 3px;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		border: rgba(0, 0, 0, 0.1) solid 1px;
+	}
+	.card-opinion h3{
+		margin-top: .3em;
+	}
+	.card-opinion p{
+		margin-top: 1em;
+		font-size: .9em;
+		
 	}
 
 
