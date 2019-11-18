@@ -1173,8 +1173,6 @@ form >*{
 	.video-canal{
 		width: 45%;
 	}
-	
-	
 
 	/* %%%%%%%%%%    NAV   %%%%%%%%%%%%%%%*/
 	.nav-portada{
@@ -1208,12 +1206,12 @@ form >*{
 	}
 }
 
-@media (max-width: 400px){
+@media (max-width: 600px){
 	
 	/* %%%%%%%%%%    GENERALES   %%%%%%%%%%%%%%%*/
 	.section-portada, .nav-portada, .opinion, .media, .main-portada, .contenedor-noticias{
 		width: 99.5%;         /*con este selector se ajustan todos */
-		margin: .5em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
+		margin: 1em auto; 	/*los tamaños y se centran las etiquetas grandes de una sola atacada */
 		min-width: 0;
 	}
 
@@ -1356,6 +1354,16 @@ form >*{
 	.media-contenedor button{
 		font-size: 1em;
 	}
+	.no-show{
+		display: none;
+	}
+	.hora{
+		width: 100%;
+	
+	}
+	.hora h3{
+		font-size: 1.2em;
+	}
 
 
 
@@ -1394,11 +1402,14 @@ form >*{
 
 
 	/* %%%%%%%%%%   FOOTER %%%%%%%%%%%%%%%*/
+	footer .cont-listas-footer{
+		padding: 1em 0;
+	}
 	footer h4 {
 		font-size: 1em;
 	}
 	footer li {
-		font-size: .9em;
+		font-size: .7em;
 	}
 	footer img {
 		width: 160px;
