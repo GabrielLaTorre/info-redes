@@ -1,7 +1,7 @@
 //Observaciones: recuerda, esto se ejecuta en el navagador. Las rutas al servidor deben ser absolutas
 //               tipo "http://"... 
 
-const service_comment = 'services/comentario_service.php?noticia_id=1';
+const service_comment = "../backend/comentario_service.php";
 
 async function doPostComentario(){
     

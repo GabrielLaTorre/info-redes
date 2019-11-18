@@ -3,7 +3,7 @@
     // --
     // --
 
-    require 'comentario_funciones.php';  
+    require 'comentario_crud.php';  
  
     //POST: si la peticion viene por POST el cliente esta intentando guardar un nuevo comentario.
     //      si la peticion viene con todos los datos devolvemos un HTML con el ultimo registro

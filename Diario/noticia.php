@@ -1,5 +1,5 @@
 <?php
-    require "./backend/comentario_crud.php";
+    include "../backend/comentario_crud.php";
 
     $comentarios = getAllComments('1'); //HARDCODE POR AHORA
 ?>
