@@ -15,7 +15,7 @@
 	min-width: 1000px;
 }
 h3:hover, .card-large .text-card >*:hover{
-	color: #174E96;
+	color: #100B55;
 }
 img{
 	transition: transform .25s, visibility .25s ease-in;
@@ -46,14 +46,14 @@ a, a:visited {
 .imagenes-chica img {
 	width: 100%;
 	height: 100%;
-	display: block; 	
+	display: block;
 	object-fit: cover; 	/* importante para mantener las imagenes proporcionales */
 	filter: grayscale(100%);
 	transition-property: filter;
 	transition-duration: 0.2s;
 }
 .imagenes-chica span {
-	width: 55%; 
+	width: 55%;
 	padding: .2em .2em 0 0;
 	float: right;					/*-----------       TRUCO AQUI     -------------   */
 	transform: translateY(-100%);   /*  con estas dos lineas ponemos la cajita azul en posición*/
@@ -79,7 +79,7 @@ a, a:visited {
 	color: white;
 	font-size: 40px;
 	font-weight: 500;
-	text-align: left;	
+	text-align: left;
 	background-color:rgba(0, 0, 0, 0.8);
 }
 
@@ -87,49 +87,49 @@ a, a:visited {
 .imagenes-chica img:hover{
 	filter: grayscale(0%);
 }
-			
-/*#################################################*/		
-/*###########      ZONA NAV     ################*/			
-/*#################################################*/		
-							
-.logo-portada {							
-	display: flex;						
-	justify-content: center;					
-}								
-								
-.logo-portada img {							
-	width: 30%;						
-	margin: 10px;						
-}									
-								
-.nav-portada ul {							
-	display: flex;						
-	flex-direction: row;						
-	justify-content: space-around;					
-	list-style: none;						
-	margin-bottom: 10px;					
-}								
-								
-.nav-portada a {							
+
+/*#################################################*/
+/*###########      ZONA NAV     ################*/
+/*#################################################*/
+
+.logo-portada {
+	display: flex;
+	justify-content: center;
+}
+
+.logo-portada img {
+	width: 30%;
+	margin: 10px;
+}
+
+.nav-portada ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style: none;
+	margin-bottom: 10px;
+}
+
+.nav-portada a {
 	font-size: 1.2em;
 	text-decoration: none;
 	color: #232B40;
-	transition-property: font-weight;	
+	transition-property: font-weight;
 	transition-duration: 0.1s;
 }
 
 .nav-portada a:hover {
 	font-weight: bold;
 }
-								
-nav hr {								
-	border: 0.5px solid #0B132B;					
-	box-shadow: 0px 0px 1px 0.5px rgba(0, 0, 0, 0.2);			
-								
+
+nav hr {
+	border: 0.5px solid #0B132B;
+	box-shadow: 0px 0px 1px 0.5px rgba(0, 0, 0, 0.2);
+
 }
 
-/*#################################################*/		
-/*###########      ZONA MAIN     ################*/			
+/*#################################################*/
+/*###########      ZONA MAIN     ################*/
 /*#################################################*/
 .main-portada {
 	margin-top: 20px;
@@ -294,7 +294,7 @@ main a {
 .card-opinion a{
 	display: block; /*importante para manejar el click*/
 	color: black;
-	text-decoration: none;	
+	text-decoration: none;
 }
 .card-opinion a:hover{
 	color: #174E96;
@@ -434,12 +434,12 @@ main a {
 /*###########      ZONA NOTICIAS VARIAS    ################*/
 /*#################################################*/
 
-.contenedor-noticias { 				
+.contenedor-noticias {
 	display: flex;
 	justify-content: space-between;
 }
 
-.hora hr { 				
+.hora hr {
   border: 0.4px solid rgba(0, 0, 0, 0.788);
   border-radius: 5px;
   margin: 10px;
@@ -465,14 +465,14 @@ main a {
 
 .hora img {
 	width: 90%;
-	height: 230px; 
+	height: 230px;
 	margin-left: 1em;
 	margin-right: 1em;
 	transform-origin: 1 0;
 	transition: transform .25s, visibility .25s ease-in;
 	object-fit: cover;
 }
-  
+
 .hora h3 {
 	font-weight: bold;
 	font-size: 22px;
@@ -493,7 +493,7 @@ main a {
 footer{
 	padding: 1em 0;
 	color: white;
-	background: #232B40; 
+	background: #232B40;
 }
 footer img{
 	width: 25%;
@@ -506,7 +506,7 @@ footer .cont-listas-footer{
 	display: flex;
 	justify-content: space-between;
 	border-top: white solid 1px;
-	border-bottom: white solid 1px;	
+	border-bottom: white solid 1px;
 }
 footer ul{
 	margin: 0;
@@ -569,7 +569,7 @@ footer p a{
 /*#############     FORMULARIO NOTICIA     ############################*/
 
 .formulario {
-	width: 55%; 
+	width: 55%;
 	margin: .5em auto;
 	padding: 1em 1.2em;
 	border: rgba(0,0,0,.25) solid 1px;
@@ -695,7 +695,7 @@ footer p a{
 .posteos {
 	display: flex;
 	flex-direction: row;
-	
+
 }
 
 .posteos textarea {
