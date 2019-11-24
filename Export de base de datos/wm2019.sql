@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2019 a las 20:40:45
+-- Tiempo de generación: 24-11-2019 a las 23:00:01
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -134,23 +134,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `username`, `pwd`, `activo`) VALUES
-(1, 'daniel', '1234', b'1'),
-(2, 'zoraida', '1234', b'0'),
-(3, 'amigos', '$2y$10$2jMIwuWvJ3FXp9.55O5NKe01CCmSabRpTpC1XLpneKPFt.xB9jYD.', b'1'),
-(4, 'amigos', '$2y$10$rPoUvIfC5/DzKCyV1Us1ReMNWhk4hOtZnkuc9OnbWcBz6ks/VTYne', b'1'),
-(5, '', '$2y$10$VYnVpZawAM0DJxrpS5uiHOhWm19E4GW/JQXk3mtRhK76OQWSlqYe.', b'1'),
-(6, '', '$2y$10$oWw9nV67ij26eHLlix1dIeSsZaRRnYDKakeLmsKQOwaM.Ab2S4o52', b'1'),
-(7, 'daniel1', '$2y$10$C5PJi3N8zfIkhLjSzrTdz.gVlb4aNvm3s9b6TpJ6LeMXu5wNB0EWe', b'1'),
-(8, 'daniel1', '$2y$10$Htcpq5JqSe/WXWrMjtZp4.wLE13V7EJZE48UoEm1Jb.43eCga6zFq', b'1'),
-(9, 'daniel1', '$2y$10$FjK3Q0FNx9n6pNScMMNrTen6ShWmEIRQbZ4DA.WIRPG6SfaIAhDa6', b'1'),
-(10, 'daniel1', '$2y$10$dbBVCN/zb5Om8Zen3H8Diun6gV0eZuWcQ7UcbIiRXzNb3rSHQ0zVO', b'1'),
-(11, 'asd', '$2y$10$3RmbXzHQCb.ELTub.5uJ3evmMnhCOAJt22UtHQVwAVEZYiQuLOeQO', b'1'),
-(12, 'asfasf', '$2y$10$hJUXgnpJ96ODFr9c7VX3MefOnUAOUT6M31YP4AAqkC9wsFKIotb4K', b'1'),
-(13, 'daniel13', '$2y$10$gDojsDJr1bO6QFLihPD4b.CkT6kxgVS6EUOyA1FN9Pf.kZHRtoAl.', b'1'),
-(14, 'daniel13', '$2y$10$le6D3/Qz5oSSZQWrTe9LDOayO2Hz1UmpTCn39CNWFcnHoRiZJd6UK', b'1'),
-(15, 'daniel12314', '$2y$10$N/06npyMcGrxyDxyk8r5JOgiaVh0bTL8Vligj6nbFm9kW7XS3w4Xy', b'1'),
-(16, 'dasniell1232454', '$2y$10$USo/6wwEFlwq2UI/Q4bQduPoTB6g7pckcrl0EX7UoM1pd2DusN2O2', b'1'),
-(17, 'eqwrqw', '$2y$10$YSOuBdBxoIq5skr.Nuimg.K2mbPKEo9gLMPCWM4uoNI6OnsXdHLNi', b'1');
+(21, 'daniel', '$2y$10$9.GWUBZpkEg6BJEFfyRQbOjTnDAjsEQuCJ1888z306Yc9f0pKuQQG', b'1'),
+(23, 'zora', '$2y$10$jICIP2CrVloiFJK2eTouhePwx4VdDDRY6Cwk0hLqD8QLPNNTSf50G', b'1');
 
 --
 -- Índices para tablas volcadas
@@ -187,7 +172,8 @@ ALTER TABLE `genero`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -221,7 +207,7 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Restricciones para tablas volcadas
