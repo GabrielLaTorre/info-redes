@@ -17,7 +17,7 @@
     <link rel = "icon" href ="https://www.freeiconspng.com/uploads/information-icon-5.png" type ="image/x-icon">
     <link rel="stylesheet" href="estilos.css">
     
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script src="./js/asincronos.js"></script>
 
 </head>

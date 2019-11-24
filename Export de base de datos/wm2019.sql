@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2019 a las 23:13:24
+-- Tiempo de generación: 24-11-2019 a las 20:40:45
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -37,16 +37,15 @@ CREATE TABLE `articulo` (
   `subtitulo` varchar(150) COLLATE utf8_spanish2_ci NOT NULL,
   `fecha` datetime NOT NULL,
   `genero_id` int(10) UNSIGNED NOT NULL,
-  `activo` bit(1) NOT NULL,
-  `plantilla_id` int(11) DEFAULT NULL
+  `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `articulo`
 --
 
-INSERT INTO `articulo` (`id`, `titulo`, `contenido`, `imagen_1`, `autor_id`, `subtitulo`, `fecha`, `genero_id`, `activo`, `plantilla_id`) VALUES
-(1, 'Corte de Luz', 'asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd ', 'profesor.jpg', 2, 'Es un tema', '2019-10-17 00:00:00', 1, b'1', 0);
+INSERT INTO `articulo` (`id`, `titulo`, `contenido`, `imagen_1`, `autor_id`, `subtitulo`, `fecha`, `genero_id`, `activo`) VALUES
+(1, 'Corte de Luz', 'asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd ', 'profesor.jpg', 2, 'Es un tema', '2019-10-17 00:00:00', 1, b'1');
 
 -- --------------------------------------------------------
 
@@ -95,7 +94,9 @@ INSERT INTO `comentarios` (`id`, `noticia_id`, `nombre`, `comentario`) VALUES
 (2, 1, ' Leonel ', ' Segundo comentario del sitio '),
 (3, 1, ' Gabriel ', ' Tercer comentario del sitio '),
 (4, 1, ' danel ', ' hola\n '),
-(5, 1, ' elTroll ', ' tu sabes aqui troleando ');
+(5, 1, ' elTroll ', ' tu sabes aqui troleando '),
+(6, 1, ' daniel ', ' danirl '),
+(7, 1, ' Dhdjdh ', ' Zhdjdvfbd ');
 
 -- --------------------------------------------------------
 
@@ -114,17 +115,6 @@ CREATE TABLE `genero` (
 
 INSERT INTO `genero` (`id`, `nombre`) VALUES
 (1, 'Espectaculos');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `plantilla`
---
-
-CREATE TABLE `plantilla` (
-  `id` int(11) NOT NULL,
-  `plantilla` varchar(60) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -172,8 +162,7 @@ INSERT INTO `usuario` (`id`, `username`, `pwd`, `activo`) VALUES
 ALTER TABLE `articulo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `autor_id` (`autor_id`),
-  ADD KEY `genero_id` (`genero_id`),
-  ADD KEY `plantilla_id` (`plantilla_id`);
+  ADD KEY `genero_id` (`genero_id`);
 
 --
 -- Indices de la tabla `autor`
@@ -192,12 +181,6 @@ ALTER TABLE `comentarios`
 -- Indices de la tabla `genero`
 --
 ALTER TABLE `genero`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `plantilla`
---
-ALTER TABLE `plantilla`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -226,19 +209,13 @@ ALTER TABLE `autor`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `plantilla`
---
-ALTER TABLE `plantilla`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -256,12 +233,6 @@ ALTER TABLE `usuario`
 ALTER TABLE `articulo`
   ADD CONSTRAINT `articulo_ibfk_1` FOREIGN KEY (`autor_id`) REFERENCES `autor` (`id`),
   ADD CONSTRAINT `articulo_ibfk_2` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`);
-
---
--- Filtros para la tabla `plantilla`
---
-ALTER TABLE `plantilla`
-  ADD CONSTRAINT `plantilla_ibfk_1` FOREIGN KEY (`id`) REFERENCES `articulo` (`plantilla_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
