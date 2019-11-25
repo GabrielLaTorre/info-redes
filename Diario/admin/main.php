@@ -1,3 +1,4 @@
+<pre>
 <?php
     
     require "../../backend/manejo_sesiones.php";
@@ -5,16 +6,17 @@
     //preguntamos si esta logeado
     if( $usuario = estaLogueado() ){
         //hacer algo, la variable $usuario tiene los datos del usuario loguedo
-        //descomentar la linea siguiente si hay dudas.
-        //var_dump( $usuario );
-        
+        //descomentar la linea siguiente linea y saldran los datos en pantalla
+        //print_r( $usuario );
     }else{
         header ("location: index.php"); //te vas a login
         die();
     }
 
 
-?> 
+?>
+</pre>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
