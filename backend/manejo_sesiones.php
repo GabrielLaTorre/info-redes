@@ -5,7 +5,7 @@
     function iniciarSesion( $usuario ){
         session_start();
         $_SESSION["login_ok"] = true;
-        $_SESSION["user_id"] = $usuario["id"];
+        $_SESSION["usuario"] = $usuario;
     }
 
 
@@ -15,7 +15,7 @@
     function estaLogueado(){
         session_start();
         if( isset($_SESSION["login_ok"]) && $_SESSION["login_ok"] ){
-            return $_SESSION["user_id"];
+            return $_SESSION["usuario"];
         }
         
         return false;
