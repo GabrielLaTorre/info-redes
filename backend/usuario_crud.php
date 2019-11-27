@@ -1,5 +1,5 @@
 <?php
-    require "base_datos.php";
+    require_once "base_datos.php";
 
     // ----
     // ----
@@ -39,7 +39,12 @@
                 VALUES 
                 ( '$username' , '$pwd_encriptado' , '1' ) ";
         
-        return mysqli_query( $conexion , $sql );
+        
+        if ( mysqli_query( $conexion , $sql ) ){
+            return getUsuario( $username , $pwd ); //todo ok, retornamos el usuario
+        }
+
+        return false;
     }
 
 

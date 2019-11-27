@@ -2,20 +2,20 @@
     //--
     //--
     //inicia la sesion del usuario que le pasas como parametro
-    function iniciarSesion( $usuario ){
+    function iniciarSesion( $autor ){
         session_start();
         $_SESSION["login_ok"] = true;
-        $_SESSION["usuario"] = $usuario;
+        $_SESSION["autor"] = $autor;
     }
 
 
     //--
     //--
-    //devuelve el user_id si el usuario esta logueado o false si no lo esta
+    //devuelve el autor si el usuario esta logueado o false si no lo esta
     function estaLogueado(){
         session_start();
         if( isset($_SESSION["login_ok"]) && $_SESSION["login_ok"] ){
-            return $_SESSION["usuario"];
+            return $_SESSION["autor"][0]; //hacky para devolver solo el array de datos
         }
         
         return false;

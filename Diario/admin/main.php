@@ -4,10 +4,11 @@
     require "../../backend/manejo_sesiones.php";
 
     //preguntamos si esta logeado
-    if( $usuario = estaLogueado() ){
-        //hacer algo, la variable $usuario tiene los datos del usuario loguedo
+    if( $autor = estaLogueado() ){
+        //hacer algo, la variable $autor tiene los datos del autor loguedo
         //descomentar la linea siguiente linea y saldran los datos en pantalla
-        //print_r( $usuario );
+        //print_r( $autor );
+        
     }else{
         header ("location: index.php"); //te vas a login
         die();
@@ -26,7 +27,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Zona de Usuario Registrado</h1>
+    <h1>Hola <?php echo $autor["nombre"]; ?>, bienvenid@ a tu zona de admistración</h1>
     <a href="logout.php">logout</a>
 </body>
 </html>

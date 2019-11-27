@@ -23,7 +23,7 @@ html, body {
   margin-top: auto;
   margin-bottom: auto;
   width: 400px;
-  background-color: rgba(44, 44, 44, 0.8) !important;
+  background-color: rgba(44, 44, 44, 0.95) !important;
 }
 
 .card-header h3 {
@@ -94,4 +94,9 @@ table {
 
 .container {
   background-color: white;
+}
+
+.label{
+  color: white;
+  font-size: 1.1rem;
 }

@@ -24,10 +24,20 @@
         return $conexion;
     }
 
+    //--
+    //--
     //ejecutar una consulta
+    //devuelve false si no se pudo ejecurtar
+    //si es INSERT o UPDATE devuelve el id del registro
+    //si es SELECT devuelve los registros
     function ejecutarConsulta($sql){
-        $conexion = getConexion();
+        $conexion = getConexion(); 
         $response = mysqli_query($conexion,$sql);
+
+        $tipo_sql = substr( $sql , 0 , 6);
+        if( $tipo_sql=="INSERT" || $tipo_sql=="UPDATE" ){
+            return $response ? mysqli_insert_id( $conexion ) : $response ;
+        }
 
         return mysqli_fetch_all($response, MYSQLI_ASSOC);
     }

@@ -1,4 +1,5 @@
 <?php
+	require "../../backend/autor_crud.php"; //para relacionar el autor con el usuario
 	require "../../backend/usuario_crud.php"; //de aqui usamos la function getUsuario()
 	require "../../backend/manejo_sesiones.php"; //funciones para el manejo de sesiones; 
 
@@ -15,9 +16,9 @@
 		$username = $_POST["username"];
 		$pwd = $_POST["password"];
 		
-		$usuario = getUsuario( $username , $pwd );
-		if ( $usuario ) {
-			iniciarSesion( $usuario );
+		if ( $usuario = getUsuario( $username , $pwd ) ) {
+			$autor = getAutorByUsuarioId( $usuario["id"] );
+			iniciarSesion( $autor );
 			header( 'location: main.php' ); // vamos a la zona de usuario
 			die();
 		} else {
