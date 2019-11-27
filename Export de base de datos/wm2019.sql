@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2019 a las 23:00:01
+-- Tiempo de generación: 27-11-2019 a las 12:16:43
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -40,13 +40,6 @@ CREATE TABLE `articulo` (
   `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `articulo`
---
-
-INSERT INTO `articulo` (`id`, `titulo`, `contenido`, `imagen_1`, `autor_id`, `subtitulo`, `fecha`, `genero_id`, `activo`) VALUES
-(1, 'Corte de Luz', 'asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd asdas das dasd as as dasd ', 'profesor.jpg', 2, 'Es un tema', '2019-10-17 00:00:00', 1, b'1');
-
 -- --------------------------------------------------------
 
 --
@@ -55,22 +48,10 @@ INSERT INTO `articulo` (`id`, `titulo`, `contenido`, `imagen_1`, `autor_id`, `su
 
 CREATE TABLE `autor` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
+  `nombre` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `foto` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `autor`
---
-
-INSERT INTO `autor` (`id`, `nombre`) VALUES
-(2, 'Maria de los angeles'),
-(5, 'eduardo daniel padrino'),
-(8, 'Daniel Padrino'),
-(10, 'Otilio Padrino'),
-(11, 'Nuvia Martinez'),
-(12, 'Natali Padrino'),
-(13, 'Reynali!!!!'),
-(14, 'Zoraida Campo');
 
 -- --------------------------------------------------------
 
@@ -130,14 +111,6 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`id`, `username`, `pwd`, `activo`) VALUES
-(21, 'daniel', '$2y$10$9.GWUBZpkEg6BJEFfyRQbOjTnDAjsEQuCJ1888z306Yc9f0pKuQQG', b'1'),
-(23, 'zora', '$2y$10$jICIP2CrVloiFJK2eTouhePwx4VdDDRY6Cwk0hLqD8QLPNNTSf50G', b'1');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -153,7 +126,8 @@ ALTER TABLE `articulo`
 -- Indices de la tabla `autor`
 --
 ALTER TABLE `autor`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `usuario_id` (`usuario_id`);
 
 --
 -- Indices de la tabla `comentarios`
@@ -183,13 +157,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
@@ -207,7 +181,7 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- Restricciones para tablas volcadas
@@ -219,6 +193,12 @@ ALTER TABLE `usuario`
 ALTER TABLE `articulo`
   ADD CONSTRAINT `articulo_ibfk_1` FOREIGN KEY (`autor_id`) REFERENCES `autor` (`id`),
   ADD CONSTRAINT `articulo_ibfk_2` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`);
+
+--
+-- Filtros para la tabla `autor`
+--
+ALTER TABLE `autor`
+  ADD CONSTRAINT `autor_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
