@@ -100,3 +100,20 @@ table {
   color: white;
   font-size: 1.1rem;
 }
+
+.info-perfil img{
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  padding: .2rem;
+  border: #6c757d solid 6px;
+}
+.foto-perfil{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.foto-perfil button{
+  position: relative;
+  right:  20px;
+}
