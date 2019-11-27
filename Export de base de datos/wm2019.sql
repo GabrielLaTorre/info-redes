@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2019 a las 12:16:43
+-- Tiempo de generación: 27-11-2019 a las 23:11:27
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `wm2019`
 --
+CREATE DATABASE IF NOT EXISTS `wm2019` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `wm2019`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +30,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `articulo`
 --
 
+DROP TABLE IF EXISTS `articulo`;
 CREATE TABLE `articulo` (
   `id` int(10) UNSIGNED NOT NULL,
   `titulo` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
@@ -46,6 +49,7 @@ CREATE TABLE `articulo` (
 -- Estructura de tabla para la tabla `autor`
 --
 
+DROP TABLE IF EXISTS `autor`;
 CREATE TABLE `autor` (
   `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
@@ -53,12 +57,21 @@ CREATE TABLE `autor` (
   `foto` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `autor`
+--
+
+INSERT INTO `autor` (`id`, `nombre`, `usuario_id`, `foto`) VALUES
+(1, 'Daniel Padrino', 1, NULL),
+(2, 'Usuario cualquiera', 2, NULL);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `comentarios`
 --
 
+DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE `comentarios` (
   `id` int(11) NOT NULL,
   `noticia_id` int(11) NOT NULL,
@@ -85,6 +98,7 @@ INSERT INTO `comentarios` (`id`, `noticia_id`, `nombre`, `comentario`) VALUES
 -- Estructura de tabla para la tabla `genero`
 --
 
+DROP TABLE IF EXISTS `genero`;
 CREATE TABLE `genero` (
   `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL
@@ -103,12 +117,21 @@ INSERT INTO `genero` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id` int(10) NOT NULL,
   `username` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `pwd` varchar(70) COLLATE utf8_spanish_ci NOT NULL,
   `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `username`, `pwd`, `activo`) VALUES
+(1, 'danswar', '$2y$10$dnPTz6JsWw/iwHL8BzAqNeJNAblJ7eqaIALeMlqqMzH5B5rvC14vm', b'1'),
+(2, 'user', '$2y$10$wVyf1.qDzJbCaEV43NvdwuB8rwvTzBo/L1vInQkqnjxzWottpWMtW', b'1');
 
 --
 -- Índices para tablas volcadas
@@ -163,7 +186,7 @@ ALTER TABLE `articulo`
 -- AUTO_INCREMENT de la tabla `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
@@ -181,7 +204,7 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
