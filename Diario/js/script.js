@@ -1,15 +1,23 @@
 /* para el funcionamiento del banner interactivo de la portada */
 
 window.addEventListener('load', function () {
-     let container = document.getElementById('banner-container');
+     
      var img_s = document.getElementsByClassName('img-s');
 
      var img_g = document.getElementById('img-gr');
+     var slideIndex = 0;
+     var i;
 
+     autoSlide();
      function autoSlide() {
-          img_g.setAttribute('src', img_s[1].getAttribute('src'));
-     };
-     //autoSlide();
+          for(i = 0; i < img_s.length; i++){
+               img_g.setAttribute('src', img_s[i].getAttribute('src'));     
+          }
+          slideIndex++;
+          if (slideIndex > img_s.length) {
+               slideIndex = 0;
+          }
+     }
 })
 
 
