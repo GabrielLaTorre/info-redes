@@ -37,7 +37,7 @@
         $sql = "INSERT INTO usuario 
                 (username , pwd , activo)
                 VALUES 
-                ( '$username' , '$pwd_encriptado' , '1' ) ";
+                ( '$username' , '$pwd_encriptado' , 1 ) ";
         
         
         if ( mysqli_query( $conexion , $sql ) ){
