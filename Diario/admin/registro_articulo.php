@@ -14,7 +14,6 @@
   //si la peticion llega por POST guardamos el articulo
   if ( !empty($_POST) ) { 
       $articulo = insertarArticulo( $_POST , $_FILES );
-      var_dump($articulo);
   }
     
   // Consulta listado géneros, la funcion devuelve la lista completa
