@@ -43,37 +43,7 @@
 </head>
 <body>
         
-    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">InfoRedes</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Mi perfil <span class="sr-only">(current)</span></a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Articulos</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Generos</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Autores</a>
-                </li>
-            </ul>
-
-            <form class="form-inline my-2 my-lg-0" action="logout.php">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
-            </form>
-        </div>
-
-    </nav>
+   <?php include "./componentes/navbar.html" ?> <!--INCLUIMOS EL NAVABAR-->
 
     <div class="container info-perfil">
         <div class="row">
@@ -84,7 +54,7 @@
                 </div>
                 <h2 class="mt-2">Hola <?php echo $nombre?>!!</h2>
                 <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+                <p><a class="btn btn-secondary" href="./registro_articulo.php" role="button">Agregar articulo</a></p>
 
             </div>
         </div><!-- /.row -->
