@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2019 a las 23:11:27
+-- Tiempo de generación: 01-12-2019 a las 18:27:56
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `wm2019`
 --
-CREATE DATABASE IF NOT EXISTS `wm2019` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `wm2019`;
 
 -- --------------------------------------------------------
 
@@ -38,10 +36,18 @@ CREATE TABLE `articulo` (
   `imagen_1` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `autor_id` int(10) UNSIGNED NOT NULL,
   `subtitulo` varchar(150) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha` datetime NOT NULL,
+  `fecha` datetime DEFAULT CURRENT_TIMESTAMP,
   `genero_id` int(10) UNSIGNED NOT NULL,
   `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `articulo`
+--
+
+INSERT INTO `articulo` (`id`, `titulo`, `contenido`, `imagen_1`, `autor_id`, `subtitulo`, `fecha`, `genero_id`, `activo`) VALUES
+(10, 'ultima prueba de formulario noticia', 'ya estas ready para la siguiente seccion', 'C:/xampp/htdocs/info-redes/imagenes_noticias/anon.png', 1, 'al fin terminamos con este formulario', '2019-11-30 16:35:30', 1, b'1'),
+(11, 'El sistema de info-redes sigue ganando funcionalid', 'son excelentes desarrolladores y se la juegan', 'C:/xampp/htdocs/info-redes/imagenes_noticias/bitcoin-logo.png', 1, 'devs del equipo 1 muestra sus destresas', '2019-12-01 11:55:20', 1, b'1');
 
 -- --------------------------------------------------------
 
@@ -109,7 +115,9 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id`, `nombre`) VALUES
-(1, 'Espectaculos');
+(1, 'Espectaculos'),
+(2, 'Politica'),
+(3, 'Sociales');
 
 -- --------------------------------------------------------
 
@@ -180,7 +188,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `autor`
@@ -198,7 +206,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
