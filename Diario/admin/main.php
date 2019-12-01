@@ -1,17 +1,18 @@
 <?php
     
-    require "../../backend/manejo_sesiones.php";
+    require "../../backend/manejo_sesiones.php"; //para comprobar si esta logueado
+    require "../../backend/articulos_crud.php"; //para traernos los articulos del autor logueado
 
+		
     //preguntamos si esta logeado
     if( $autor = estaLogueado() ){
         //hacer algo, la variable $autor tiene los datos del autor loguedo
         //descomentar la linea siguiente linea y saldran los datos en pantalla
         //print_r( $autor );
 
-
         //Algunas variables de apollo
         $nombre = $autor['nombre'];
-
+        $mis_articulos = getArticuloByAutor( $autor['id'] );
 
         
     }else{
@@ -43,7 +44,7 @@
 </head>
 <body>
         
-   <?php include "./componentes/navbar.html" ?> <!--INCLUIMOS EL NAVABAR-->
+   <?php include "navbar.html" ?> <!--INCLUIMOS EL NAVABAR-->
 
     <div class="container info-perfil">
         <div class="row">
@@ -57,22 +58,37 @@
                 <p><a class="btn btn-secondary" href="./registro_articulo.php" role="button">Agregar articulo</a></p>
 
             </div>
-        </div><!-- /.row -->
+        </div>
+
+
+        <!-- NOTICIAS DE ESTE AUTOR -->
+        <!-- TODO: poner esto en una tabla bonita -->
+
+        <?php
+            //iteramos sobre los articulos de este autor
+            foreach( $mis_articulos as $articulo ){  
+                    //en este punto $articulo contiene una fila con los datos de un articulo
+                    echo "<pre>";
+                    print_r($articulo);
+                    echo "</pre>";
+            }
+        ?>
+
+
+
     </div>
 
-    <!-- START THE FEATURETTES -->
-
-    
 
 
+   
 
-    <h1>Hola <?php echo $nombre?>!!</h1>
-    <h2>Bienvenido a tu zona de usuario</h2>
+
+
 
     <!-- Cosas de bootstrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
 
 </body>
 </html>

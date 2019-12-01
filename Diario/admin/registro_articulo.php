@@ -1,6 +1,6 @@
 <?php
 
-	require "../../backend/manejo_sesiones.php"; // para comprobar que esta logueado
+ require "../../backend/manejo_sesiones.php"; // para comprobar que esta logueado
   require "../../backend/articulos_crud.php"; //para manejar la tabla de articulos
   require "../../backend/genero_crud.php"; // para traernos la lista generos de la base de datos
 	
@@ -38,7 +38,7 @@
 
 <body>
 
-<?php include "./componentes/navbar.html"; ?> <!--INCLUIMOS EL NAVABAR-->
+<?php include "navbar.html"; ?> <!--INCLUIMOS EL NAVABAR-->
 
 <div class="img">
 	<div class="container col-md-6 text-center">
@@ -65,7 +65,7 @@
 				}
 				?>
 
-        <option>+ Agregar nuevo genero</option> <!--TODO: implementar un banner flotante con JS-->
+        <option>+ Agregar nuevo genero</option> <!--TODO: (opcional) implementar un banner flotante con JS-->
 
 			</select>
 			

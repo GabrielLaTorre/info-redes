@@ -15,7 +15,7 @@
         if($id){
             $where = " WHERE id = '{$id}'";    
         }
-        $sql = "SELECT * FROM genero" . $where;
+        $sql = "SELECT genero.* FROM genero" . $where;
         
         return ejecutarConsulta($sql);
     }

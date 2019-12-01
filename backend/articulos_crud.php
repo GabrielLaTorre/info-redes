@@ -14,9 +14,14 @@
     function getArticulo( $id=NULL ){
         $where = "";
         if($id){
-            $where = " WHERE id = '{$id}'";    
+            $where = " WHERE articulo.id = '{$id}'";    
         }
-        $sql = "SELECT * FROM articulo" . $where;
+        
+        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero 
+                from articulo
+                inner join autor on autor_id=autor.id
+                inner join genero on genero_id=genero.id ORDER BY `articulo`.`id` DESC"
+                . $where;
         
         return ejecutarConsulta($sql);
     }
@@ -76,6 +81,19 @@
     //devuelve true/false
     //implementar borrado logico
     function deleteArticulo( $id ){
+
+    }
+
+    //--
+    //--
+    //devuelve las noticias por un autor especifico
+    //recibe el id del autor
+    function getArticuloByAutor( $autor_id ){
+        
+        if( $autor_id == NULL) return false; // no pasa id devuelve false;
+
+        $sql= "SELECT * FROM articulo WHERE autor_id = $autor_id";
+        return ejecutarConsulta($sql);
 
     }
 
