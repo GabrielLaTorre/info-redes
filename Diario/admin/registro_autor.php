@@ -1,6 +1,8 @@
 <?php
 
  require "../../backend/manejo_sesiones.php"; // para comprobar que esta logueado
+ require "../../backend/autor_crud.php"; //para manejar la tabla de autores
+
  	
 
   //si no estas logueado te vas a la pantalla de login
@@ -8,6 +10,9 @@
 		header( 'location: index.html' );
 		die();
 	}
+
+	//lista completa de autores
+	$listadoAutores = getAutor();
 
 
 ?>
@@ -29,8 +34,17 @@
 
 <body>
 
-<?php include "navbar.html"; ?> <!--INCLUIMOS EL NAVABAR-->
-<h1>Zona de gestion de autores</h1>
+	<?php include "navbar.html"; ?> <!--INCLUIMOS EL NAVABAR-->
+	<h1>Zona de gestion de autor</h1>
+
+
+	<?php 
+		foreach( $listadoAutores as $autor){
+			echo "<pre>";
+			print_r($autor);
+			echo "</pre>";
+		}
+	?>
 
 
 </body>

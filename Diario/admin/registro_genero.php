@@ -34,7 +34,7 @@
 <body>
 
 <?php include "navbar.html"; ?> <!--INCLUIMOS EL NAVABAR-->
-<h1>Zona de gestion de autores</h1>
+<h1>Zona de gestion de genero</h1>
 
 <?php
 	//Recorremos la lista de generos 
