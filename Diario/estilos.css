@@ -66,6 +66,7 @@ a, a:visited {
 	display: none;
 }
 .imagen-grande{
+	position: static;
 	clear: both; /* limpia los efectos secundarios del float */
 }
 .imagen-grande img {

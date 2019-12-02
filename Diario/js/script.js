@@ -1,24 +1,24 @@
 /* para el funcionamiento del banner interactivo de la portada */
 
 window.addEventListener('load', function () {
-     
-     var img_s = document.getElementsByClassName('img-s');
 
+     var img_s = document.getElementsByClassName('img-s');
      var img_g = document.getElementById('img-gr');
      var slideIndex = 0;
      var i;
-
-     autoSlide();
-     function autoSlide() {
-          for(i = 0; i < img_s.length; i++){
-               img_g.setAttribute('src', img_s[i].getAttribute('src'));     
-          }
+     
+     setInterval(function () {
+          console.log(slideIndex, img_s.length);
+          img_g.setAttribute('src', img_s[slideIndex].getAttribute('src'));     
+        
           slideIndex++;
-          if (slideIndex > img_s.length) {
+          if (slideIndex >= img_s.length){
                slideIndex = 0;
           }
-     }
+     },4000);
 })
+     
+
 
 
 /*function show(ruta){ 
