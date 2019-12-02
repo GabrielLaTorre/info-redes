@@ -17,11 +17,12 @@
 
         if($conexion){
             return $conexion;
+        }else{
+            $conexion = mysqli_connect(HOST, USER, PWD, DB);
+            mysqli_set_charset($conexion,"utf8");
+            return $conexion;
         }
-
-        $conexion = mysqli_connect(HOST, USER, PWD, DB);
-        mysqli_set_charset($conexion,"utf8");
-        return $conexion;
+        
     }
 
     //--
@@ -34,12 +35,18 @@
         $conexion = getConexion(); 
         $response = mysqli_query($conexion,$sql);
 
-        $tipo_sql = substr( $sql , 0 , 6);
-        if( $tipo_sql=="INSERT" || $tipo_sql=="UPDATE" ){
-            return $response ? mysqli_insert_id( $conexion ) : $response ;
+        if(!$response){
+            return false;
         }
 
-        return mysqli_fetch_all($response, MYSQLI_ASSOC);
+        $tipo_sql = substr( $sql , 0 , 6); 
+        if( $tipo_sql=="INSERT" || $tipo_sql=="UPDATE" ){
+            return mysqli_insert_id( $conexion );
+        }else{ 
+            return mysqli_fetch_all($response, MYSQLI_ASSOC);
+        }
+        
+        
     }
 
     
