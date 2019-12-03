@@ -62,17 +62,41 @@
 
 
         <!-- NOTICIAS DE ESTE AUTOR -->
-        <!-- TODO: poner esto en una tabla bonita -->
-
-        <?php
-            //iteramos sobre los articulos de este autor
-            foreach( $mis_articulos as $articulo ){  
-                    //en este punto $articulo contiene una fila con los datos de un articulo
-                    echo "<pre>";
-                    print_r($articulo);
-                    echo "</pre>";
-            }
-        ?>
+    
+        <div class="container">
+            <div class="row">
+                <h2>Tus articulos</h2>
+            </div>
+            <div class="row mt-3">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col " >
+                            
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            //Recorremos la lista de generos 
+                            foreach( $mis_articulos as $articulo ) {
+                                echo "  <tr>
+                                        <th scope='row'>{$articulo['id']}</th>
+                                        <td>
+                                            
+                                            <p class='mb-1'><span class='font-weight-bold'>{$articulo['titulo']}</span> <span class='text-muted'> - {$articulo['genero']}</span></p>
+                                            <p class='font-italic mb-1'>{$articulo['subtitulo']}</p>
+                                        </td>
+                                        <td class='text-center'><a href='#' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</a></td>
+                                        </tr>";	
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 
 
