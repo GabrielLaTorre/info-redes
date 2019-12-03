@@ -17,7 +17,7 @@
             $where = " WHERE articulo.id = '{$id}'";    
         }
         
-        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero 
+        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.genero_id, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero 
                 from articulo
                 inner join autor on autor_id=autor.id
                 inner join genero on genero_id=genero.id ORDER BY `articulo`.`id` DESC"
@@ -56,9 +56,11 @@
         
         if( $id = ejecutarConsulta($sql) ){ 
             return getArticulo( $id );
+        }else{
+            return false;
         }
  
-        return false;
+        
 
     }
 
@@ -92,7 +94,11 @@
         
         if( $autor_id == NULL) return false; // no pasa id devuelve false;
 
-        $sql= "SELECT * FROM articulo WHERE autor_id = $autor_id";
+        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero 
+        from articulo
+        inner join autor on autor_id=autor.id
+        inner join genero on genero_id=genero.id   WHERE articulo.autor_id = $autor_id ORDER BY `articulo`.`id` DESC";
+        
         return ejecutarConsulta($sql);
 
     }

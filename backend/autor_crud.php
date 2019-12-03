@@ -43,10 +43,10 @@
        $sql = "INSERT INTO autor ( nombre , usuario_id) VALUES ( '{$nombre}' , '{$usuario_id}' )"; 
        
        if( $id = ejecutarConsulta($sql) ){ 
-           return getAutor($id);
+					return getAutor($id);
+       }else{
+        	return false;
        }
-
-       return false;
     }
     
 
