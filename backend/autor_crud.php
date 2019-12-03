@@ -10,7 +10,7 @@
     {
         $where = "";
         if($id){
-            $where = " WHERE id = '{$id}'";    
+            $where = " WHERE autor.id = $id";    
         }
         $sql = "SELECT autor.*, usuario.username as username 
                 FROM autor INNER JOIN usuario
@@ -43,9 +43,9 @@
        $sql = "INSERT INTO autor ( nombre , usuario_id) VALUES ( '{$nombre}' , '{$usuario_id}' )"; 
        
        if( $id = ejecutarConsulta($sql) ){ 
-					return getAutor($id);
+		return getAutor($id);
        }else{
-        	return false;
+        return false;
        }
     }
     
