@@ -12,7 +12,9 @@
         if($id){
             $where = " WHERE id = '{$id}'";    
         }
-        $sql = "SELECT * FROM autor" . $where;
+        $sql = "SELECT autor.*, usuario.username as username 
+                FROM autor INNER JOIN usuario
+                ON autor.usuario_id = usuario.id" . $where;
         
         return ejecutarConsulta($sql);
     }
