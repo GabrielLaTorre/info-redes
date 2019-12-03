@@ -76,7 +76,7 @@
 								<th scope='row'>{$genero['id']}</th>
 								<td>{$genero['nombre']}</td>
 								<td>cant. noticias</td>
-								<td class='text-center'><a href='#' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-danger'><i class='fas fa-trash'></i> Borrar</a></td>
+								<td class='text-center'><a href='#' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</a></td>
 								</tr>";	
 					}
 				?>
