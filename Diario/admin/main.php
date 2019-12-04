@@ -2,6 +2,7 @@
     
     require "../../backend/manejo_sesiones.php"; //para comprobar si esta logueado
     require "../../backend/articulos_crud.php"; //para traernos los articulos del autor logueado
+    require "../../backend/autor_crud.php"; //para recuperar la imagen
 
     //--
     //--	
@@ -11,26 +12,33 @@
         //descomentar la linea siguiente linea y saldran los datos en pantalla
         //print_r( $autor );
 
+        //si llegamos a esta pagina por POST se esta intentado 
+        //hacer update a este auto
+        if( !empty($_POST) ){
+
+            $conexion = getConexion();
+            $nom =  $_POST['nombre'];
+            $img =  $_FILES['imagen']['name'];
+            $id = $_POST['id'];
+            if($img){
+                $sql = "UPDATE `autor` SET `nombre`='$nom',`foto`='$img' WHERE `id`=$id";
+                move_uploaded_file($_FILES['imagen']['tmp_name'],"../imagenes/$img");
+            } else {
+                $sql = "UPDATE `autor` SET `nombre`='$nom' WHERE `id`=$id";
+            }
+            
+            mysqli_query($conexion,$sql);
+        }
         //Algunas variables de apollo
+        $autor = getAutor($autor['id'])[0];
         $nombre = $autor['nombre'];
         $mis_articulos = getArticuloByAutor( $autor['id'] );
+        $imagen = $autor['foto'];
   
     }else{
         header ("location: index.php"); //te vas a login
         die();
     }
-
-
-    //--
-    //--
-    //si llegamos a esta pagina por POST se esta intentado 
-    //hacer update a este auto
-    if( !empty($_POST) ){
-        echo "<pre>";
-        print_r($_POST); //TODO: Gestionar este UPDATE de la tabla de autor y manejo de archivo
-        echo "</pre>";
-    }
-
 
 ?>
 
@@ -62,7 +70,7 @@
         <div class="row">
             <div class="col-12 text-center mt-4">
                 <div class="foto-perfil">
-                    <img src="../imagenes/cara-1.jpg" alt="cara" class="bd-placeholder-img rounded-circle"> <!--TODO: Hacer que salga la foto guardada en bbdd-->
+                    <img src="../imagenes/<?php echo $imagen?>" alt="cara" class="bd-placeholder-img rounded-circle"> <!--TODO: Hacer que salga la foto guardada en bbdd-->
                     <button type="button" class="btn btn-outline-secondary"  onclick="desplegarForm()"><i class="fas fa-user-edit"></i></button>
                 </div>
                 <h2 class="mt-2">Hola <?php echo $nombre?>!!</h2>
@@ -125,7 +133,7 @@
 			<div class="cont-inputs">
                 <div class="form-group mt-4 mb-5 pr-2 pl-2">
                     <div class="foto-perfil mb-3">
-                        <img src="../imagenes/cara-1.jpg" alt="cara" class="img-edit border border-ligth" id="img-edit">
+                        <img src="../imagenes/<?php echo $imagen?>" alt="cara" class="img-edit border border-ligth" id="img-edit">
                         <label for="imagen"  class="input-img-edit btn btn-outline-secondary" id="input-img-edit"><i class="fas fa-camera"></i></label>
                         <input type="file" class="d-none" name="imagen" id="imagen" onchange="previewFile()"></button>
                     </div>
