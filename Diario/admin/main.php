@@ -117,7 +117,7 @@
 
     
 	<div id="form-oculto" class="row cont-oculto oculto" >
-		<form class="form-oculto col-4" method="post">
+		<form class="form-oculto col-4" method="post" enctype="multipart/form-data">
             <div class="d-flex justify-content-between border-bottom border-ligth pb-2">
                 <h3>Modifica tu perfil</h3>
                 <i class="fas fa-times text-muted" onclick="desplegarForm()"></i>
