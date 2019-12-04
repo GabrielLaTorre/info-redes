@@ -11,17 +11,17 @@
     //--
     // trae los articulos de la base de datos
     // si no se le pasa id, trae todas los articulos
-    function getArticulo( $id=NULL ){
+    function getArticulo( $id=NULL){
         $where = "";
         if($id){
-            $where = " WHERE articulo.id = '{$id}'";    
+            $where = " WHERE articulo.id = $id";    
         }
         
         $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.genero_id, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero 
                 from articulo
                 inner join autor on autor_id=autor.id
-                inner join genero on genero_id=genero.id ORDER BY `articulo`.`id` DESC"
-                . $where;
+                inner join genero on genero_id=genero.id $where 
+                ORDER BY `articulo`.`id` DESC";
         
         return ejecutarConsulta($sql);
     }
@@ -33,7 +33,7 @@
     //recibe un array con los datos a insertar
     //si la pudo insertar devuelve un array con el articulo
     //si no devuelve false
-    function insertarArticulo( $arrayArticulo , $arrayFiles ){
+    function insertarArticulo( $arrayArticulo , $arrayFiles , $ruta_subida ){
         
         $titulo  = $arrayArticulo['titulo'];    
         $contenido  = $arrayArticulo['contenido'];
@@ -43,9 +43,8 @@
         $activo = 1;
 
         //manejo de la imagen
-        $dir_subida = $_SERVER['DOCUMENT_ROOT'] . '/info-redes/imagenes_noticias/';
-        $imagen_1 = $dir_subida . $arrayFiles['imagen']['name'];
-        if( !move_uploaded_file($arrayFiles['imagen']['tmp_name'], $imagen_1) ){
+        $imagen_1 =  $arrayFiles['imagen']['name'];
+        if( !move_uploaded_file($arrayFiles['imagen']['tmp_name'], $ruta_subida . $imagen_1) ){
             $imagen_1 = NULL; //TODO: imagen por defecto o algo
         }
 

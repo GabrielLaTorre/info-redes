@@ -15,7 +15,7 @@
     function estaLogueado(){
         session_start();
         if( isset($_SESSION["login_ok"]) && $_SESSION["login_ok"] ){
-            return $_SESSION["autor"][0]; //hacky para devolver solo el array de datos
+            return $_SESSION["autor"]; //hacky para devolver solo el array de datos
         }
         
         return false;

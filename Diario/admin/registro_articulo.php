@@ -13,7 +13,7 @@
 
   //si la peticion llega por POST guardamos el articulo
   if ( !empty($_POST) ) { 
-      $articulo = insertarArticulo( $_POST , $_FILES );
+      $articulo = insertarArticulo( $_POST , $_FILES , "../imagenes/");
   }
     
   // Consulta listado géneros, la funcion devuelve la lista completa
@@ -98,5 +98,7 @@ h5, img {
 	</div>
 </div>
 
+<img src="<?php echo getArticulo(21)[0]['imagen_1'] ?>" alt="">
+<?php var_dump( getArticulo(21) )?>
 </body>
 </html>

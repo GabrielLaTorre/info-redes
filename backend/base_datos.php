@@ -42,8 +42,16 @@
         $tipo_sql = substr( $sql , 0 , 6); 
         if( $tipo_sql=="INSERT" || $tipo_sql=="UPDATE" ){
             return mysqli_insert_id( $conexion );
+        
         }else{ 
-            return mysqli_fetch_all($response, MYSQLI_ASSOC);
+           $array_result =  mysqli_fetch_all($response, MYSQLI_ASSOC);
+
+           if( count($array_result) == 1 ){
+               return $array_result[0];
+           }else{
+               return $array_result;
+           }
+           
         }
         
         
