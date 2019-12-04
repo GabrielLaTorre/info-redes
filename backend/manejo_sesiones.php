@@ -5,7 +5,7 @@
     function iniciarSesion( $autor ){
         session_start();
         $_SESSION["login_ok"] = true;
-        $_SESSION["autor"][0] = $autor;
+        $_SESSION["autor"] = $autor[0];
     }
 
 
