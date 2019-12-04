@@ -44,13 +44,7 @@
             return mysqli_insert_id( $conexion );
         
         }else{ 
-           $array_result =  mysqli_fetch_all($response, MYSQLI_ASSOC);
-
-           if( count($array_result) == 1 ){
-               return $array_result[0];
-           }else{
-               return $array_result;
-           }
+           return  mysqli_fetch_all($response, MYSQLI_ASSOC);
            
         }
         

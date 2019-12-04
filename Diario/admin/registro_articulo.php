@@ -98,7 +98,6 @@ h5, img {
 	</div>
 </div>
 
-<img src="<?php echo getArticulo(21)[0]['imagen_1'] ?>" alt="">
-<?php var_dump( getArticulo(21) )?>
+
 </body>
 </html>
