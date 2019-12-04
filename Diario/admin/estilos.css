@@ -132,10 +132,20 @@ table {
 }
 .form-oculto{
   width: 45%;
-  padding: 5%;
+  padding: 1rem;
   background: white;
   border-radius: 5px;
 }
+.cont-inputs{
+ 
+}
 .oculto{
   display: none !important;
+}
+.img-edit{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  display: inline-block;
+  border-radius: 50%;
 }

@@ -6,3 +6,20 @@ function desplegarForm(){
         div_oculto.classList.add('oculto');
     }
 }
+
+//prevista para la imagen de perfil
+function previewFile() {
+    var preview = document.getElementById('img-edit');
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+  
+    reader.onloadend = function () {
+      preview.src = reader.result;
+    }
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = "";
+    }
+  }
