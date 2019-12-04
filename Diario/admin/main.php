@@ -3,7 +3,8 @@
     require "../../backend/manejo_sesiones.php"; //para comprobar si esta logueado
     require "../../backend/articulos_crud.php"; //para traernos los articulos del autor logueado
 
-		
+    //--
+    //--	
     //preguntamos si esta logeado
     if( $autor = estaLogueado() ){
         //hacer algo, la variable $autor tiene los datos del autor loguedo
@@ -13,11 +14,21 @@
         //Algunas variables de apollo
         $nombre = $autor['nombre'];
         $mis_articulos = getArticuloByAutor( $autor['id'] );
-
-        
+  
     }else{
         header ("location: index.php"); //te vas a login
         die();
+    }
+
+
+    //--
+    //--
+    //si llegamos a esta pagina por POST se esta intentado 
+    //hacer update a este auto
+    if( !empty($_POST) ){
+        echo "<pre>";
+        print_r($_POST); //TODO: Gestionar este UPDATE de la tabla de autor y manejo de archivo
+        echo "</pre>";
     }
 
 
@@ -33,6 +44,7 @@
     <title>InforRedes | <?php echo $nombre ?></title>
 
     <link rel="stylesheet" href="estilos.css">
+    <script src="./script.js"></script>
 
     <!--Fontawesome CDN-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -51,7 +63,7 @@
             <div class="col-12 text-center mt-4">
                 <div class="foto-perfil">
                     <img src="../imagenes/cara-1.jpg" alt="cara" class="bd-placeholder-img rounded-circle"> <!--TODO: Hacer que salga la foto guardada en bbdd-->
-                    <button type="button" class="btn btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
+                    <button type="button" class="btn btn-outline-secondary"  onclick="desplegarForm()"><i class="fas fa-user-edit"></i></button>
                 </div>
                 <h2 class="mt-2">Hola <?php echo $nombre?>!!</h2>
                 <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -101,6 +113,33 @@
 
 
     </div>
+
+
+    
+	<div id="form-oculto" class="row cont-oculto oculto" >
+		<form class="form-oculto col-4" method="post">
+            <div class="d-flex justify-content-between border-bottom border-ligth pb-2">
+                <h3>Modifica tu perfil</h3>
+                <i class="fas fa-times text-muted" onclick="desplegarForm()"></i>
+            </div>
+			<div class="cont-inputs">
+                <div class="form-group mt-4 mb-5 pr-2 pl-2">
+                    <div class="foto-perfil mb-3">
+                        <img src="../imagenes/cara-1.jpg" alt="cara" class="img-edit border border-ligth" id="img-edit">
+                        <label for="imagen"  class="input-img-edit btn btn-outline-secondary" id="input-img-edit"><i class="fas fa-camera"></i></label>
+                        <input type="file" class="d-none" name="imagen" id="imagen" onchange="previewFile()"></button>
+                    </div>
+                    <label class="block" for="nombre">Editar tu nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $nombre ?>">
+                    <input type="text" hidden name="id" value="<?php echo $autor['id'] ?>">
+                </div>
+                <div class="d-flex flex-row-reverse border-top border-ligth pt-3">
+                    <button type="submit" class="btn btn-primary ">Añadir</button>
+                    <span onclick="desplegarForm()" class="btn btn-outline-dark mr-2">Cancelar</span>
+                </div>
+            </div> 
+		</form>
+	</div>
 
 
 
