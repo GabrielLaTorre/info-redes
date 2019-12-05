@@ -40,7 +40,7 @@
     //devuelve el autor insertado
     function registrarAutor( $usuario_id , $nombre )
     { 
-       $sql = "INSERT INTO autor ( nombre , usuario_id) VALUES ( '{$nombre}' , '{$usuario_id}' )"; 
+       $sql = "INSERT INTO autor ( nombre , usuario_id , foto ) VALUES ( '{$nombre}' , '{$usuario_id}' , 'perfil_default.png' )"; 
        
        if( $id = ejecutarConsulta($sql) ){ 
 		return getAutor($id);

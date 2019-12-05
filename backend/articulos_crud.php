@@ -45,7 +45,7 @@
         //manejo de la imagen
         $imagen_1 =  $arrayFiles['imagen']['name'];
         if( !move_uploaded_file($arrayFiles['imagen']['tmp_name'], $ruta_subida . $imagen_1) ){
-            $imagen_1 = NULL; //TODO: imagen por defecto o algo
+            $imagen_1 = "NULL"; 
         }
 
         $sql = "INSERT INTO articulo 
