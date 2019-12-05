@@ -7,15 +7,23 @@
 
   //si no estas logueado te vas a la pantalla de login
   if( !$autor = estaLogueado() ){ 
-		header( 'location: index.html' );
+		header( 'location: index.php' );
 		die();
 	}
 
   //si la peticion llega por POST guardamos el articulo
   if ( !empty($_POST) ) { 
-      $articulo = insertarArticulo( $_POST , $_FILES , "../imagenes/");
+	  insertarArticulo( $_POST , $_FILES , "../imagenes/");
+	  header( 'location: index.php' );
+    die();
   }
-    
+
+  //si llega por GET es par editar la noticia que viene por id
+  if( !empty($_GET) ){
+		print_r($_GET);
+  }
+
+  
   // Consulta listado géneros, la funcion devuelve la lista completa
   $nombresGenero = getGenero();
 
@@ -70,8 +78,7 @@ h5, img {
 				}
 				?>
 
-        <option>Agregar nuevo género</option> <!--TO DO: (opcional) implementar un banner flotante con JS-->
-
+        
 			</select>
 			
       <hr>

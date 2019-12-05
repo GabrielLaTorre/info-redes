@@ -99,20 +99,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                            //Recorremos la lista de generos 
-                            foreach( $mis_articulos as $articulo ) {
-                                echo "  <tr>
-                                        <th scope='row'>{$articulo['id']}</th>
-                                        <td>
-                                            
-                                            <p class='mb-1'><span class='font-weight-bold'>{$articulo['titulo']}</span> <span class='text-muted'> - {$articulo['genero']}</span></p>
-                                            <p class='font-italic mb-1'>{$articulo['subtitulo']}</p>
-                                        </td>
-                                        <td class='text-center'><a href='#' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</a></td>
-                                        </tr>";	
-                            }
-                        ?>
+                        
+                        <!--Recorremos la lista de generos -->
+                        <?php foreach( $mis_articulos as $articulo ) { ?>
+                            <tr>
+                                <th scope='row'><?php echo $articulo['id']	?></th>
+                                <td>
+                                    
+                                    <p class='mb-1'><span class='font-weight-bold'><?php echo $articulo['titulo']; ?></span> <span class='text-muted'> - <?php echo $articulo['genero']; ?></span></p>
+                                    <p class='font-italic mb-1'><?php echo $articulo['subtitulo']; ?></p>
+                                </td>
+                                <td class='text-center'><a href='<?php echo "./registro_articulo.php?id={$articulo['id']}"; ?>' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</a></td>
+                            </tr>	
+                        <?php }	?>
+                    
                     </tbody>
                 </table>
             </div>
