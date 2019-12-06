@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2019 a las 18:27:56
+-- Tiempo de generación: 07-12-2019 a las 00:54:38
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -46,8 +46,11 @@ CREATE TABLE `articulo` (
 --
 
 INSERT INTO `articulo` (`id`, `titulo`, `contenido`, `imagen_1`, `autor_id`, `subtitulo`, `fecha`, `genero_id`, `activo`) VALUES
-(10, 'ultima prueba de formulario noticia', 'ya estas ready para la siguiente seccion', 'C:/xampp/htdocs/info-redes/imagenes_noticias/anon.png', 1, 'al fin terminamos con este formulario', '2019-11-30 16:35:30', 1, b'1'),
-(11, 'El sistema de info-redes sigue ganando funcionalid', 'son excelentes desarrolladores y se la juegan', 'C:/xampp/htdocs/info-redes/imagenes_noticias/bitcoin-logo.png', 1, 'devs del equipo 1 muestra sus destresas', '2019-12-01 11:55:20', 1, b'1');
+(1, 'daniel was here', 'nothing', '', 1, 'again', '2019-12-04 20:14:36', 1, b'1'),
+(2, 'danel', 'dasfka', '190923131738-kitkat-chocolatory-2-large-tease.jpg', 1, 'danel', '2019-12-04 20:15:03', 1, b'1'),
+(3, 'anon-daniel', 'anonimc', '', 2, 'anon', '2019-12-04 20:15:36', 1, b'1'),
+(4, 'articulo anonimo 10mod', 'anonimo dejo estomod', 'NULL', 3, 'articulo anonimomod', '2019-12-05 14:34:05', 3, b'1'),
+(5, 'fsgsd', 'dhshdgddg', 'espacio-disponible.jpg', 1, 'sdgsdg', '2019-12-06 20:36:17', 1, b'0');
 
 -- --------------------------------------------------------
 
@@ -68,8 +71,9 @@ CREATE TABLE `autor` (
 --
 
 INSERT INTO `autor` (`id`, `nombre`, `usuario_id`, `foto`) VALUES
-(1, 'Daniel Padrino', 1, NULL),
-(2, 'Usuario cualquiera', 2, NULL);
+(1, 'Daniel (DanswarCode) Padrino ', 1, 'camisa_verde_reote.jpg'),
+(2, 'anon', 2, NULL),
+(3, 'anonimo 10', 3, 'perfil_default.png');
 
 -- --------------------------------------------------------
 
@@ -107,17 +111,18 @@ INSERT INTO `comentarios` (`id`, `noticia_id`, `nombre`, `comentario`) VALUES
 DROP TABLE IF EXISTS `genero`;
 CREATE TABLE `genero` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL
+  `nombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `activo` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `genero`
 --
 
-INSERT INTO `genero` (`id`, `nombre`) VALUES
-(1, 'Espectaculos'),
-(2, 'Politica'),
-(3, 'Sociales');
+INSERT INTO `genero` (`id`, `nombre`, `activo`) VALUES
+(1, 'Espectaculos', 1),
+(2, 'Politica', 1),
+(3, 'Sociales', 1);
 
 -- --------------------------------------------------------
 
@@ -138,8 +143,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `username`, `pwd`, `activo`) VALUES
-(1, 'danswar', '$2y$10$dnPTz6JsWw/iwHL8BzAqNeJNAblJ7eqaIALeMlqqMzH5B5rvC14vm', b'1'),
-(2, 'user', '$2y$10$wVyf1.qDzJbCaEV43NvdwuB8rwvTzBo/L1vInQkqnjxzWottpWMtW', b'1');
+(1, 'danswar', '$2y$10$rjMQHtGN70R0eopgrxqNZutglrdcIMZX1ndGe5hDhXgLNNAlVSrKS', b'1'),
+(2, 'anon', '$2y$10$2af0O5fF95f2HPkI9yfoAOdCyZ0XsXyMlU4wa6C5jo1ndzGA8fDkS', b'1'),
+(3, 'anon10', '$2y$10$yMSlr0d4Lswr7wqOawaww.hnj45o/NSVmYG8Jsb/F8/CEaZuB3M8G', b'1');
 
 --
 -- Índices para tablas volcadas
@@ -188,13 +194,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
@@ -212,7 +218,7 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
