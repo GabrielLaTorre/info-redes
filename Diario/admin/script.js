@@ -23,3 +23,18 @@ function previewFile() {
       preview.src = "";
     }
   }
+
+
+  //para manejar el borrado de registro
+  async function borrarRegistro( id ){
+
+    const params = new URLSearchParams();
+    params.append('id', id); //HARDCODEADO POR EL MOMENTO
+
+    var respuesta =  await axios.post("#", params);
+
+    if(respuesta.status == 200){
+      window.location.assign( window.location.href );
+    }
+
+  }

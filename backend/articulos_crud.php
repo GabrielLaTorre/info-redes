@@ -12,15 +12,15 @@
     // trae los articulos de la base de datos
     // si no se le pasa id, trae todas los articulos
     function getArticulo( $id=NULL){
-        $where = "";
+        $where_id = "1";
         if($id){
-            $where = " WHERE articulo.id = $id";    
+            $where_id = "articulo.id = $id";    
         }
         
-        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.genero_id, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero 
+        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.genero_id, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero, articulo.autor_id 
                 from articulo
                 inner join autor on autor_id=autor.id
-                inner join genero on genero_id=genero.id $where 
+                inner join genero on genero_id=genero.id  WHERE articulo.activo=1 AND $where_id 
                 ORDER BY `articulo`.`id` DESC";
         
         return ejecutarConsulta($sql);
@@ -70,7 +70,31 @@
     //recibe un array con los datos a actualizar
     //si lo pudo actualizar, devuelve un array con el articulo
     //si no devuelve false
-    function updateArticulo( $arrayArticulo ){
+    function updateArticulo( $arrayArticulo , $arrayFiles , $ruta_subida ){
+        
+			$id_noticia = $arrayArticulo['id'];
+			$titulo = $arrayArticulo['titulo'];
+			$subtitulo = $arrayArticulo['subtitulo'];
+			$contenido = $arrayArticulo['contenido'];
+			$genero_id = $arrayArticulo['genero_id'];
+			$autor_id = $arrayArticulo['autor_id'];
+			$img = $arrayFiles['imagen']['name'];
+
+			if($img){
+				$sql = "UPDATE `articulo` 
+				SET `titulo`='$titulo',`contenido`='$contenido',`imagen_1`=$img,`autor_id`=$autor_id,`subtitulo`='$subtitulo',`genero_id`=$genero_id 
+				WHERE `id`=$id_noticia";
+				move_uploaded_file($arrayFiles['imagen']['tmp_name'],$ruta_subida.$img);
+
+			}else{
+				$sql = "UPDATE `articulo` 
+				SET `titulo`='$titulo',`contenido`='$contenido', `autor_id`=$autor_id,`subtitulo`='$subtitulo',`genero_id`=$genero_id 
+				WHERE `id`=$id_noticia";
+			
+			}
+            
+			ejecutarConsulta($sql);
+     
 
     }
 
@@ -82,7 +106,8 @@
     //devuelve true/false
     //implementar borrado logico
     function deleteArticulo( $id ){
-
+        $sql = "UPDATE `articulo` SET `activo`= 0 WHERE `id`= $id";
+        ejecutarConsulta($sql);
     }
 
     //--
@@ -93,7 +118,7 @@
         
         if( $autor_id == NULL) return false; // no pasa id devuelve false;
 
-        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.subtitulo, articulo.fecha, autor.nombre autor, genero.nombre genero 
+        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.subtitulo, articulo.fecha, articulo.autor_id, autor.nombre autor, genero.nombre genero, articulo.activo 
         from articulo
         inner join autor on autor_id=autor.id
         inner join genero on genero_id=genero.id   WHERE articulo.autor_id = $autor_id ORDER BY `articulo`.`id` DESC";

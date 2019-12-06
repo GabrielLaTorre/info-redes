@@ -3,12 +3,27 @@
 	require "../../backend/manejo_sesiones.php"; // para comprobar que esta logueado
   require "../../backend/articulos_crud.php"; //para manejar la tabla de articulos
 
+	//--
+	//--
   //si no estas logueado te vas a la pantalla de login
-  if( !$autor = estaLogueado() ){ 
-    header( 'location: index.html' );
-    die();
+	if( !$autor = estaLogueado() ){ 
+		header( 'location: index.html' );
+		die();
+	}
+
+
+
+	//--
+	//--
+	//si llegamos aqui por POST se esta intentando borrar una noticia
+	//el id de la noticia viene por post, esto lo manejamos asincrono
+	if( !empty($_POST) ){
+		$id = $_POST['id'];
+		deleteArticulo( $id );
+		die();
 	}
 	
+
 	//recuperamos todas los articulos
 	$listaArticulos = getArticulo();
 
@@ -22,10 +37,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>InforRedes | <?php echo $nombre ?></title>
+    <title>InforRedes | Listado de noticias</title>
 
   	<link rel="stylesheet" href="estilos.css">
-		<script src="./script.js"></script>
+		<script src="script.js"></script>
+
+		<!--Libreria Axios-->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
 
 		<!--Fontawesome CDN-->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -45,7 +63,7 @@
 	<div class="container">
 
 		<div class="row  d-flex justify-content-between mt-5">
-			<button class="btn btn-light" onclick="desplegarForm()"><i class="fas fa-plus-circle"></i> Agregar nueva</button>
+			<a href="registro_articulo.php" class="btn btn-light" ><i class="fas fa-plus-circle"></i> Agregar nueva</a>
 			
 			<form >
 				<div class="input-group">
@@ -79,7 +97,7 @@
 								<p class='mb-1'><span class='font-weight-bold'><?php echo $articulo['titulo']; ?></span> <span class='text-muted'> - <?php echo $articulo['genero']; ?></span></p>
 								<p class='font-italic mb-1'><?php echo $articulo['subtitulo']; ?></p>
 							</td>
-							<td class='text-center'><a href='<?php echo "./registro_articulo.php?id={$articulo['id']}"; ?>' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</a></td>
+							<td class='text-center'><a href='<?php echo "./registro_articulo.php?id={$articulo['id']}"; ?>' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><button onclick="borrarRegistro(<?php echo $articulo['id']; ?>)" class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</button></td>
 						</tr>	
 					<?php }	?>
 
@@ -88,16 +106,7 @@
 			</table>
 		</div>
 
-		<div id="form-oculto" class="cont-oculto oculto" onclick="desplegarForm()">
-			<form class="form-oculto" action="">
-				<div class="form-group">
-					<label for="exampleInputEmail1">Nombre de nuevo genero</label>
-					<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="ejm: Politica, Negocios, etc..">
-				</div>
-							
-				<button type="submit" class="btn btn-primary">Añadir</button>
-			</form>
-		</div>
+		
 
 	</div>
 
