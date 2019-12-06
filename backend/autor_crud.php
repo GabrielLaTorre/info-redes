@@ -52,8 +52,18 @@
 
     //updatear autor, se le pasa un array que contenga los valores, 
     //devuelve el autor modificado
-    function updateAutor($arrayAutor){
-
+    function updateAutor( $arrayAutor , $arrayFiles , $ruta_subida ){
+        $nom =  $arrayAutor['nombre'];
+        $img =  $arrayFiles['imagen']['name'];
+        $id = $arrayAutor['id'];
+        if($img){
+            $sql = "UPDATE `autor` SET `nombre`='$nom',`foto`='$img' WHERE `id`=$id";
+            move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta_subida . $img);
+        } else {
+            $sql = "UPDATE `autor` SET `nombre`='$nom' WHERE `id`=$id";
+        }
+        
+        ejecutarConsulta($sql);
     }
 
     //borrado de un autor, 

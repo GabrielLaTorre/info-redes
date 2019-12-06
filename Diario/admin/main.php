@@ -8,27 +8,23 @@
     //--	
     //preguntamos si esta logeado
     if( $autor = estaLogueado() ){
-        //hacer algo, la variable $autor tiene los datos del autor loguedo
-        //descomentar la linea siguiente linea y saldran los datos en pantalla
-        //print_r( $autor );
-
+        
         //si llegamos a esta pagina por POST se esta intentado 
-        //hacer update a este auto
-        if( !empty($_POST) ){
+        //hacer UPDATE a este autor o BORRAR una noticia
+        //el borrado se maneja ASINCRONO
+        if( !empty($_POST)){
 
-            $conexion = getConexion();
-            $nom =  $_POST['nombre'];
-            $img =  $_FILES['imagen']['name'];
-            $id = $_POST['id'];
-            if($img){
-                $sql = "UPDATE `autor` SET `nombre`='$nom',`foto`='$img' WHERE `id`=$id";
-                move_uploaded_file($_FILES['imagen']['tmp_name'],"../imagenes/$img");
-            } else {
-                $sql = "UPDATE `autor` SET `nombre`='$nom' WHERE `id`=$id";
-            }
-            
-            mysqli_query($conexion,$sql);
+            if( count($_POST)==1 ){
+                deleteArticulo ( $_POST['id'] );
+                die();
+            }else{
+                updateAutor( $_POST , $_FILES , '../imagenes/' );
+            } 
+                              
         }
+
+
+
         //Algunas variables de apollo
         $autor = getAutor($autor['id'])[0];
         $nombre = $autor['nombre'];
@@ -39,7 +35,7 @@
         header ("location: index.php"); //te vas a login
         die();
     }
-
+    
 ?>
 
 
@@ -53,6 +49,9 @@
 
     <link rel="stylesheet" href="estilos.css">
     <script src="./script.js"></script>
+
+    <!--Libreria Axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!--Fontawesome CDN-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -106,10 +105,10 @@
                                 <th scope='row'><?php echo $articulo['id']	?></th>
                                 <td>
                                     
-                                    <p class='mb-1'><span class='font-weight-bold'><?php echo $articulo['titulo']; ?></span> <span class='text-muted'> - <?php echo $articulo['genero']; ?></span></p>
+                                    <p class='mb-1'><span class='font-weight-bold'><?php echo $articulo['titulo']; ?></span> <span class='text-muted'> - <?php echo $articulo['genero']; ?></span><?php if($articulo['activo']==0){ echo "<span class='text-muted'> - Inactiva </span>"; }?></p>
                                     <p class='font-italic mb-1'><?php echo $articulo['subtitulo']; ?></p>
                                 </td>
-                                <td class='text-center'><a href='<?php echo "./registro_articulo.php?id={$articulo['id']}"; ?>' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</a></td>
+                                <td class='text-center'><a href='<?php echo "./registro_articulo.php?id={$articulo['id']}"; ?>' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><button onclick="borrarRegistro(<?php echo $articulo['id']; ?>)" class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</button></td>
                             </tr>	
                         <?php }	?>
                     

@@ -136,9 +136,6 @@ table {
   background: white;
   border-radius: 5px;
 }
-.cont-inputs{
- 
-}
 .oculto{
   display: none !important;
 }
@@ -148,4 +145,7 @@ table {
   object-fit: cover;
   display: inline-block;
   border-radius: 50%;
+}
+.h5-leo, .img-leo {
+	margin-top: 10px;
 }
