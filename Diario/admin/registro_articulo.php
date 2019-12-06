@@ -17,31 +17,8 @@
   if ( !empty($_POST) ) { 
 
 		if( isset($_POST['id']) ){ //AQUI EDITAMOS
-			$conexion = getConexion();
-			
-			$id_noticia = $_POST['id'];
-			$titulo = $_POST['titulo'];
-			$subtitulo = $_POST['subtitulo'];
-			$contenido = $_POST['contenido'];
-			$genero_id = $_POST['genero_id'];
-			$autor_id = $_POST['autor_id'];
-			$img = $_FILES['imagen']['name'];
 
-			if($img){
-				$sql = "UPDATE `articulo` 
-				SET `titulo`='$titulo',`contenido`='$contenido',`imagen_1`=$img,`autor_id`=$autor_id,`subtitulo`='$subtitulo',`genero_id`=$genero_id 
-				WHERE `id`=$id_noticia";
-				move_uploaded_file($_FILES['imagen']['tmp_name'],"../imagenes/$img");
-
-			}else{
-				$sql = "UPDATE `articulo` 
-				SET `titulo`='$titulo',`contenido`='$contenido', `autor_id`=$autor_id,`subtitulo`='$subtitulo',`genero_id`=$genero_id 
-				WHERE `id`=$id_noticia";
-			
-			}
-
-			ejecutarConsulta($sql);
-
+			updateArticulo( $_POST , $_FILES , "../imagenes/");
 			header( 'location: listado_articulos.php' );
 			die();
 
@@ -55,9 +32,10 @@
 	
 
 	//--
-  //si llega por GET es par editar la noticia que viene por id
-  if( !empty($_GET) ){
-		$editar=true;
+  //si llega por GET un id es para editar una noticia especifica
+  $editar=false;
+  if( isset($_GET['id']) ){
+	  	$editar=true;
 		$id=$_GET['id'];
 		$articulo = getArticulo( $id )[0];
 		
@@ -65,6 +43,8 @@
 		$subtitulo = $articulo['subtitulo'];
 		$contenido = $articulo['contenido'];
 		$genero_id = $articulo['genero_id'];
+		$autor_id = $articulo['autor_id'];
+		
   }
 
 
@@ -87,69 +67,60 @@
 
 <body>
 
-<style>
-h5, img {
-	margin-top: 10px;
-}
-</style>
-
 <?php include "navbar.html"; ?> <!--INCLUIMOS EL NAVABAR-->
 
 
-<div class="img">
+<div class="img-leo">
 
 	<div class="container col-md-5 text-center">
 	
-	<img src="../imagenes/icono-noticia.png" alt="icono-noticia"><h1>Agregar nueva noticia</h1>
+		<img src="../imagenes/icono-noticia.png" alt="icono-noticia"><h1>Agregar nueva noticia</h1>
 
-	<form method="POST" enctype="multipart/form-data">
-		<div class="form-row">
-			<div class="col">
-			<input type="input" <?php if($editar){ echo "value='$titulo'"; } ?> class="form-control" id="titulo" name="titulo" placeholder="Ingrese aquí el título" required>
+		<form method="POST" enctype="multipart/form-data">
+			<div class="form-row">
+				<div class="col">
+				<input type="input" <?php if($editar){ echo "value='$titulo'"; } ?> class="form-control" id="titulo" name="titulo" placeholder="Ingrese aquí el título" required>
+				</div>
+				<div class="col">
+				<input type="input" <?php if($editar){ echo "value='$subtitulo'"; } ?> class="form-control" id="subtitulo"  name="subtitulo" maxlength="40" placeholder="Ingrese aquí el subtítulo" required>
+				</div>
 			</div>
-			<div class="col">
-			<input type="input" <?php if($editar){ echo "value='$subtitulo'"; } ?> class="form-control" id="subtitulo"  name="subtitulo" maxlength="40" placeholder="Ingrese aquí el subtítulo" required>
-			</div>
-		</div>
 
-			<label for="idGenero"><h5>Género</h5></label>
-			<select class="form-control form-control-sm" id="idGenero" name='genero_id' <?php if($editar){ echo ""; } ?>>
-				
-				<?php
-				foreach($nombresGenero as $fila) {
-					$idGenero = $fila["id"];
-					$nombreGenero = $fila["nombre"];
+				<label for="idGenero"><h5 class="h5-leo">Género</h5></label>
+				<select class="form-control form-control-sm" id="idGenero" name='genero_id' <?php if($editar){ echo ""; } ?>>
 					
-					$selecionado = $genero_id==$idGenero ? " selected='selected'" : "";
+					<?php
+					foreach($nombresGenero as $fila) {
+						$idGenero = $fila["id"];
+						$nombreGenero = $fila["nombre"];
+						
+						$selecionado = $genero_id==$idGenero ? " selected='selected'" : "";
 
-					echo "<option value='$idGenero' $selecionado >$nombreGenero</option>";
-				}
-				?>
+						echo "<option value='$idGenero' $selecionado >$nombreGenero</option>";
+					}
+					?>
 
-        
-			</select>
 			
-      <hr>
-			<div class="form-group">
-				<label for="contenido" ><h5>Contenido: </h5></label>
-				<textarea class="form-control"  rows="4" cols="50" id="contenido" name="contenido" required><?php if($editar){ echo $contenido; } ?></textarea>
+				</select>
+				
+		<hr>
+				<div class="form-group">
+					<label for="contenido" ><h5 class="h5-leo">Contenido: </h5></label>
+					<textarea class="form-control"  rows="4" cols="50" id="contenido" name="contenido" required><?php if($editar){ echo $contenido; } ?></textarea>
 
-			</div>
-			<hr>
-			
-      <div class="form-group">
-				<label for="imagen-noticia"><i class="fa fa-image"></i> Imágen de la noticia </label> <i class="far fa-arrow-alt-circle-right"></i>
-				<input type="file" name="imagen" class="form-control-file" id="imagen-noticia">
-			</div>
-			<div class="form-group">
-
-					<input hidden name='autor_id' value='<?php echo $autor['id'] ?>' > <!-- AQUI PASAMOS EL AUTOR -->
-					<?php if($editar){ echo "<input hidden name='id' value='$id' > "; } ?> <!-- AQUI PASAMOS EL id DEL ARTICULO -->
-
-				<button title="Cargar noticia" type="submit" class="btn btn-primary btn-lg"><i class="fa fa-chevron-circle-right"></i></button>
-
-			</div>
-</form>
+				</div>
+				<hr>
+				
+		<div class="form-group">
+					<label for="imagen-noticia"><i class="fa fa-image"></i> Imágen de la noticia </label> <i class="far fa-arrow-alt-circle-right"></i>
+					<input type="file" name="imagen" class="form-control-file" id="imagen-noticia">
+				</div>
+				<div class="form-group">
+						<input hidden name='autor_id' value='<?php echo $editar ? $autor_id : $autor['id']; ?>' > <!-- AQUI PASAMOS EL AUTOR -->
+						<?php if($editar){ echo "<input hidden name='id' value='$id' > "; } ?> <!-- AQUI PASAMOS EL id DEL ARTICULO -->
+						<button title="Cargar noticia" type="submit" class="btn btn-primary btn-lg"><i class="fa fa-chevron-circle-right"></i></button>
+				</div>
+		</form>
 	</div>
 </div>
 
