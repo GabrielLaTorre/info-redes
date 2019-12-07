@@ -73,7 +73,7 @@
                     <button type="button" class="btn btn-outline-secondary"  onclick="desplegarForm()"><i class="fas fa-user-edit"></i></button>
                 </div>
                 <h2 class="mt-2">Hola <?php echo $nombre?>!!</h2>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p>Bienvenido a tu zona de gestion, aqui podras administrar toda la información de InfoRedes usando la barra de navegación, pulsando "Reset" todos los registros volveran a aparecer.</p>
                 <p><a class="btn btn-secondary" href="./registro_articulo.php" role="button">Agregar articulo</a></p>
 
             </div>

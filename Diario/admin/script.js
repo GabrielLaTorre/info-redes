@@ -1,9 +1,10 @@
-function desplegarForm(){
+function desplegarForm(  ){
     var div_oculto = document.getElementById("form-oculto");
     if( div_oculto.classList.contains('oculto') ){
         div_oculto.classList.remove('oculto');
     }else{
         div_oculto.classList.add('oculto');
+        
     }
 }
 
@@ -29,7 +30,7 @@ function previewFile() {
   async function borrarRegistro( id ){
 
     const params = new URLSearchParams();
-    params.append('id', id); //HARDCODEADO POR EL MOMENTO
+    params.append('id', id);
 
     var respuesta =  await axios.post("#", params);
 
@@ -38,3 +39,24 @@ function previewFile() {
     }
 
   }
+
+  //pedir datos json
+  async function pedirJson( id ){
+    var respuesta =  await axios.get( window.location.href + "?id=" + id );
+
+    document.getElementById("nombre").value = respuesta.data[0].nombre;
+    document.getElementById('comodin').setAttribute("name","id");
+    document.getElementById('comodin').value = respuesta.data[0].id;
+    
+    desplegarForm();
+  }
+
+  //para resetear los inputs del formulario
+  function resetarCamposGenero(){
+    document.getElementById('comodin').removeAttribute( "name" );
+    document.getElementById('comodin').value = "";
+    desplegarForm();
+  }
+
+
+  

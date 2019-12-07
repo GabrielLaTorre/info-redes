@@ -2,6 +2,7 @@
 
  require "../../backend/manejo_sesiones.php"; // para comprobar que esta logueado
  require "../../backend/genero_crud.php"; //para manejar la tabla de generos
+ require "../../backend/articulos_crud.php"; //para contar cuantas noticias por genero
  	
 
   //si no estas logueado te vas a la pantalla de login
@@ -9,6 +10,8 @@
 		header( 'location: index.html' );
 		die();
 	}
+
+
 
 	//si llega por POST insertamos / editamos / borramos el genero
 	//el borrado se gestiona con un ASINCRONO
@@ -19,14 +22,27 @@
 
 		}else if( isset($_POST['id']) && !isset($_POST['nombre'])){
 			deleteGenero($_POST['id']);
-			die; //no queremos devolver la pagina por que viene asincronamente
+			die; //no queremos devolver la pagina, la peticion viene asincronamente
 
 		}else{
 			updateGenero($_POST);
+			
 		}
 
 	}
 
+
+
+	//si llegamos por GET retornamos el JSON con los datos
+	//del id que recibimos
+	if( isset($_GET['id']) ){
+		$id = $_GET['id'];
+		$jsonGenero = json_encode( getGenero($id) , JSON_UNESCAPED_UNICODE);
+		die( $jsonGenero );
+	}
+
+
+	
 	//traemos la lista con todos los generos
 	$listaGeneros = getGenero();
 
@@ -64,7 +80,7 @@
 <div class="container">
 
 	<div class="row  d-flex justify-content-between mt-5">
-		<button class="btn btn-light" onclick="desplegarForm()"><i class="fas fa-plus-circle"></i> Agregar nueva</button>
+		<button class="btn btn-primary" onclick="desplegarForm()"><i class="fas fa-plus-circle"></i> Agregar nueva</button>
 		
 		<form >
 			<div class="input-group">
@@ -82,7 +98,7 @@
 				<tr>
 				<th scope="col">#</th>
 				<th scope="col">Nombre</th>
-				<th scope="col">Cant. articulos</th>
+				<th scope="col" class="text-center">Cant. articulos</th>
 				<th scope="col " >
 					
 				</th>
@@ -95,9 +111,9 @@
 							  <tr>
 								<th scope='row'><?php echo $genero['id']; ?></th>
 								<td><?php echo $genero['nombre']; ?></td>
-								<td>cant. noticias</td>
+								<td class="text-center"><?php echo count( getArticuloByGenero($genero["id"]) ) ?></td>
 								<td class='text-center'>
-									<a href='#' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a>
+									<button onclick='pedirJson(<?php echo $genero["id"]; ?>)' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</button>
 									<button onclick='borrarRegistro(<?php echo $genero["id"]; ?>)' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</button></td>
 								</tr>
 
@@ -110,17 +126,18 @@
 	<div id="form-oculto" class="row cont-oculto oculto" >
 		<form class="form-oculto col-4" method="post" enctype="multipart/form-data">
             <div class="d-flex justify-content-between border-bottom border-ligth pb-2">
-                <h3>Agregar genero</h3>
-                <i class="fas fa-times text-muted" onclick="desplegarForm()"></i>
+                <h3>Datos genero</h3>
+                <i class="fas fa-times text-muted" onclick="resetarCamposGenero()"></i>
             </div>
 			<div class="cont-inputs">
                 <div class="form-group mt-4 mb-5 pr-2 pl-2">
                     <label class="block" for="nombre">Nombre de genero</label>
                     <input type="text" name="nombre" id="nombre" class="form-control">
+					<input type="text" hidden id="comodin">
                 </div>
                 <div class="d-flex flex-row-reverse border-top border-ligth pt-3">
-                    <button type="submit" class="btn btn-primary ">Añadir</button>
-                    <span onclick="desplegarForm()" class="btn btn-outline-dark mr-2">Cancelar</span>
+                    <button type="submit" class="btn btn-primary ">Listo</button>
+                    <span onclick="resetarCamposGenero()" class="btn btn-outline-dark mr-2">Cancelar</span>
                 </div>
             </div> 
 		</form>

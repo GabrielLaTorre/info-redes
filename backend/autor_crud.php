@@ -8,13 +8,13 @@
     //si no se pasa $id regresa toda la tabla
     function getAutor($id=NULL)
     {
-        $where = "";
+        $where_id = "1";
         if($id){
-            $where = " WHERE autor.id = $id";    
+            $where_id = "autor.id = $id";    
         }
         $sql = "SELECT autor.*, usuario.username as username 
                 FROM autor INNER JOIN usuario
-                ON autor.usuario_id = usuario.id" . $where;
+                ON autor.usuario_id = usuario.id  WHERE usuario.activo = 1 AND $where_id";
         
         return ejecutarConsulta($sql);
     }

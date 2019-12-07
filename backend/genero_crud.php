@@ -26,22 +26,37 @@
     // inserta un genero de la base de datos
     function registrarGenero( $arrayGenero ){
 
-			$nombre =  $arrayGenero['nombre'];
-			$sql = "INSERT INTO `genero`( `nombre`, `activo`) VALUES ( '$nombre' , 1 )";
+        $nombre =  $arrayGenero['nombre'];
+        $sql = "INSERT INTO `genero`( `nombre`, `activo`) VALUES ( '$nombre' , 1 )";
       
-      return ejecutarConsulta($sql);
-		}
+        return ejecutarConsulta($sql);
+    }
+    
+
+
+    //--
+    //--
+    //updatear genero, se le pasa un array que contenga los valores, 
+    //devuelve el genero modificado
+    function updateGenero( $arrayGenero ){
+        $id = $arrayGenero['id'];
+        $nom =  $arrayGenero['nombre'];
+        
+        $sql = "UPDATE `genero` SET `nombre`='$nom' WHERE `id`=$id";
+                
+        ejecutarConsulta($sql);
+    }
 		
 
-		//--
+    //--
     //--
     // borramos un genero de la base de datos
     function deleteGenero( $id ){
 
-			$sql = "UPDATE `genero` SET `activo`= 0 WHERE `id`= $id";
-      
-			return ejecutarConsulta($sql);
-			
-		}
+        $sql = "UPDATE `genero` SET `activo`= 0 WHERE `id`= $id";
+    
+        return ejecutarConsulta($sql);
+        
+    }
 
 ?>

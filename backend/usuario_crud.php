@@ -48,4 +48,18 @@
     }
 
 
+
+    //--
+    //--
+    // borramos un genero de la base de datos
+    function deleteUsuario( $id ){
+
+        $sql = "UPDATE `usuario` SET `activo`= 0 WHERE `id`= $id";
+    
+        return ejecutarConsulta($sql);
+        
+    }
+
+
+
 ?>
