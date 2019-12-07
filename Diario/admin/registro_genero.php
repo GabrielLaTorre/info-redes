@@ -10,6 +10,19 @@
 		die();
 	}
 
+	//si llega por POST insertamos / editamos / borramos el genero
+	//el borrado se gestiona con un ASINCRONO
+	if( !empty($_POST) ){
+		
+		if( !isset($_POST['id']) ){
+			registrarGenero($_POST);
+		}else{
+
+		}
+
+
+	}
+
 	//traemos la lista con todos los generos
 	$listaGeneros = getGenero();
 
@@ -84,21 +97,28 @@
 		</table>
 	</div>
 
-	<div id="form-oculto" class="cont-oculto oculto" onclick="desplegarForm()">
-		<form class="form-oculto" action="">
-			<div class="form-group">
-				<label for="exampleInputEmail1">Nombre de nuevo genero</label>
-				<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="ejm: Politica, Negocios, etc..">
-			</div>
-						
-			<button type="submit" class="btn btn-primary">Añadir</button>
+	<div id="form-oculto" class="row cont-oculto oculto" >
+		<form class="form-oculto col-4" method="post" enctype="multipart/form-data">
+            <div class="d-flex justify-content-between border-bottom border-ligth pb-2">
+                <h3>Agregar genero</h3>
+                <i class="fas fa-times text-muted" onclick="desplegarForm()"></i>
+            </div>
+			<div class="cont-inputs">
+                <div class="form-group mt-4 mb-5 pr-2 pl-2">
+                    <label class="block" for="nombre">Nombre de genero</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control">
+                </div>
+                <div class="d-flex flex-row-reverse border-top border-ligth pt-3">
+                    <button type="submit" class="btn btn-primary ">Añadir</button>
+                    <span onclick="desplegarForm()" class="btn btn-outline-dark mr-2">Cancelar</span>
+                </div>
+            </div> 
 		</form>
 	</div>
 
+
 </div>
 
-
-	
 
 
 

@@ -8,16 +8,28 @@
 
     //--
     //--
-    // trae los articulos de la base de datos
+    // trae los generos de la base de datos
     // si no se le pasa id, trae todas los articulos
     function getGenero( $id=NULL ){
-        $where = "";
+        $where_id = "1";
         if($id){
-            $where = " WHERE id = '{$id}'";    
+            $where_id = "id = '{$id}'";    
         }
-        $sql = "SELECT genero.* FROM genero" . $where;
+        $sql = "SELECT genero.* FROM genero WHERE activo = 1 AND $where_id";
         
         return ejecutarConsulta($sql);
+    }
+
+
+     //--
+    //--
+    // inserta un genero de la base de datos
+    function registrarGenero( $arrayGenero ){
+
+			$nombre =  $arrayGenero['nombre'];
+			$sql = "INSERT INTO `genero`( `nombre`, `activo`) VALUES ( '$nombre' , 1 )";
+      
+      return ejecutarConsulta($sql);
     }
 
 ?>
