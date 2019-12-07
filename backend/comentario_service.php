@@ -8,7 +8,7 @@
     //POST: si la peticion viene por POST el cliente esta intentando guardar un nuevo comentario.
     //      si la peticion viene con todos los datos devolvemos un HTML con el ultimo registro
     //      guardado. Si esta incompleta NULL
-    if(isset($_POST))
+    if(!empty($_POST))
     {
         
         //validamos que esten todos los datos

@@ -1,5 +1,5 @@
 <?php
-    include "../backend/comentario_crud.php";
+    include "../backend/comentario_service.php";
 
     $comentarios = getAllComments('1'); //HARDCODE POR AHORA
 ?>
@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="estilos.css">
     
     <script src="js/script.js"></script>
-    <script src="./js/asincronos.js"></script>
 
 </head>
 <body>
@@ -130,7 +129,6 @@
                             <div>
                                 <p class="nombre-comentario"><?php echo $comentario['nombre']; ?></p>
                                 <p><?php echo $comentario['comentario']; ?></p>
-                                <small>Hace 2 horas</small>
                             </div>
                         </div>
                     <?php } ?>
