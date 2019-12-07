@@ -128,4 +128,23 @@
     }
 
 
+    //--
+    //--
+    //devuelve las noticias por un autor especifico
+    //recibe el id del autor
+    function getArticuloByGenero( $genero_id ){
+        
+        if( $genero_id == NULL) return false; // no pasa id devuelve false;
+
+        $sql =  "SELECT articulo.id, articulo.titulo, articulo.contenido, articulo.imagen_1, articulo.subtitulo, articulo.fecha, articulo.autor_id, autor.nombre autor, genero.nombre genero, articulo.activo 
+        from articulo
+        inner join autor on autor_id=autor.id
+        inner join genero on genero_id=genero.id   WHERE articulo.genero_id = $genero_id ORDER BY `articulo`.`id` DESC";
+        
+        return ejecutarConsulta($sql);
+
+    }
+
+
+
 ?>

@@ -63,7 +63,7 @@
 	<div class="container">
 
 		<div class="row  d-flex justify-content-between mt-5">
-			<a href="registro_articulo.php" class="btn btn-light" ><i class="fas fa-plus-circle"></i> Agregar nueva</a>
+			<a href="registro_articulo.php" class="btn btn-primary" ><i class="fas fa-plus-circle"></i> Agregar nueva</a>
 			
 			<form >
 				<div class="input-group">
