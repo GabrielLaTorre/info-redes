@@ -30,6 +30,18 @@
 			$sql = "INSERT INTO `genero`( `nombre`, `activo`) VALUES ( '$nombre' , 1 )";
       
       return ejecutarConsulta($sql);
-    }
+		}
+		
+
+		//--
+    //--
+    // borramos un genero de la base de datos
+    function deleteGenero( $id ){
+
+			$sql = "UPDATE `genero` SET `activo`= 0 WHERE `id`= $id";
+      
+			return ejecutarConsulta($sql);
+			
+		}
 
 ?>

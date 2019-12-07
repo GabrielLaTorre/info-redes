@@ -16,10 +16,14 @@
 		
 		if( !isset($_POST['id']) ){
 			registrarGenero($_POST);
+
+		}else if( isset($_POST['id']) && !isset($_POST['nombre'])){
+			deleteGenero($_POST['id']);
+			die; //no queremos devolver la pagina por que viene asincronamente
+
 		}else{
-
+			updateGenero($_POST);
 		}
-
 
 	}
 
@@ -39,6 +43,9 @@
 
 	<link rel="stylesheet" href="estilos.css">
 	<script src="./script.js"></script>
+
+	<!--Libreria Axios-->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 	 <!--Fontawesome CDN-->
 	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -82,17 +89,20 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php
-					//Recorremos la lista de generos 
-					foreach( $listaGeneros as $genero ) {
-						echo "  <tr>
-								<th scope='row'>{$genero['id']}</th>
-								<td>{$genero['nombre']}</td>
+			<!--Recorremos la lista de generos -->
+				
+			<?php foreach( $listaGeneros as $genero ) {?>
+							  <tr>
+								<th scope='row'><?php echo $genero['id']; ?></th>
+								<td><?php echo $genero['nombre']; ?></td>
 								<td>cant. noticias</td>
-								<td class='text-center'><a href='#' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><a href='#' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</a></td>
-								</tr>";	
-					}
-				?>
+								<td class='text-center'>
+									<a href='#' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a>
+									<button onclick='borrarRegistro(<?php echo $genero["id"]; ?>)' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</button></td>
+								</tr>
+
+			<?php	}	?>
+
 			</tbody>
 		</table>
 	</div>
