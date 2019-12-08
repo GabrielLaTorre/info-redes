@@ -82,7 +82,7 @@
 
 			if($img){
 				$sql = "UPDATE `articulo` 
-				SET `titulo`='$titulo',`contenido`='$contenido',`imagen_1`=$img,`autor_id`=$autor_id,`subtitulo`='$subtitulo',`genero_id`=$genero_id 
+				SET `titulo`='$titulo',`contenido`='$contenido',`imagen_1`='$img',`autor_id`=$autor_id,`subtitulo`='$subtitulo',`genero_id`=$genero_id 
 				WHERE `id`=$id_noticia";
 				move_uploaded_file($arrayFiles['imagen']['tmp_name'],$ruta_subida.$img);
 
