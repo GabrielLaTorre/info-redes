@@ -1,3 +1,49 @@
+<?php
+
+    require '../backend/articulos_crud.php';
+    
+    //Lamaremos esta funcion para entregar los articulos de a uno por vez
+    $listaArticulos = getArticulo();
+    $articulo=[];
+    $id="";
+    $titulo="";
+    $subtitulo="";
+    $img="";
+
+    
+    function siguienteArticulo(){ 
+        global $contador;
+        global $listaArticulos;
+        global $articulo;
+        global $id;
+        global $titulo;
+        global $subtitulo;
+        global $img;
+        global $genero;
+
+		static $contador =-1;	
+		
+        $tamaño = count( $listaArticulos );
+
+        if( !isset($listaArticulos[$contador]) ){
+            $contador = -1;
+        }
+
+        $contador++; echo $contador;
+        $articulo = $listaArticulos[ $contador ];
+        $id=$articulo['id'];
+        $titulo=$articulo['titulo'];
+        $subtitulo = $articulo['subtitulo'];
+        $img = $articulo['imagen_1'];
+        $genero = $articulo['genero'];
+
+    }
+    
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -142,89 +188,137 @@
 
                 <div class="cards-uno">
 
-                    <article class="card-small">
-                        <a href="noticia.php">
-                            <img src="imagenes/tecnologia.jpg" alt="tecnologia">
-                            <h3>
-                                Oil jumps above $60 ahead of storm in Gulf of Mexico
-                            </h3>
-                        </a>
-                        <span>Economia</span>
-                    </article>
+                    <?php
 
-                    <article class="card-small">
-                        <a href="noticia.php">
-                            <img src="imagenes/bolsa-de-valores.jpg" alt="bolsavalores">
-                            <h3>
-                                Oil jumps above $60 ahead of storm in Gulf of Mexico
-                            </h3>
-                        </a>
-                        <span>Economia</span>
-                    </article>
-
-                    <article class="card-small">
-                        <a href="noticia.php">
-                            <img src="imagenes/photo-1495996797143-9fc04e79e304.webp" alt="">
-                            <h3>
-                                Oil jumps above $60 ahead of storm in Gulf of Mexico
-                            </h3>
-                        </a>
-                        <span>Economia</span>
-                    </article>
-                
-                </div>
-
-                    <article class="card-large">
-                        <div class="container-large">
-                            <div class="card-enlace">
-                                <img src="imagenes/NoticiasVarias-2.jpg" alt="varias1">
-                            </div>
-                        
-                            <div class="text-card">
-                                <a href="noticia.php">
-                                    <h2>Oil jumps above $60 ahead of storm in Gulf of Mexico</h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente cum doloribus a iste, ipsum sunt quae placeat! Expedita sunt impedit tempore quae doloribus aliquam qui, dolorum fugiat necessitatibus obcaecati enim.
-                                    </p>
+                    siguienteArticulo();
+                    echo "
+                            <article class='card-small'>
+                                <a href='noticia.php?id=$id'>
+                                    <img src='imagenes/$img' alt='tecnologia'>
+                                    <h3>
+                                        $titulo
+                                    </h3>
                                 </a>
-                            </div>
-                        </div>
-                        
-                        <span>
-                            Economia
-                        </span>
-                    </article>
+                                <span>$genero</span>
+                            </article>
+                        ";
 
-            <article class="card-large">
-                <div class="container-large">
-                    <div class="card-enlace">
-                            <img src="imagenes/bolsa-de-valores.jpg" alt="bolsavalores">
-                    </div>
+                    siguienteArticulo();
+                    echo "
+                            <article class='card-small'>
+                                <a href='noticia.php?id=$id'>
+                                    <img src='imagenes/$img' alt='tecnologia'>
+                                    <h3>
+                                        $titulo
+                                    </h3>
+                                </a>
+                                <span>$genero</span>
+                            </article>
+                        ";
+
+                    siguienteArticulo();
+                    echo "
+                            <article class='card-small'>
+                                <a href='noticia.php?id=$id'>
+                                    <img src='imagenes/$img' alt='tecnologia'>
+                                    <h3>
+                                        $titulo
+                                    </h3>
+                                </a>
+                                <span>$genero</span>
+                            </article>
+                        ";
+                            
+                    ?>
                     
-                    <div class="text-card">
-                        <a href="noticia.php">
-                            <h2>Oil jumps above $60 ahead of storm in Gulf of Mexico</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente cum doloribus a iste, ipsum sunt quae placeat! Expedita sunt impedit tempore quae doloribus aliquam qui, dolorum fugiat necessitatibus obcaecati enim.
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <span>Economia</span>    
-                </article>      
+                
+				</div>
+				
+					<?php 
+
+					siguienteArticulo();
+					echo "
+							<article class='card-large'>
+								<div class='container-large'>
+									<div class='card-enlace'>
+										<img src='imagenes/$img' alt='varias1'>
+									</div>
+								
+									<div class='text-card'>
+										<a href='noticia.php'>
+											<h2>$titulo</h2>
+											<p>
+												$subtitulo
+											</p>
+										</a>
+									</div>
+								</div>
+							
+								<span>
+									$genero
+								</span>
+							</article>
+						";
+
+						
+					siguienteArticulo();
+					echo "
+							<article class='card-large'>
+								<div class='container-large'>
+									<div class='card-enlace'>
+										<img src='imagenes/$img' alt='varias1'>
+									</div>
+								
+									<div class='text-card'>
+										<a href='noticia.php'>
+											<h2>$titulo</h2>
+											<p>
+												$subtitulo
+											</p>
+										</a>
+									</div>
+								</div>
+							
+								<span>
+									$genero
+								</span>
+							</article>
+						";
+
+					?>
+
+					
             </div>
 
             <aside class="aside-portada">
                 <h2>Otras Relacionadas</h2>
-                <a href="noticia.php"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
-                <a href="noticia.php"><h3>Macron slams Bolsonaro's 'disrespectful' remarks about wife</h3></a>
-                <a href="noticia.php"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
-                <article class="mini-noticia">
-                    <a href="noticia.php"><img src="imagenes/NoticiasVarias-3.jpg" alt="varias3"></a>
-                    <a href="noticia.php"><h3>Oil jumps above $60 ahead of storm</h3></a>
-                </article>
-                <a href="noticia.php"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
-                <a href="noticia.php"><h3>Macron slams Bolsonaro's 'disrespectful' remarks about wife</h3></a>
+                <?php 
+                
+                    siguienteArticulo();
+                    echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+                   
+                    siguienteArticulo();
+                    echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+
+                    siguienteArticulo();
+                    echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+
+                    siguienteArticulo();
+                    echo "<article class='mini-noticia'>
+                            <a href='noticia.php?id=$id'><img src='imagenes/$img' alt='varias3'></a>
+                            <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
+                          </article>";
+
+                    siguienteArticulo();
+                    echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+                    
+                    siguienteArticulo();
+                    echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+            
+
+                   
+                ?>
+                
             </aside>
         </div>
     </main>
