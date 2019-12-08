@@ -1,14 +1,19 @@
 <?php
 
     require '../backend/articulos_crud.php';
+    require '../backend/autor_crud.php';
     
-    //Lamaremos esta funcion para entregar los articulos de a uno por vez
+    //Llamaremos esta funcion para entregar los articulos de a uno por vez
     $listaArticulos = getArticulo();
     $articulo=[];
     $id="";
     $titulo="";
     $subtitulo="";
     $img="";
+    
+    $nombre_autor ="";
+    $foto_autor ="";
+
 
     
     function siguienteArticulo(){ 
@@ -20,16 +25,16 @@
         global $subtitulo;
         global $img;
         global $genero;
-
-		static $contador =-1;	
+        global $nombre_autor;
+        global $foto_autor;
 		
         $tamaño = count( $listaArticulos );
-
+        static $contador =-1;	
+        $contador++;
         if( !isset($listaArticulos[$contador]) ){
-            $contador = -1;
+            $contador = 0;
         }
-
-        $contador++; echo $contador;
+       
         $articulo = $listaArticulos[ $contador ];
         $id=$articulo['id'];
         $titulo=$articulo['titulo'];
@@ -37,8 +42,11 @@
         $img = $articulo['imagen_1'];
         $genero = $articulo['genero'];
 
+        $autor = getAutor( $articulo['autor_id'] )[0];
+        $nombre_autor = $autor['nombre'];
+        $foto_autor = $autor['foto'];
+
     }
-    
 
 ?>
 
@@ -149,23 +157,38 @@
     <section class="section-portada">
         
         <div class="imagenes-chica">
-            <div>
-                <a href="noticia.php"><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro"></a>
-                <span>Política</span>
-                <h3>Incendio en amazonas trump ofrece ayuda a Bolsonaro</h3>
-            </div>
+            <?php
+                siguienteArticulo();
+                echo "
+                    <div>
+                        <a href='noticia.php'><img src='imagenes/$img' alt='trumpbolsonaro'></a>
+                        <span>$genero</span>
+                        <h3>$titulo</h3>
+                    </div>        
+                    ";
+
+                siguienteArticulo();
+                echo "
+                    <div>
+                        <a href='noticia.php'><img src='imagenes/$img' alt='trumpbolsonaro'></a>
+                        <span>$genero</span>
+                        <h3>$titulo</h3>
+                    </div>        
+                    ";
+                
+                    siguienteArticulo();
+                    echo "
+                        <div>
+                            <a href='noticia.php'><img src='imagenes/$img' alt='trumpbolsonaro'></a>
+                            <span>$genero</span>
+                            <h3>$titulo</h3>
+                        </div>        
+                        ";
+            ?>
             
-            <div>
-                <a href="noticia.php"><img src="imagenes/messi.jpg" alt="messiimg"></a>
-                <span>Deportes</span>
-                <h3>Messi hizo goles otra vez</h3>
-            </div>
             
-            <div>
-                <a href="noticia.php"><img src="imagenes/tecnologia.jpg" alt="tecnoimg"></a>
-                <span>Tecnología</span>
-                <h3>Los robots de internet se preparan para dominar a los humanos</h3>
-            </div>
+            
+            
         
         </div>
         
@@ -331,36 +354,50 @@
         <h2>OPINIÓN</h2>  
                 
         <div class="contenedor-cards">
-            <article class="card-opinion">
-                    <a href="noticia.php">
-                        <img src="imagenes/cara-1.jpg" alt="rostro autor">
-                    </a>
-                    <div>
-                        <h3><a href="noticia.php">Oil jumps above $60 ahead of storm in Gulf of Mexico</a></h3>
-                        <p><a href="noticia.php">Nombre Apellido</a></p>
-                    </div>
-            </article>
 
-            <article class="card-opinion">
-                    <a href="noticia.php">
-                        <img src="imagenes/cara-2.jpg" alt="rostro autor">
-                    </a>
-                    <div>
-                        <h3><a href="noticia.php">Oil jumps above $60 ahead of storm in Gulf of Mexico</a></h3>
-                        <p><a href="noticia.php">Nombre Apellido</a></p>
-                    </div>
-            </article>
+            <?php
             
-            <article class="card-opinion">
-                    <a href="noticia.php">
-                        <img src="imagenes/cara-3.jpg" alt="rostro autor">
-                    </a>
-                    <div>
-                        <h3><a href="noticia.php">Oil jumps above $60 ahead of storm in Gulf of Mexico</a></h3>
-                        <p><a href="noticia.php">Nombre Apellido</a></p>
-                    </div>
-            </article>
-        </div>
+            siguienteArticulo();
+            echo "
+                    <article class='card-opinion'>
+                            <a href='noticia.php'>
+                                <img src='imagenes/$foto_autor' alt='rostro autor'>
+                            </a>
+                            <div>
+                                <h3><a href='noticia.php'>$titulo</a></h3>
+                                <p><a href='noticia.php'>$nombre_autor</a></p>
+                            </div>
+                    </article>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <article class='card-opinion'>
+                            <a href='noticia.php'>
+                                <img src='imagenes/$foto_autor' alt='rostro autor'>
+                            </a>
+                            <div>
+                                <h3><a href='noticia.php'>$titulo</a></h3>
+                                <p><a href='noticia.php'>$nombre_autor</a></p>
+                            </div>
+                    </article>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <article class='card-opinion'>
+                            <a href='noticia.php'>
+                                <img src='imagenes/$foto_autor' alt='rostro autor'>
+                            </a>
+                            <div>
+                                <h3><a href='noticia.php'>$titulo</a></h3>
+                                <p><a href='noticia.php'>$nombre_autor</a></p>
+                            </div>
+                    </article>
+                ";
+
+            ?>
+            
 
     </section>
 
@@ -388,43 +425,100 @@
         <section class="hora">
             <h2>Ultima Hora</h2>
             <hr>
-            <a href="noticia.php"><img src="imagenes/NoticiasVarias-1.jpg" alt="Noticias1"></a>
-            <a href="noticia.php"><h3>Bolivia inaugura ampliación de termoeléctrica Warnes</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>Phoenix, el protagonista de Joker que creció marcado por una secta, muerte y una premonición</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>Maluma y Jennifer Lopez cantaron juntos en el Madison Square Garden</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>El asado argentino regresó a Europa tras 50 años</h3></a>
-            <hr>
+            <?php
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><img src='imagenes/$img' alt='Noticias1'></a>
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+           
+            ?>
         </section>
 
         <section class="hora no-show">
             <h2>Penultima Hora</h2> 
             <hr>
-            <a href="noticia.php"><img src="imagenes/NoticiasVarias-2.jpg" alt="Noticias2"></a>
-            <a href="noticia.php"><h3>Lanzan el tributo a 'The Beatles', el Album Verde</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>Phoenix, el protagonista de Joker que creció marcado por una secta, muerte y una premonición</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>Maluma y Jennifer Lopez cantaron juntos en el Madison Square Garden</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>El asado argentino regresó a Europa tras 50 años</h3></a>
-            <hr>
+            <?php
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><img src='imagenes/$img' alt='Noticias1'></a>
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+           
+            ?>
         </section>
 
         <section class="hora no-show">
             <h2>Otra Hora</h2>
             <hr>
-            <a href="noticia.php"><img src="imagenes/NoticiasVarias-3.jpg" alt="Noticias3"></a>
-            <a href="noticia.php"><h3>Tendencia en el hogar: colores y plantas</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>Phoenix, el protagonista de Joker que creció marcado por una secta, muerte y una premonición</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>Maluma y Jennifer Lopez cantaron juntos en el Madison Square Garden</h3></a>
-            <hr>
-            <a href="noticia.php"><h3>El asado argentino regresó a Europa tras 50 años</h3></a>
-            <hr>
+            <?php
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><img src='imagenes/$img' alt='Noticias1'></a>
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+
+            siguienteArticulo();
+            echo "
+                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <hr>
+                ";
+           
+            ?>
         </section>
     </div>
 
