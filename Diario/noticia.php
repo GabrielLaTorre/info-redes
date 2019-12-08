@@ -1,5 +1,17 @@
 <?php
+    
     include "../backend/comentario_service.php";
+    require "../backend/articulos_crud.php";
+    
+    if( isset($_GET['id']) ){
+        $articulo_ppal = getArticulo( $_GET['id'] )[0];
+        $titulo_ppal = $articulo_ppal['titulo'];
+        $contenido_ppal = $articulo_ppal['contenido'];
+        $imagen_ppal = $articulo_ppal['imagen_1'];
+        
+    }
+    
+
 
     $comentarios = getAllComments('1'); //HARDCODE POR AHORA
 ?>
@@ -31,7 +43,7 @@
             </div>
             
             <div class="logo-header-noticia">
-                <a href="index.html"> <img src="imagenes/PruebaLogoWhite2.png" alt="logo-header"></a>
+                <a href="index.php"> <img src="imagenes/PruebaLogoWhite2.png" alt="logo-header"></a>
             </div>
 
             <div class="head-input">
@@ -44,13 +56,13 @@
         <i class="fas fa-times" onclick="hideWhenClick()"></i>    
         <img src="imagenes/PruebaLogoWhite.png" alt="logo InfoRedes">
         <ul>
-            <li><a href="noticia.html">Ultimas Noticias</a></li>
-            <li><a href="noticia.html">Opiniones</a></li>
-            <li><a href="noticia.html">Internacionales</a></li>
-            <li><a href="noticia.html">Politica</a></li>
-            <li><a href="noticia.html">Mundo del espectaculo</a></li>
-            <li><a href="noticia.html">Regionales</a></li>
-            <li><a href="noticia.html">Canal de Youtube</a></li>
+            <li><a href="index.php">Ultimas Noticias</a></li>
+            <li><a href="index.php">Opiniones</a></li>
+            <li><a href="index.php">Internacionales</a></li>
+            <li><a href="index.php">Politica</a></li>
+            <li><a href="index.php">Mundo del espectaculo</a></li>
+            <li><a href="index.php">Regionales</a></li>
+            <li><a href="index.php">Canal de Youtube</a></li>
         </ul>
     </nav>
     <div id="fondo" onclick="hideWhenClick()"></div> <!--para oscurecer con el fondo cuando aparece el menu-->
@@ -59,10 +71,10 @@
 
         <!-- ######## NOTICIA PRINCIPAL   ######-->
         <article class='noticia-ppal'>
-            <h3>US drone strike kills 16 civilians in Afghanistan, governor's spokesman says</h3>
+            <h3><?php echo $titulo_ppal; ?></h3>
             
             <div class='img-principal-not'>
-                <img src="imagenes/img-noticia-ppal.jpg" title="titulo-noticia" alt="noticia principal">
+                <img src="<?php echo $imagen_ppal; ?>" title="titulo-noticia" alt="noticia principal">
                 <span>Economy</span>
             </div>
             
@@ -81,30 +93,7 @@
                         <a href="https://www.youtube.com"><img  src="imagenes/youtube.png" alt="youtube.logo"></a>
                 </div>
                 <p>
-                    <strong> ipsum dolor sit amet et delectus accommodare his</strong>             
-                    copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accusam eu dicat falli consulatu at vis. Te facilisis mnesarchum qui posse omnium mediocritatem est cu. Modus argumentum ne qui tation efficiendi in eos. Ei mea.
-                    falli legere efficiantur et tollit aliquip deb<i> mel. Lorem ipsum dolor sit amet </i>et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an.
-                    Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accusam  falli legere efficiantur et tollit aliquip debitis mei. No deseru fsdgkñg gslñsaccusam 
-                </p>
-                <blockquote>
-                    “Ese tipos dijo cualquier cosa, esto o aquellos y lo citamos”
-                    <br/>
-                    <p>Alguien importante -</p>
-                </blockquote>
-                <p>
-                    erit. Eos erant dolorum an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accus am eu dicat falli consulatu at vis. Te facilisis mnesarchum qui posse omnium mediocritatem est cu. Modus argumentum ne qui tation efficiendi in eos. Ei mea.
-                    falli legere efficiantur <strong> tollit aliquip debitis mei. No deserunt mediocritatem mel.</strong> Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an.
-                    Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accusam  <a href="noticia.html"> legere efficiantur et tollit</a> aliquip debitis mei. No deseru fsdgkñg gslñsaccusam 
-                </p>
-                <blockquote>
-                    “Ese tipos dijo cualquier cosa, esto o aquellos y lo citamos”
-                    <br/>
-                    <p>Alguien importante -</p>
-                </blockquote>
-                <p>
-                    erit. Eos erant dolorum an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accus am eu dicat falli consulatu at vis. Te facilisis mnesarchum qui posse omnium mediocritatem est cu. Modus argumentum ne qui tation efficiendi in eos. Ei mea.
-                    falli legere efficiantur <strong> tollit aliquip debitis mei. No deserunt mediocritatem mel.</strong> Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an.
-                    Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accusam  <a href="noticia.html"> legere efficiantur et tollit</a> aliquip debitis mei. No deseru fsdgkñg gslñsaccusam 
+                    <?php echo $contenido_ppal; ?>
                 </p>
             </div>
             
@@ -203,28 +192,28 @@
         <div>
             <h4>InfoRedes</h4>
             <ul>
-                <li><a href="index.html"> Ultimo</a></li>
-                <li><a href="index.html">Feed RSSS</a></li>
-                <li><a href="index.html">Términos y condiciones</a></li>
-                <li><a href="index.html">Política de Privacidad</a></li>
+                <li><a href="index.php"> Ultimo</a></li>
+                <li><a href="index.php">Feed RSSS</a></li>
+                <li><a href="index.php">Términos y condiciones</a></li>
+                <li><a href="index.php">Política de Privacidad</a></li>
             </ul>
         </div>
         <div>
             <h4>Contacto</h4>
             <ul>
-                <li><a href="index.html">Escribenos</a></li>
-                <li><a href="index.html">Redacción</a></li>
-                <li><a href="index.html">Comercial</a></li>
-                <li><a href="index.html">Media Kit</a></li>
+                <li><a href="index.php">Escribenos</a></li>
+                <li><a href="index.php">Redacción</a></li>
+                <li><a href="index.php">Comercial</a></li>
+                <li><a href="index.php">Media Kit</a></li>
             </ul>
         </div>
         <div>
             <h4>Secciones</h4>
             <ul>
-                <li><a href="index.html">Política</a></li>
-                <li><a href="index.html">Economia</a></li>
-                <li><a href="index.html">Deportes</a></li>
-                <li><a href="index.html">Espectaculos</a></li>
+                <li><a href="index.php">Política</a></li>
+                <li><a href="index.php">Economia</a></li>
+                <li><a href="index.php">Deportes</a></li>
+                <li><a href="index.php">Espectaculos</a></li>
             </ul>
         </div>
     </div>

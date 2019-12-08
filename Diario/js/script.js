@@ -45,3 +45,34 @@ async function doPostComentario(){
      
      
  }
+
+ async function funcionLoca(){
+
+    var datos = await axios.get("https://newsapi.org/v2/top-headlines?country=ar&apiKey=b19f312ca38140d0a4b9e36eb6275e00");
+
+    var arraydatos = [];
+    arraydatos = datos.data.articles;
+
+    arraydatos.map( async (art) => {
+        var contenido = art.content + art.content + art.content
+        + art.content+ art.content+ art.content+ art.content+ art.content+ art.content+ art.content
+        + art.content;
+
+        const params = new URLSearchParams();
+        params.append('titulo', art.title);
+        params.append('subtitulo', art.description);
+        params.append('contenido', contenido);
+        params.append('genero_id', "1");
+        params.append('autor_id', "1");
+        params.append('imagen', art.urlToImage);
+   
+   
+       var respuesta =  await axios.post("carga_noticias_falsas.php",params);
+   
+       console.log(respuesta.data);
+
+    });
+
+    window.location.assign( window.location.href );
+    
+ }

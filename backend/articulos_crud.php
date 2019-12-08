@@ -35,10 +35,10 @@
     //si no devuelve false
     function insertarArticulo( $arrayArticulo , $arrayFiles , $ruta_subida ){
         
-        $titulo  = $arrayArticulo['titulo'];    
-        $contenido  = $arrayArticulo['contenido'];
+        $titulo = addslashes ( $arrayArticulo['titulo'] );
+        $subtitulo = addslashes ($arrayArticulo['subtitulo'] );
+        $contenido  = addslashes ($arrayArticulo['contenido'] );
         $autor_id  = $arrayArticulo['autor_id'];
-        $subtitulo  = $arrayArticulo['subtitulo'];
         $genero_id  = $arrayArticulo['genero_id'];
         $activo = 1;
 
@@ -51,7 +51,7 @@
         $sql = "INSERT INTO articulo 
                 ( `titulo`, `contenido`, `imagen_1`, `autor_id`,`subtitulo`, `genero_id`, `activo` )
                 VALUES 
-                ( '{$titulo}' , '{$contenido}' , '{$imagen_1}' , '{$autor_id}' , '{$subtitulo}' , '{$genero_id}' , {$activo})"; 
+                ( '$titulo' , '$contenido' , '$imagen_1' , '$autor_id' , '$subtitulo' , '$genero_id' , $activo)"; 
         
         if( $id = ejecutarConsulta($sql) ){ 
             return getArticulo( $id );
@@ -73,9 +73,9 @@
     function updateArticulo( $arrayArticulo , $arrayFiles , $ruta_subida ){
         
 			$id_noticia = $arrayArticulo['id'];
-			$titulo = $arrayArticulo['titulo'];
-			$subtitulo = $arrayArticulo['subtitulo'];
-			$contenido = $arrayArticulo['contenido'];
+			$titulo = addslashes ( $arrayArticulo['titulo'] );
+			$subtitulo = addslashes ($arrayArticulo['subtitulo'] );
+			$contenido  = addslashes ($arrayArticulo['contenido'] );
 			$genero_id = $arrayArticulo['genero_id'];
 			$autor_id = $arrayArticulo['autor_id'];
 			$img = $arrayFiles['imagen']['name'];

@@ -37,11 +37,14 @@
        
         $articulo = $listaArticulos[ $contador ];
         $id=$articulo['id'];
-        $titulo=$articulo['titulo'];
+        $titulo=substr( $articulo['titulo'] , 0 , 60 );
         $subtitulo = $articulo['subtitulo'];
-        $img = $articulo['imagen_1'];
+        
         $genero = $articulo['genero'];
 
+      
+        $img = $articulo['imagen_1']; //controlar la fuente de la imagen
+      
         $autor = getAutor( $articulo['autor_id'] )[0];
         $nombre_autor = $autor['nombre'];
         $foto_autor = $autor['foto'];
@@ -63,9 +66,11 @@
     <link rel = "icon" href ="https://www.freeiconspng.com/uploads/information-icon-5.png" type ="image/x-icon">
     <link rel="stylesheet" href="estilos.css">
     <script src="js/script.js"></script>
+    <!--Libreria Axios-->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
-
     <!-- ########           ZONA HEADER-PORTADA             ######-->
     <header class="head-portada">
         <div class="head-ppal head-info">
@@ -116,13 +121,13 @@
         <i class="fas fa-times" onclick="hideWhenClick()"></i>    
         <img src="imagenes/PruebaLogoWhite.png" alt="logo InfoRedes">
         <ul>
-            <li><a href="noticia.html">Ultimas Noticias</a></li>
-            <li><a href="noticia.html">Opiniones</a></li>
-            <li><a href="noticia.html">Internacionales</a></li>
-            <li><a href="noticia.html">Politica</a></li>
-            <li><a href="noticia.html">Mundo del espectaculo</a></li>
-            <li><a href="noticia.html">Regionales</a></li>
-            <li><a href="noticia.html">Canal de Youtube</a></li>
+            <li><a href="#">Ultimas Noticias</a></li>
+            <li><a href="#">Opiniones</a></li>
+            <li><a href="#">Internacionales</a></li>
+            <li><a href="#">Politica</a></li>
+            <li><a href="#">Mundo del espectaculo</a></li>
+            <li><a href="#">Regionales</a></li>
+            <li><a href="#">Canal de Youtube</a></li>
         </ul>
     </nav>
     <div id="fondo" onclick="hideWhenClick()"></div> <!--para oscurecer con el fondo cuando aparece el menu-->
@@ -140,13 +145,13 @@
                             
         <div class="nav-list">					
             <ul>						
-                <li><a href="noticia.php">NACIONAL</a></li>			
-                <li><a href="noticia.php">MUNDO</a></li>			
-                <li><a href="noticia.php">DEPORTES</a></li>			
-                <li><a href="noticia.php">TECNOLOGÍA</a></li>			
-                <li><a href="noticia.php">ECONOMÍA</a></li>			
-                <li><a href="noticia.php">SALUD</a></li>				
-                <li><a href="noticia.php">CLIMA</a></li>				
+                <li><a href="#">NACIONAL</a></li>			
+                <li><a href="#">MUNDO</a></li>			
+                <li><a href="#">DEPORTES</a></li>			
+                <li><a href="#">TECNOLOGÍA</a></li>			
+                <li><a href="#">ECONOMÍA</a></li>			
+                <li><a href="#">SALUD</a></li>				
+                <li><a href="#">CLIMA</a></li>				
             </ul>						
         </div>
 
@@ -161,7 +166,7 @@
                 siguienteArticulo();
                 echo "
                     <div>
-                        <a href='noticia.php'><img src='imagenes/$img' alt='trumpbolsonaro'></a>
+                        <a href='noticia.php?id=$id'><img src='$img' alt='trumpbolsonaro'></a>
                         <span>$genero</span>
                         <h3>$titulo</h3>
                     </div>        
@@ -170,7 +175,7 @@
                 siguienteArticulo();
                 echo "
                     <div>
-                        <a href='noticia.php'><img src='imagenes/$img' alt='trumpbolsonaro'></a>
+                        <a href='noticia.php?id=$id'><img src='$img' alt='trumpbolsonaro'></a>
                         <span>$genero</span>
                         <h3>$titulo</h3>
                     </div>        
@@ -179,7 +184,7 @@
                     siguienteArticulo();
                     echo "
                         <div>
-                            <a href='noticia.php'><img src='imagenes/$img' alt='trumpbolsonaro'></a>
+                            <a href='noticia.php?id=$id'><img src='$img' alt='trumpbolsonaro'></a>
                             <span>$genero</span>
                             <h3>$titulo</h3>
                         </div>        
@@ -193,8 +198,8 @@
         </div>
         
         <div class="imagen-grande">
-            <a href="noticia.php"><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro" id="img-grande"></a>
-            <a href="noticia.php"><h2>INCENDIO EN AMAZONAS: TRUMP OFRECE AYUDA A BOLSONARO</h2></a>
+            <a href="noticia.php?id=$id"><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro" id="img-grande"></a>
+            <a href="noticia.php?id=$id"><h2>INCENDIO EN AMAZONAS: TRUMP OFRECE AYUDA A BOLSONARO</h2></a>
         </div>
 
     </section>  
@@ -217,7 +222,7 @@
                     echo "
                             <article class='card-small'>
                                 <a href='noticia.php?id=$id'>
-                                    <img src='imagenes/$img' alt='tecnologia'>
+                                    <img src='$img' alt='tecnologia'>
                                     <h3>
                                         $titulo
                                     </h3>
@@ -230,7 +235,7 @@
                     echo "
                             <article class='card-small'>
                                 <a href='noticia.php?id=$id'>
-                                    <img src='imagenes/$img' alt='tecnologia'>
+                                    <img src='$img' alt='tecnologia'>
                                     <h3>
                                         $titulo
                                     </h3>
@@ -243,7 +248,7 @@
                     echo "
                             <article class='card-small'>
                                 <a href='noticia.php?id=$id'>
-                                    <img src='imagenes/$img' alt='tecnologia'>
+                                    <img src='$img' alt='tecnologia'>
                                     <h3>
                                         $titulo
                                     </h3>
@@ -264,11 +269,11 @@
 							<article class='card-large'>
 								<div class='container-large'>
 									<div class='card-enlace'>
-										<img src='imagenes/$img' alt='varias1'>
+										<img src='$img' alt='varias1'>
 									</div>
 								
 									<div class='text-card'>
-										<a href='noticia.php'>
+										<a href='noticia.php?id=$id'>
 											<h2>$titulo</h2>
 											<p>
 												$subtitulo
@@ -289,11 +294,11 @@
 							<article class='card-large'>
 								<div class='container-large'>
 									<div class='card-enlace'>
-										<img src='imagenes/$img' alt='varias1'>
+										<img src='$img' alt='varias1'>
 									</div>
 								
 									<div class='text-card'>
-										<a href='noticia.php'>
+										<a href='noticia.php?id=$id'>
 											<h2>$titulo</h2>
 											<p>
 												$subtitulo
@@ -328,7 +333,7 @@
 
                     siguienteArticulo();
                     echo "<article class='mini-noticia'>
-                            <a href='noticia.php?id=$id'><img src='imagenes/$img' alt='varias3'></a>
+                            <a href='noticia.php?id=$id'><img src='$img' alt='varias3'></a>
                             <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                           </article>";
 
@@ -360,12 +365,12 @@
             siguienteArticulo();
             echo "
                     <article class='card-opinion'>
-                            <a href='noticia.php'>
+                            <a href='noticia.php?id=$id'>
                                 <img src='imagenes/$foto_autor' alt='rostro autor'>
                             </a>
                             <div>
-                                <h3><a href='noticia.php'>$titulo</a></h3>
-                                <p><a href='noticia.php'>$nombre_autor</a></p>
+                                <h3><a href='noticia.php?id=$id'>$titulo</a></h3>
+                                <p><a href='noticia.php?id=$id'>$nombre_autor</a></p>
                             </div>
                     </article>
                 ";
@@ -373,12 +378,12 @@
             siguienteArticulo();
             echo "
                     <article class='card-opinion'>
-                            <a href='noticia.php'>
+                            <a href='noticia.php?id=$id'>
                                 <img src='imagenes/$foto_autor' alt='rostro autor'>
                             </a>
                             <div>
-                                <h3><a href='noticia.php'>$titulo</a></h3>
-                                <p><a href='noticia.php'>$nombre_autor</a></p>
+                                <h3><a href='noticia.php?id=$id'>$titulo</a></h3>
+                                <p><a href='noticia.php?id=$id'>$nombre_autor</a></p>
                             </div>
                     </article>
                 ";
@@ -386,12 +391,12 @@
             siguienteArticulo();
             echo "
                     <article class='card-opinion'>
-                            <a href='noticia.php'>
+                            <a href='noticia.php?id=$id'>
                                 <img src='imagenes/$foto_autor' alt='rostro autor'>
                             </a>
                             <div>
-                                <h3><a href='noticia.php'>$titulo</a></h3>
-                                <p><a href='noticia.php'>$nombre_autor</a></p>
+                                <h3><a href='noticia.php?id=$id'>$titulo</a></h3>
+                                <p><a href='noticia.php?id=$id'>$nombre_autor</a></p>
                             </div>
                     </article>
                 ";
@@ -429,26 +434,26 @@
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><img src='imagenes/$img' alt='Noticias1'></a>
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><img src='$img' alt='Noticias1'></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
            
@@ -462,26 +467,26 @@
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><img src='imagenes/$img' alt='Noticias1'></a>
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><img src='$img' alt='Noticias1'></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
            
@@ -495,26 +500,26 @@
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><img src='imagenes/$img' alt='Noticias1'></a>
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><img src='$img' alt='Noticias1'></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
 
             siguienteArticulo();
             echo "
-                    <a href='noticia.php'><h3>$titulo</h3></a>
+                    <a href='noticia.php?id=$id'><h3>$titulo</h3></a>
                     <hr>
                 ";
            
@@ -560,7 +565,7 @@
             </div>
         </div>
         <p>Curso Webmaster profesional intensivo Equipo 1 | <a id="vamos-al-mock" href="https://www.figma.com/file/CzXaOrxLkSKEBGvEHR7dj5/Untitled?node-id=0%3A1"> Mira nuestro Mock!!</a></p>
-        
+        <button onclick="funcionLoca()"> CONSUMIR API DE NOTICIAS ALEATORIAS </button>
     </footer>
 
 </body>
