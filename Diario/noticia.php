@@ -2,12 +2,59 @@
     
     include "../backend/comentario_service.php";
     require "../backend/articulos_crud.php";
+    require "../backend/autor_crud.php";
+
     
     if( isset($_GET['id']) ){
+        //Datos de la noticia
         $articulo_ppal = getArticulo( $_GET['id'] )[0];
         $titulo_ppal = $articulo_ppal['titulo'];
         $contenido_ppal = $articulo_ppal['contenido'];
         $imagen_ppal = $articulo_ppal['imagen_1'];
+        $fecha_ppal = $articulo_ppal['fecha'];
+
+        //datos del autor
+        $autor_ppal = getAutor( $articulo_ppal['autor_id'] )[0];
+        $nombre_auto_ppal= $autor_ppal['nombre'];
+        $foto_autor_ppal = "./imagenes/" . $autor_ppal['foto'];
+
+        //noticias para el aside
+          
+        //Llamaremos esta funcion para entregar los articulos de a uno por vez
+        $listaArticulos = getArticulo();
+        $articulo=[];
+        $id="";
+        $titulo="";
+        $subtitulo="";
+        $img="";
+        
+        function siguienteArticulo(){ 
+
+            global $listaArticulos;
+            global $articulo;
+            global $id;
+            global $titulo;
+            global $subtitulo;
+            global $img;
+            
+            $tamaño = count( $listaArticulos );
+            static $contador =-1;	
+            $contador++;
+            if( !isset($listaArticulos[$contador]) ){
+                $contador = 0;
+            }
+        
+            $articulo = $listaArticulos[ $contador ];
+            $id=$articulo['id'];
+            $titulo=substr( $articulo['titulo'] , 0 , 60 );
+            $subtitulo = $articulo['subtitulo'];
+            
+            $img = $articulo['imagen_1']; 
+            if(substr($img ,0 ,4)!="http"){
+                $img = "./imagenes/" . $img;
+            }
+
+        }
         
     }
     
@@ -79,9 +126,9 @@
             </div>
             
             <div>
-                <img class='autor-img' src="imagenes/escritor-articulo.png" title="autor-usuario" alt="autor">
-                <p class="autor-nota">By <i id="autor-cel">Dakin Andone</i> and Aldona Gashi, CNN</p>
-                <p class="fecha-nota">Updated 2037 GMT (0437 HKT) September 21, 2019</p>
+                <img class='autor-img' src="<?php echo $foto_autor_ppal;?>" title="autor-usuario" alt="autor">
+                <p class="autor-nota">By <i id="autor-cel"><?php echo $nombre_auto_ppal;?></i>, CNN</p>
+                <p class="fecha-nota"><?php echo $fecha_ppal;?></p>
             </div>
 
             <hr>
@@ -140,9 +187,19 @@
             <div>
                 <section class="aside-portada">
                     <h2>Notas Relacionadas</h2>
-                    <a href="noticia.html"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
-                    <a href="noticia.html"><h3>Macron slams Bolsonaro's 'disrespectful' remarks about wife</h3></a>
-                    <a href="noticia.html"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
+                    <?php 
+                
+                        siguienteArticulo();
+                        echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+                    
+                        siguienteArticulo();
+                        echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+
+                        siguienteArticulo();
+                        echo "<a href='noticia.php?id=$id'><h3>$titulo</h3></a>";
+
+
+                    ?>
             
                     <h2>Ultimos Videos</h2>
                     <article>
@@ -150,20 +207,33 @@
                         <a href="noticia.html"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
                     </article>
 
-                    <article class="mini-video">
-                        <img src="imagenes/imagen_random86x80.jpg" alt="random imagen">
-                        <a href="noticia.html"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
-                    </article>
+                    <?php 
 
-                    <article class="mini-video">
-                        <img src="imagenes/imagen_random86x80_fj4j.jpg" alt="random imagen">
-                        <a href="noticia.html"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
-                    </article>
+                    siguienteArticulo();
+                    echo "
+                            <article class='mini-video'>
+                                <img src='$img' alt='random imagen'>
+                                <a href='noticia.html?id=$id'><h3>$titulo</h3></a>
+                            </article>
+                        ";
 
-                    <article class="mini-video">
-                        <img src="imagenes/imagen_random86x80_ggh.jpg" alt="random imagen">
-                        <a href="noticia.html"><h3>uJohnson & Johnson ordered to pay for fueling opioid crisis</h3></a>
-                    </article>
+                    siguienteArticulo();
+                    echo "
+                            <article class='mini-video'>
+                                <img src='$img' alt='random imagen'>
+                                <a href='noticia.html?id=$id'><h3>$titulo</h3></a>
+                            </article>
+                        ";
+
+                    siguienteArticulo();
+                    echo "
+                            <article class='mini-video'>
+                                <img src='$img' alt='random imagen'>
+                                <a href='noticia.html?id=$id'><h3>$titulo</h3></a>
+                            </article>
+                        ";
+
+                    ?>
                 </section>
             </div>
             <!-- ZONA PUBLICIDAD ######-->

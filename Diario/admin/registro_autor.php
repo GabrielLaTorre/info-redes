@@ -61,7 +61,7 @@
 		<div class="row  d-flex flex-row-reverse mt-5">
 		
 			
-			<form >
+			<form class="invisible" >
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
 					<div class="input-group-append">

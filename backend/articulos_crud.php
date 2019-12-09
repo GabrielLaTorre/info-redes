@@ -146,5 +146,18 @@
     }
 
 
+    //--
+    //--
+    // funcion para filtar, array con string para buscar
+    function buscarPorTitulo( $arraySearch ){
+        
+		$searchQuery = "SELECT *, genero_id as genero FROM articulo WHERE 1 ";
+		foreach($arraySearch as $param){
+			$searchQuery = $searchQuery . " AND titulo LIKE '%$param%'";
+		}
+		return ejecutarConsulta( $searchQuery );
+    }
+
+
 
 ?>

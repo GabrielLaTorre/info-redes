@@ -269,6 +269,7 @@ main a {
 }
 .mini-video img{
 	height: 100px;
+	width: 40%;
 	margin-right: .4em;
 	display: block;
 	object-fit: cover;
@@ -723,7 +724,12 @@ footer p{
 
 .autor-img {
 	float: right;
-	width: 3.5em;
+    width: 3.5em;
+    border-radius: 50%;
+    margin-left: 1em;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
 }
 
 .autor-nota {

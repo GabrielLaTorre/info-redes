@@ -52,7 +52,7 @@ async function doPostComentario(){
 
     var arraydatos = [];
     arraydatos = datos.data.articles;
-
+    
     arraydatos.map( async (art) => {
         var contenido = art.content + art.content + art.content
         + art.content+ art.content+ art.content+ art.content+ art.content+ art.content+ art.content

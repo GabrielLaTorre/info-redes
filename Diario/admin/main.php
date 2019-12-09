@@ -106,9 +106,9 @@
                                 <td>
                                     
                                     <p class='mb-1'><span class='font-weight-bold'><?php echo $articulo['titulo']; ?></span> <span class='text-muted'> - <?php echo $articulo['genero']; ?></span><?php if($articulo['activo']==0){ echo "<span class='text-muted'> - Inactiva </span>"; }?></p>
-                                    <p class='font-italic mb-1'><?php echo $articulo['subtitulo']; ?></p>
+                                    <p class='font-italic mt-2 mb-1'><?php echo $articulo['subtitulo']; ?></p>
                                 </td>
-                                <td class='text-center'><a href='<?php echo "./registro_articulo.php?id={$articulo['id']}"; ?>' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><button onclick="borrarRegistro(<?php echo $articulo['id']; ?>)" class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</button></td>
+                                <td class='text-center d-flex'><a href='<?php echo "./registro_articulo.php?id={$articulo['id']}"; ?>' class='btn btn-outline-primary mr-3'><i class='fas fa-edit'></i> Editar</a><button onclick="borrarRegistro(<?php echo $articulo['id']; ?>)" class='btn btn-outline-danger'><i class='fas fa-trash'></i> Borrar</button></td>
                             </tr>	
                         <?php }	?>
                     

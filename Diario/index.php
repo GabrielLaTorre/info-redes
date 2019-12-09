@@ -42,9 +42,12 @@
         
         $genero = $articulo['genero'];
 
-      
-        $img = $articulo['imagen_1']; //controlar la fuente de la imagen
-      
+        
+        $img = $articulo['imagen_1']; 
+        if(substr($img ,0 ,4)!="http"){
+            $img = "./imagenes/" . $img;
+        }
+
         $autor = getAutor( $articulo['autor_id'] )[0];
         $nombre_autor = $autor['nombre'];
         $foto_autor = $autor['foto'];
@@ -198,8 +201,15 @@
         </div>
         
         <div class="imagen-grande">
-            <a href="noticia.php?id=$id"><img src="imagenes/trumpbolsonaro.jpg" alt="trumpbolsonaro" id="img-grande"></a>
-            <a href="noticia.php?id=$id"><h2>INCENDIO EN AMAZONAS: TRUMP OFRECE AYUDA A BOLSONARO</h2></a>
+            <?php 
+
+                echo "
+                    <a href='noticia.php?id=$id'><img src='$img' alt='trumpbolsonaro' id='img-grande'></a>
+                    <a href='noticia.php?id=$id'><h2>$titulo</h2></a>    
+                ";
+
+            ?>
+            
         </div>
 
     </section>  

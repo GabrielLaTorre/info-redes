@@ -82,7 +82,7 @@
 	<div class="row  d-flex justify-content-between mt-5">
 		<button class="btn btn-primary" onclick="desplegarForm()"><i class="fas fa-plus-circle"></i> Agregar nueva</button>
 		
-		<form >
+		<form class = "invisible">
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
 				<div class="input-group-append">
