@@ -30,6 +30,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="./script.js"></script>
 </head>
 
 <body>
@@ -90,9 +91,8 @@ h5, img {
 
 					<input hidden name='autor_id' value='<?php echo $autor['id'] ?>' > <!-- AQUI PASAMOS EL AUTOR -->
 
-
+				<button type="button" value="Back" onclick="window.history.back()">Volver</button>
 				<button title="Cargar noticia" type="submit" class="btn btn-primary btn-lg"><i class="fa fa-chevron-circle-right"></i></button>
-
 			</div>
 </form>
 	</div>

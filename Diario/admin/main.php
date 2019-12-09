@@ -56,38 +56,36 @@
 </head>
 <body>
         
-   <?php include "navbar.html" ?> <!--INCLUIMOS EL NAVABAR-->
+
+   <?php include "navbar.html" ?><!--INCLUIMOS EL NAVABAR-->
 
     <div class="container info-perfil">
         <div class="row">
             <div class="col-12 text-center mt-4">
                 <div class="foto-perfil">
                     <img src="../imagenes/cara-1.jpg" alt="cara" class="bd-placeholder-img rounded-circle"> <!--TODO: Hacer que salga la foto guardada en bbdd-->
-                    <button type="button" class="btn btn-outline-secondary"  onclick="desplegarForm()"><i class="fas fa-user-edit"></i></button>
+                    <button data-toggle="tooltip" title="Modificar información personal" type="button" class="btn btn-outline-secondary"  onclick="desplegarForm()"><i class="fas fa-user-edit"></i></button>
                 </div>
-                <h2 class="mt-2">Hola <?php echo $nombre?>!!</h2>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-secondary" href="./registro_articulo.php" role="button">Agregar articulo</a></p>
-
+                <h2 class="mt-2">¡Bienvenido <cite ><?php echo $nombre?></cite>!</h2>
+                <p>Este es el panel de administración para los usuarios de <i>Info Redes</i>. Desde acá, podrás agregar artículos, editar, borrar y modificar tu información personal.</p>
+                <hr>
             </div>
         </div>
-
 
         <!-- NOTICIAS DE ESTE AUTOR -->
     
         <div class="container">
             <div class="row">
-                <h2>Tus articulos</h2>
+                <div class="col-8"><h3>Tus artículos</h3></div>
+                <div class="col-4"><a class="btn btn-primary" href="./registro_articulo.php" role="button">Agregar nueva noticia</a></div>
             </div>
             <div class="row mt-3">
                 <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col " >
-                            
-                        </th>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
